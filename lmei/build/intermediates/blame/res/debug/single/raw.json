@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\raw\\voip_outgoing_ring.mp3",
+        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\raw\\voip_outgoing_ring.mp3"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\raw\\libs",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\raw\\libs"
+    }
+]

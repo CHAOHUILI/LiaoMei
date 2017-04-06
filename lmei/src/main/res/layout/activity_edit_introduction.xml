@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.vidmt.lmei.activity.EditIntroductionActivity" >
+
+     <include layout="@layout/main_header" />
+
+       <EditText 
+        android:id="@+id/sig_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="100dp"
+        android:padding="6dp"
+        android:gravity="top"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textdx_16"
+        android:hint="想和大家聊的什么，或擅长聊什么都写下来吧~"
+        android:background="@null"
+        android:textCursorDrawable="@null"/>
+</LinearLayout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_linearlayout_footer"
+    android:layout_width="fill_parent"
+    android:layout_height="50dip"
+    android:background="@color/white"
+    android:layout_alignParentBottom="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <RadioButton
+            android:id="@+id/main_footbar_home"
+            style="@style/main_footbar_radio"
+            android:layout_marginTop="6dp"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:drawableTop="@drawable/f_home_style" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+         <View
+            android:id="@+id/view"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true" />
+        <RadioButton
+            android:id="@+id/main_footbar_bulk"
+            style="@style/main_footbar_radio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"
+            android:drawableTop="@drawable/f_merchants_style" />
+        <RelativeLayout
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/view" >
+
+            <ImageView
+                android:id="@+id/tipcnt_tvbg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/unread_count_bg"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tipcnt_tvs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="25"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <RadioButton
+            android:id="@+id/main_footbar_community"
+            style="@style/main_footbar_radio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_gravity="center"
+            android:layout_marginTop="6dp"
+            android:drawableTop="@drawable/f_type_style" />
+       
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <RadioButton
+            android:id="@+id/main_footbar_personal"
+            style="@style/main_footbar_radio"
+             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:layout_marginTop="6dp"
+            android:drawableTop="@drawable/f_personal_style" />
+
+        <ImageView
+            android:id="@+id/lookme"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="3dp"
+            android:src="@drawable/unread_count_bg"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/lookmes"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="18dp"
+            android:layout_marginTop="3dp"
+            android:src="@drawable/unread_count_bg"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

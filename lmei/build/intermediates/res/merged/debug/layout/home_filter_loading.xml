@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="30dip"
+    android:paddingRight="30dip" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="168dip"
+        android:background="@drawable/homefilter"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dip"
+            android:background="@null"
+            android:gravity="center"
+            android:text="@string/homefilter1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textdx_16"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:background="@drawable/homefilterbuttom"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:text="@string/homefilter2"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textdx_16" />
+
+                <TextView
+                    android:id="@+id/filterboy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="0.5"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:text="@string/homefilter3"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textdx_16" />
+
+                <TextView
+                    android:id="@+id/filtergiles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="0.5"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:text="@string/homefilter4"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textdx_16" />
+
+                <TextView
+                    android:id="@+id/filtersex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:text="@string/homefilter5"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textdx_16" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:text="@string/homefilter6"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textdx_16" />
+
+                <TextView
+                    android:id="@+id/certificationyes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="0.5"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:text="@string/homefilter7"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textdx_16" />
+
+                <TextView
+                    android:id="@+id/certificationno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="0.5"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:text="@string/homefilter8"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textdx_16" />
+
+                <TextView
+                    android:id="@+id/certification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:text="@string/homefilter5"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textdx_16" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dip"
+                android:background="@color/gray_line" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40.0dip" >
+
+                <TextView
+                    android:id="@+id/btn_dialog_cancel"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:text="@string/homefilter9"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/textdx_16" />
+
+                <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="fill_parent"
+                    android:background="@color/gray_line" />
+
+                <TextView
+                    android:id="@+id/btn_dialog_confirm"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:text="@string/homefilter10"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/textdx_16" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,151 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/graywhite"
+    android:orientation="vertical"
+    tools:context="com.vidmt.lmei.activity.UserChargeActivity" >
+
+    <include layout="@layout/main_header" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dip"
+        android:layout_marginTop="20dip"
+        android:background="@color/gray_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/chatchargerel"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@color/white"
+            android:padding="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/charge1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textdx_16" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+               android:id="@+id/chatchargeimg"
+                android:src="@drawable/go" />
+            <TextView
+                android:id="@+id/chatcharge"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"                
+                android:gravity="center_vertical"
+                android:text="@string/chatvideo"
+                android:layout_marginRight="15dip"
+                android:layout_toLeftOf="@id/chatchargeimg"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/textdx_16" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dip"
+            android:layout_marginLeft="10dip"
+            android:background="@color/gray_line" />
+
+        <RelativeLayout
+            android:id="@+id/videochargerel"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@color/white"
+            android:padding="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/charge2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textdx_16" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:id="@+id/videochargeimg"
+                android:layout_centerVertical="true"
+                android:src="@drawable/go" />
+            <TextView
+                android:id="@+id/videocharge"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"                
+                android:gravity="center_vertical"
+                android:text="@string/charge5"
+                android:layout_marginRight="15dip"
+                android:layout_toLeftOf="@id/videochargeimg"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/textdx_16" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dip"
+            android:layout_marginLeft="10dip"
+            android:background="@color/gray_line" />
+
+        <RelativeLayout
+            android:id="@+id/voicechargerel"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@color/white"
+            android:padding="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/charge3"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textdx_16" />
+
+            
+            <ImageView
+                android:id="@+id/voicechargeimg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/go" />
+            <TextView
+                android:id="@+id/voicecharge"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"                
+                android:gravity="center_vertical"          
+                android:layout_marginRight="15dip"
+                android:layout_toLeftOf="@id/voicechargeimg"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/gray"
+                android:text="@string/charge5"
+                android:textSize="@dimen/textdx_16" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dip"
+        android:background="@color/gray_line" />
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" />
+</LinearLayout>

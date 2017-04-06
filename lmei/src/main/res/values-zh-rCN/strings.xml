@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">聊妹</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_rong">RongActivity</string>
+    <string name="title_activity_emoji_main">EmojiMainActivity</string>
+    <string name="title_activity_sms">SMSActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_recording">RecordingActivity</string>
+    <string name="exit">再次点击退出</string>
+    <string name="pull_up">上拉加载更多</string>
+    <string name="pull_down">下拉刷新</string>
+    <string name="pull_open">松开刷新数据</string>
+    <string name="pull_loading">正在加载……</string>
+    <string name="title_activity_footer_page">FooterPageActivity</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_life">LifeActivity</string>
+    <string name="title_activity_car">CarActivity</string>
+    <string name="title_activity_personal_center">PersonalCenterActivity</string>
+    <string name="title_activity_refresh">RefreshActivity</string>
+    <string name="title_activity_broadcast">BroadcastActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_registered">RegisteredActivity</string>
+    <string name="title_activity_forgot_password">ForgotPasswordActivity</string>
+    <string name="title_activity_retrieve_pwd">RetrievePwdActivity</string>
+    <string name="title_activity_update_pwd">UpdatePwdActivity</string>
+    <!-- 分享 -->
+    <string name="share">分享</string>
+    <!-- 表情 -->
+    <string name="emoji">表情</string>
+    <!-- 录音 -->
+    <string name="recording">录音</string>
+    <!-- 融云 -->
+    <string name="rong">融云</string>
+    <!-- 播放 -->
+    <string name="PlayRecording">播放</string>
+    <!-- 语言切换 -->
+    <string name="Languageswitching">语言切换</string>
+    <!-- 发短信 -->
+    <string name="mobSMS">发短信</string>
+    <!-- 上下刷新 -->
+    <string name="Refresh">上下刷新</string>
+</resources>

@@ -1,0 +1,132 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.vidmt.lmei.activity.VideoAuthenticationActivity" >
+
+    <include layout="@layout/main_header" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/viedo_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/authentication8"
+            android:textColor="@color/authentication"
+            android:textSize="@dimen/textdx_16" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/authentication9"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textdx_14" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/hint"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:text="@string/authentication10"
+            android:textColor="@color/authentication"
+            android:textSize="@dimen/textdx_16" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/authentication11"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textdx_12" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dip"
+            android:text="@string/authentication12"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textdx_12" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dip"
+            android:text="@string/authentication13"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textdx_12"  />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp" >
+
+        <VideoView
+            android:id="@+id/example_video"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+             />
+
+        <ImageView
+            android:id="@+id/example_img"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/damobg" />
+
+        <TextView
+            android:id="@+id/hint_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/example_img"
+            android:layout_centerHorizontal="true"
+            android:text="@string/authentication14"
+            android:textSize="@dimen/textdx_16" 
+            android:textColor="@color/title"
+            />
+
+        <ImageView
+            android:id="@+id/example_img1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/voidstate" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/cf"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/loginbg"
+        android:gravity="center"
+        android:textSize="@dimen/textdx_18" 
+        android:textStyle="bold"
+        android:text="@string/authentication15"
+        android:textColor="@color/white"
+       />
+
+</LinearLayout>

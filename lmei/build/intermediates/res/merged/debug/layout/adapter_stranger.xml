@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dip" >
+
+        <com.vidmt.lmei.widget.RoundImageView
+            android:id="@+id/usersico"
+            android:layout_width="65dip"
+            android:layout_height="65dip"
+            android:scaleType="fitXY"
+            android:src="@drawable/damobg" />
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/chatname"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textdx_16" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@drawable/sexstrog"
+                    android:orientation="horizontal"
+                    android:paddingBottom="1dip"
+                    android:paddingLeft="10dip"
+                    android:paddingRight="10dip"
+                    android:paddingTop="1dip" 
+                    >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/usersex"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/detailgirl" />
+
+                    <TextView
+                        android:id="@+id/userage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:layout_marginLeft="5dip"
+                        android:gravity="center"
+                        android:text="@string/chatphotoalbumnum"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/textdx_12" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/useraddres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dip"
+                    android:gravity="center"
+                    android:text="@string/cityname"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/textdx_12" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/usersign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/chatageleave"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/textdx_14" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/userconcerned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:background="@drawable/oncernedfriends"
+            android:gravity="center"
+            android:text="@string/concerned"
+            android:textColor="@color/authentication"
+            android:textSize="@dimen/textdx_16" />
+    </LinearLayout>
+
+</LinearLayout>

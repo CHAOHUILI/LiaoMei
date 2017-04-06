@@ -1,0 +1,252 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/graywhite"
+    tools:context="com.vidmt.lmei.activity.UserRechargeActivity" >
+
+    <include layout="@layout/main_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/graywhite"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#feebc1"
+                android:orientation="horizontal"
+                android:padding="10dip" >
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/account"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recharge1"
+                        android:textColor="#D99259"
+                        android:textSize="@dimen/textdx_16" />
+
+                    <TextView
+                        android:id="@+id/rechargeuserid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dip"
+                        android:text="@string/recharge2"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textdx_18" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/TextView01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recharge3"
+                        android:textColor="#D99259"
+                        android:textSize="@dimen/textdx_16" />
+
+                    <TextView
+                        android:id="@+id/rechangeuserye"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dip"
+                        android:text="@string/wallet2"
+                        android:textColor="#FFA45E"
+                        android:textSize="@dimen/textdx_22" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dip"
+                android:background="@color/gray_line" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dip"
+                android:layout_marginTop="10dip"
+                android:background="@color/gray_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                >
+
+                <com.vidmt.lmei.widget.GoodlistView
+                    android:id="@+id/rechargelist"
+                     android:background="@null"
+                    android:divider="@color/graywhite"
+                    android:dividerHeight="0.1px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                </com.vidmt.lmei.widget.GoodlistView>
+                
+                <RelativeLayout
+                        android:id="@+id/rela_userphoterror"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:visibility="gone" >
+
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="50dp"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="30dip"
+                            android:gravity="center"
+                            android:text="很抱歉,暂无可用的套餐！"
+                            android:textColor="@color/gray" />
+                    </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dip"
+                android:background="@color/gray_line" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dip"
+                android:layout_marginTop="10dip"
+                android:background="@color/gray_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/myzfbplay"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dip"
+                    android:paddingRight="10dip" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/zfbplay" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="20dip"
+                        android:layout_weight="1"
+                        android:gravity="left|center"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/myzfb"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textdx_16" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/zfbimg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/rechangew" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dip"
+                    android:background="@color/gray_line" />
+
+                <LinearLayout
+                    android:id="@+id/mywxplay"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    android:paddingLeft="10dip"
+                    android:paddingRight="10dip" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/wxplay" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="20dip"
+                        android:layout_weight="1"
+                        android:gravity="left|center"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mywx"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textdx_16" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/wximg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/rechangew" />
+                </LinearLayout>
+            </LinearLayout>
+             <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dip"
+                    android:background="@color/gray_line" />
+              <TextView
+                android:id="@+id/rechargepay"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="50dip"
+                android:layout_marginRight="50dip"
+                android:layout_marginTop="30dip"
+                android:background="@drawable/loginbg"
+                android:gravity="center"
+                android:text="确认充值"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textdx_18" />
+              
+              <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

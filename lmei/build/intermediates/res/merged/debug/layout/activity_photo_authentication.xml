@@ -1,0 +1,102 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"  
+    android:orientation="vertical" 
+    android:background="@color/white"
+    tools:context="com.vidmt.lmei.activity.PhotoAuthenticationActivity" >
+    <include layout="@layout/main_header" />
+   
+       <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ImageView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/buttonphoto" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/authentication1"
+            android:textSize="@dimen/textdx_14" 
+            android:textColor="@color/black"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dip"
+        android:background="@color/gray_line" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dip" >
+
+        <TextView 
+            android:id="@+id/hint"
+            android:layout_width="wrap_content"
+            android:layout_height="30dip"
+            android:gravity="center_vertical"
+            android:textColor="@color/authentication"
+            android:textSize="@dimen/textdx_16"
+            android:text="@string/authentication2"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/authentication3"
+            android:textSize="@dimen/textdx_14" 
+            android:textColor="@color/black" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/authentication4"
+            android:textSize="@dimen/textdx_14" 
+            android:textColor="@color/black" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/authentication5"
+            android:textSize="@dimen/textdx_14" 
+            android:textColor="@color/black" />
+    </LinearLayout>
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        >
+        <ImageView 
+            android:id="@+id/example_img"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"            
+            android:src="@drawable/photoup"/>
+        <TextView 
+            android:id="@+id/hint_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/example_img"
+            android:textSize="@dimen/textdx_14" 
+            android:textColor="@color/authentication"
+            android:text="@string/authentication6"/>
+    </RelativeLayout>
+    <TextView 
+        android:id="@+id/cf"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:textSize="@dimen/textdx_18" 
+        android:textStyle="bold"
+        android:text="@string/authentication7"
+        android:gravity="center"
+        android:background="@drawable/loginbg"/>
+</LinearLayout>
