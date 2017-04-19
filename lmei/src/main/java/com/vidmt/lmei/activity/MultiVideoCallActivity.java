@@ -46,6 +46,9 @@ import io.rong.imlib.model.Discussion;
 import io.rong.imlib.model.UserInfo;
 import io.rong.message.InformationNotificationMessage;
 
+/**
+ * 多人视频，暂无用
+ */
 public class MultiVideoCallActivity extends BaseCallActivity {
     private static final String TAG = "VoIPMultiVideoCallActivity";
     RongCallSession callSession;

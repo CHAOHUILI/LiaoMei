@@ -10,9 +10,6 @@ import java.util.Set;
 import com.ta.annotation.TAInjectView;
 import com.vidmt.lmei.Application;
 import com.vidmt.lmei.R;
-import com.vidmt.lmei.R.id;
-import com.vidmt.lmei.R.layout;
-import com.vidmt.lmei.R.menu;
 import com.vidmt.lmei.controller.Person_Service;
 import com.vidmt.lmei.entity.Persion;
 import com.vidmt.lmei.util.rule.Base64Coder;
@@ -20,14 +17,12 @@ import com.vidmt.lmei.util.rule.Bimp;
 import com.vidmt.lmei.util.rule.FileUtils;
 import com.vidmt.lmei.util.rule.ManageDataBase;
 import com.vidmt.lmei.util.rule.OnWheelScrollListener;
-import com.vidmt.lmei.util.rule.ScreenUtils;
 import com.vidmt.lmei.util.rule.SharedPreferencesUtil;
 import com.vidmt.lmei.util.rule.WheelView;
 import com.vidmt.lmei.util.think.JsonUtil;
 import com.vidmt.lmei.widget.NumericWheelAdapter;
 
 import android.app.ActionBar.LayoutParams;
-import android.app.Activity;
 import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
@@ -54,7 +49,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -107,7 +101,7 @@ public class RegisterImproveActivity extends BaseActivity {
 	String username="";//昵称
 	String birthday1="";//生日
 	String photo="";//头像
-	private int mYear=1996;
+	private int mYear=1999;
 	private int mMonth=0;
 	private int mDay=1;
 	private WheelView year;
@@ -197,7 +191,7 @@ public class RegisterImproveActivity extends BaseActivity {
 		img.setOnClickListener(onClickListener);
 		headerright.setOnClickListener(onClickListener);
 	}
-    public void closejp(){
+    public void closejp(){//关闭键盘
     	View view = getWindow().peekDecorView();
 		if (view != null) {
 			InputMethodManager inputmanger = (InputMethodManager) getSystemService(
@@ -235,7 +229,7 @@ public class RegisterImproveActivity extends BaseActivity {
 						loadingDialog.dismiss();
 						p_perPersion = JsonUtil.JsonToObj(mes, Persion.class);
 	             		inityunong(p_perPersion);					
-//						Intent intent = new Intent(RegisterImproveActivity.this, FooterPageActivity.class);
+//						Intent intent = new Intent(RegisterImproveActivity.this, MainActivity.class);
 //						startActivity(intent);
 //						finish();
 					}
@@ -305,7 +299,7 @@ public class RegisterImproveActivity extends BaseActivity {
 					initJpush(p_perPersion);
 					RongIM.getInstance().refreshUserInfoCache(new UserInfo(persion.getId()+"",persion.getNick_name(), Uri.parse(persion.getPhoto())));
 					RongIM.getInstance().setMessageAttachedUserInfo(true); 
-					StartActivity(FooterPageActivity.class);
+					StartActivity(MainActivity.class);
 					finish();
 				}
 				/**
@@ -316,7 +310,7 @@ public class RegisterImproveActivity extends BaseActivity {
 				public void onError(RongIMClient.ErrorCode errorCode) {
 
 					Log.d("LoginActivity", "--onError" + errorCode);
-					Toast.makeText(RegisterImproveActivity.this, "连接融云失败", 11).show();
+					Toast.makeText(RegisterImproveActivity.this, "连接融云失败", Toast.LENGTH_SHORT).show();
 					//	                StartActivity(HomePageActivity.class);
 					//					finish();
 				}
@@ -467,7 +461,6 @@ public class RegisterImproveActivity extends BaseActivity {
     /**
 	 * 保存裁剪之后的图片数据
 	 * 
-	 * @param picdata
 	 */
 	private void setPicToView(Bitmap bitmaps, int cjtype) {
 

@@ -229,21 +229,14 @@
             android:screenOrientation="behind"
             android:windowSoftInputMode="adjustResize|stateHidden" >
         </activity>
-        <!-- 支付宝 -->
 
 
-        <!-- 分享编辑页 -->
-        <activity
-            android:name="com.umeng.socialize.view.ShareActivity"
-            android:configChanges="orientation|keyboard"
-            android:launchMode="singleTask"
-            android:noHistory="true"
-            android:windowSoftInputMode="stateVisible|adjustResize" >
-        </activity>
+
+
 
         <!-- ############ QQ空间和QQ SSO授权的Activity注册 ############ -->
         <activity
-            android:name="com.tencent.tauth.AuthActivity"
+            android:name="com.umeng.qq.tencent.AuthActivity"
             android:launchMode="singleTask"
             android:noHistory="true" >
             <intent-filter>
@@ -255,11 +248,9 @@
                 <data android:scheme="tencent1105693336" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.tencent.connect.common.AssistActivity"
+        <activity android:name="com.umeng.qq.tencent.AssistActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-        </activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
         <!-- 微信回调activity -->
         <activity
@@ -279,43 +270,23 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
-            android:configChanges="keyboardHidden|orientation"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" >
-        </activity>
 
-        <service
-            android:name="com.sina.weibo.sdk.net.DownloadService"
-            android:exported="false" >
-        </service>
+
+
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="57ccda21e0f55a2def002b26" >
+            android:value="58f477844544cb0d130005e6" >
         </meta-data>
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="Umeng" >
+            android:value="${CHANNEL_NAME}" >
         </meta-data>
         <!-- 友盟 -->
 
-        <activity
-            android:name="com.pingplusplus.android.PaymentActivity"
-            android:configChanges="orientation|screenSize"
-            android:launchMode="singleTop"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <!-- 微信支付 sdk ，也是 Ping++ sdk 调用入口 -->
-        <activity-alias
-            android:name=".wxapi.WXPayEntryActivity"
-            android:exported="true"
-            android:targetActivity="com.pingplusplus.android.PaymentActivity" />
 
-        <activity
-            android:name=".activity.SMSActivity"
-            android:label="@string/title_activity_sms" >
-        </activity>
+
+
         <activity
             android:name=".activity.RegisterActivity"
             android:screenOrientation="portrait"
@@ -329,7 +300,7 @@
             android:label="@string/title_activity_recording" >
         </activity>
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.SplashActivity"
            android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
@@ -341,7 +312,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.FooterPageActivity"
+            android:name=".activity.MainActivity"
              android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_footer_page"
@@ -540,7 +511,7 @@
         <!-- app的key -->
         <meta-data
             android:name="RONG_CLOUD_APP_KEY"
-            android:value="3argexb63j9ae" />
+            android:value="tdrvipkstm8d5" />
         <!-- tdrvipkstm8d5     3argexb63j9ae -->
         <!--
       <activity
@@ -557,7 +528,7 @@
         -->
         <!-- 会话列表 -->
         <activity
-            android:name=".ConversationListActivity"
+            android:name=".activity.ConversationListActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" >
@@ -573,27 +544,11 @@
             </intent-filter>
         </activity>
 
-        <!-- 聚合会话列表 -->
-        <activity
-            android:name="io.rong.fast.activity.SubConversationListActivtiy"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-
-                <data
-                    android:host="com.vidmt.lmei"
-                    android:pathPrefix="/subconversationlist"
-                    android:scheme="rong" />
-            </intent-filter>
-        </activity>
 
         <!-- 会话界面 -->
         <activity
-            android:name=".ConversationActivity"
+            android:name=".activity.ConversationActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" >
             <intent-filter>
@@ -802,7 +757,7 @@
             android:theme="@style/jhAppTheme" >
         </activity>
         <activity
-            android:name=".activity.AboutSystemActivity"
+            android:name=".activity.AboutLmeiActivity"
              android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_about_system"

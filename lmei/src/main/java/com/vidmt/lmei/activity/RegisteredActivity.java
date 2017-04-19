@@ -26,6 +26,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+/**
+ * 暂无
+ */
 public class RegisteredActivity extends BaseActivity {
 	
 	@TAInjectView(id = R.id.rs_register)
@@ -315,7 +318,6 @@ public class RegisteredActivity extends BaseActivity {
 	 * 获取手机验证码
 	 * @Title GetSms
 	 * @Description TODO(这里用一句话描述这个方法的作用)
-	 * @param     参数
 	 * @return void    返回类型
 	 */
 	public void GetSms()

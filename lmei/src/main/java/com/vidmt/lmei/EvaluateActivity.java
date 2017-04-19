@@ -7,7 +7,6 @@ import com.google.gson.reflect.TypeToken;
 import com.ta.annotation.TAInjectView;
 import com.vidmt.lmei.activity.BaseActivity;
 import com.vidmt.lmei.activity.HomeDetailActivity;
-import com.vidmt.lmei.activity.SingleCallActivity;
 import com.vidmt.lmei.constant.Constant;
 import com.vidmt.lmei.controller.Chat_Service;
 import com.vidmt.lmei.dialog.ConnectionUtil;
@@ -35,6 +34,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import io.rong.calllib.RongCallCommon;
 
+/**
+ * 评价界面，给聊天的人评分
+ */
 public class EvaluateActivity extends BaseActivity {
 	@TAInjectView(id = R.id.evaratingBar)
 	private RatingBar evaratingBar;//评价星级

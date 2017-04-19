@@ -29,6 +29,9 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+/**
+ * 充值记录页
+ */
 public class UserRechargeRecordActivity extends BaseActivity {
 	@TAInjectView(id = R.id.headerthemeleft)
 	RelativeLayout headerthemeleft;

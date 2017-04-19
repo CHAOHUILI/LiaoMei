@@ -6,8 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -22,23 +20,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.google.gson.reflect.TypeToken;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
-import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
-import com.nostra13.universalimageloader.core.process.BitmapProcessor;
 import com.ta.TAApplication;
 import com.ta.annotation.TAInjectView;
-import com.vidmt.lmei.ConversationActivity;
 import com.vidmt.lmei.R;
-import com.vidmt.lmei.R.id;
-import com.vidmt.lmei.R.layout;
-import com.vidmt.lmei.R.menu;
 import com.vidmt.lmei.adapter.AdapterHobby;
 import com.vidmt.lmei.adapter.AdapterUserPhoto;
 import com.vidmt.lmei.adapter.GridViewAdapter;
-import com.vidmt.lmei.adapter.PersentAdapter;
 import com.vidmt.lmei.adapter.ViewPagerAdapter;
 import com.vidmt.lmei.constant.Constant;
 import com.vidmt.lmei.controller.Chat_Service;
@@ -61,20 +51,12 @@ import com.vidmt.lmei.widget.CircleImageView;
 import com.vidmt.lmei.widget.HorizontalListView;
 import com.vidmt.lmei.widget.MyGridView;
 
-import android.R.integer;
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Matrix;
-import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -85,45 +67,37 @@ import android.media.MediaPlayer.OnPreparedListener;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.graphics.PorterDuff;
-import android.graphics.Rect;
 import android.graphics.RectF;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.view.Display;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.WindowManager.LayoutParams;
 import android.view.animation.AnimationUtils;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.CheckBox;
-import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ImageView.ScaleType;
+
 import io.rong.calllib.RongCallClient;
 import io.rong.calllib.RongCallSession;
 import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.RongIMClient.ErrorCode;
-import io.rong.imlib.RongIMClient.ResultCallback;
 import io.rong.imlib.model.Conversation;
 import io.rong.imlib.model.UserInfo;
 import io.rong.imlib.model.Conversation.ConversationType;
 import io.rong.message.ImageMessage;
 import io.rong.message.InformationNotificationMessage;
-import u.aly.bp;
+
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -134,6 +108,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 
+/**
+ * 别人信息详情页
+ */
 public class HomeDetailActivity extends BaseActivity {
 	@TAInjectView(id = R.id.linheader)
 	LinearLayout linheader;
@@ -306,6 +283,7 @@ public class HomeDetailActivity extends BaseActivity {
 
 	int pdshowdate = 0;
 	static LoadingDialog dialog = null;
+	String jhuser;
 
 	private int chattype;// 1为从 会话界面
 	int sxdate = 0;
@@ -317,9 +295,7 @@ public class HomeDetailActivity extends BaseActivity {
 		themes();
 		InitView();
 		loadingDialog.onWindowFocusChanged(true);
-		/// loadingDialog.show();
 		loaduserinfo();
-		// selectisblack();
 		genpresent();
 
 	}
@@ -428,12 +404,10 @@ public class HomeDetailActivity extends BaseActivity {
 
 
 		if ("default".equals(tokens)) {
-			Log.e("ConversationActivity push", "push2");
 			//			startActivity(new Intent(ConversationActivity.this, LoginActivity.class));
 			//			finish();
 			reconnect(tokens);
 		} else {
-			Log.e("ConversationActivity push", "push3");
 			reconnect(tokens);
 		}
 	}
@@ -449,15 +423,12 @@ public class HomeDetailActivity extends BaseActivity {
 
 			@Override
 			public void onSuccess(String s) {
-				
-				Log.e("ConversationActivity push", "push4");
-
 				if (mDialog != null)
 					mDialog.dismiss();           
 
 				//
 				//                Intent intent = new Intent();
-				//                intent.setClass(ConversationActivity.this, MainActivity.class);
+				//                intent.setClass(ConversationActivity.this, SplashActivity.class);
 				//                intent.putExtra("PUSH_CONVERSATIONTYPE", mConversationType.toString());
 				//                intent.putExtra("PUSH_TARGETID", mTargetId);
 				//                startActivity(intent);
@@ -485,7 +456,7 @@ public class HomeDetailActivity extends BaseActivity {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				String jhuser = Person_Service.loaduserinfo(b_person.getId(), userid);
+				jhuser = Person_Service.loaduserinfo(b_person.getId(), userid);
 				Message msg = mUIHandler.obtainMessage(1);
 				msg.obj = jhuser;
 				msg.sendToTarget();
@@ -515,10 +486,10 @@ public class HomeDetailActivity extends BaseActivity {
 
 	/**
 	 * 发送礼物
-	 * 
+	 *
 	 * @param buy_id
 	 * @param sell_id
-	 * @param token
+	 * @param_token
 	 * @param id
 	 */
 	private void sendpresent(final String buy_id, final String sell_id, final int id) {
@@ -1291,6 +1262,7 @@ public class HomeDetailActivity extends BaseActivity {
 					}
 					break;
 				case R.id.vioceout:
+					loaduserinfo();
 					SharedPreferencesUtil.putInt(HomeDetailActivity.this, "sxdate", 1);
 					try {
 
@@ -1409,7 +1381,7 @@ public class HomeDetailActivity extends BaseActivity {
 											} else {
 												ToastShow("您的金币不足，请充值后发送吧！");
 												LoadDataUpdate();
-												MainActivity.mainactivity.Tankuang(4);
+												SplashActivity.mainactivity.Tankuang(4);
 											}
 
 										}
@@ -1428,6 +1400,10 @@ public class HomeDetailActivity extends BaseActivity {
 
 					break;
 				case R.id.videoout:
+					jhuser = Person_Service.loaduserinfo(b_person.getId(), userid);
+					if(jhuser!=null){
+						p = JsonUtil.JsonToObj(jhuser, Persion.class);
+					}
 					SharedPreferencesUtil.putInt(HomeDetailActivity.this, "sxdate", 1);
 					try {
 						if (RongIM.getInstance() == null && RongIM.getInstance().getRongIMClient() == null) {
@@ -1522,7 +1498,7 @@ public class HomeDetailActivity extends BaseActivity {
 											} else {
 												ToastShow("您的金币不足，请充值后再发送吧！");
 												LoadDataUpdate();
-												MainActivity.mainactivity.Tankuang(4);
+												SplashActivity.mainactivity.Tankuang(4);
 											}
 										}
 									} else {
@@ -1704,7 +1680,7 @@ public class HomeDetailActivity extends BaseActivity {
 							isblack = 0;
 							Drawable drawable = context.getResources().getDrawable(R.drawable.chatattention);
 							chatattentionimg.setBackgroundDrawable(drawable);
-							SharedPreferencesUtil.putInt(HomeDetailActivity.this, "ltype", 1);
+							SharedPreferencesUtil.putInt(HomeDetailActivity.this, "ltype", 1);//是否关注，1 已关注
 							new AttentionView(HomeDetailActivity.this, ll, 1);
 						} catch (JSONException e) {
 							// TODO Auto-generated catch block
@@ -1821,7 +1797,7 @@ public class HomeDetailActivity extends BaseActivity {
 		}
 	}
 
-	public class FeaturesView extends PopupWindow {
+	public class FeaturesView extends PopupWindow {//拉黑或者举报选择
 
 		public FeaturesView() {
 			// TODO Auto-generated method stub
@@ -1894,7 +1870,7 @@ public class HomeDetailActivity extends BaseActivity {
 		}
 	}
 
-	public class BlackPromptView extends PopupWindow {
+	public class BlackPromptView extends PopupWindow {//拉黑确定提现
 
 		public BlackPromptView(Context mContext, View parent) {
 
@@ -1938,7 +1914,7 @@ public class HomeDetailActivity extends BaseActivity {
 		}
 	}
 
-	public class BlackView extends PopupWindow {
+	public class BlackView extends PopupWindow {//拉黑成功提醒
 
 		public BlackView(Context mContext, View parent, int type) {
 

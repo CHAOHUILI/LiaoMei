@@ -4,17 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.vidmt.lmei.activity.BaseActivity;
-import com.vidmt.lmei.activity.MainActivity;
-import com.vidmt.lmei.adapter.GridViewAdapter;
 import com.vidmt.lmei.adapter.ViewPagerAdapter;
 import com.vidmt.lmei.entity.Model;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;

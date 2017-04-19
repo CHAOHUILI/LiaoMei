@@ -20,6 +20,7 @@ import io.rong.imlib.model.UserInfo;
 
 /**
  * Created by weiqinxiao on 16/3/25.
+ * 多人视频用到
  */
 public class CallUserGridView extends ScrollView {
     private Context context;

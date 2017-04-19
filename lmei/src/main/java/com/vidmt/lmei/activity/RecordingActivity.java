@@ -18,6 +18,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * 暂无用
+ */
 public class RecordingActivity extends BaseActivity {
 	@TAInjectView(id = R.id.button1)
 	private Button button1;

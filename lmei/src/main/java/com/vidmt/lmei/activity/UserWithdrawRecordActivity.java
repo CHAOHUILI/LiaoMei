@@ -32,6 +32,9 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+/**
+ * 提现记录页
+ */
 public class UserWithdrawRecordActivity extends BaseActivity {
 
 	@TAInjectView(id = R.id.headerthemeleft)

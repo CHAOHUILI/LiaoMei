@@ -3,24 +3,21 @@ package com.vidmt.lmei;
 import com.ta.annotation.TAInjectView;
 import com.vidmt.lmei.activity.BaseActivity;
 import com.vidmt.lmei.activity.LoginActivity;
-import com.vidmt.lmei.R;
-import com.vidmt.lmei.activity.MainActivity;
 import com.vidmt.lmei.activity.UserRechargeActivity;
 import com.vidmt.lmei.entity.Persion;
 import com.vidmt.lmei.util.rule.ManageDataBase;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewDebug.IntToString;
 import android.widget.TextView;
 import io.rong.imkit.RongIM;
 
+/**
+ * 提示用户账户关闭页，界面是dialog
+ */
 public class CloseAccountActivity extends BaseActivity {
 	@TAInjectView(id = R.id.dialogleft)
 	TextView button1;

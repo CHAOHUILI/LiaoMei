@@ -30,6 +30,9 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+/**
+ * 没啥用
+ */
 public class Income_list3Activity extends BaseActivity implements OnHeaderRefreshListener, OnFooterRefreshListener {
 	@TAInjectView(id = R.id.headerthemeleft)
 	RelativeLayout headerthemeleft;

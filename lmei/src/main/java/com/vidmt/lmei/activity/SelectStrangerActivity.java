@@ -42,6 +42,9 @@ import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView.OnEditorActionListener;
 
+/**
+ * 添加好友页
+ */
 public class SelectStrangerActivity extends BaseActivity {
 	@TAInjectView(id = R.id.headerthemeleft)
 	RelativeLayout headerthemeleft;
@@ -192,7 +195,7 @@ public class SelectStrangerActivity extends BaseActivity {
 				// dialog.show();
 				Message msg = mUHandler.obtainMessage(1);
 				try {
-					msg.obj = Person_Service.selectstranger(b_person.getId(), key);
+					msg.obj = Person_Service.selectstranger(b_person.getId(), key);//查找陌生用户，可以添加关注
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					msg.obj = null;

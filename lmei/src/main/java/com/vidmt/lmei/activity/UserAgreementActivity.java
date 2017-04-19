@@ -5,6 +5,7 @@ import com.vidmt.lmei.R;
 import com.vidmt.lmei.R.id;
 import com.vidmt.lmei.R.layout;
 import com.vidmt.lmei.R.menu;
+import com.vidmt.lmei.constant.Constant;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
@@ -20,6 +21,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+/**
+ * 用户协议页
+ */
 public class UserAgreementActivity extends BaseActivity {
 
 	@TAInjectView(id = R.id.headerthemeleft)
@@ -72,7 +76,7 @@ public class UserAgreementActivity extends BaseActivity {
 		ws.setGeolocationEnabled(true);//  启用地理定位
 		ws.setGeolocationDatabasePath("/data/data/org.itri.html5webview/databases/");//  设置定位的数据库路径
 		ws.setDomStorageEnabled(true);
-		resumeweb.loadUrl("http://122.114.62.214/lmeiApi/upload/1.htm");
+		resumeweb.loadUrl(Constant.HOST+"upload/1.htm");
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

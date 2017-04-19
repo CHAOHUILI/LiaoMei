@@ -1,31 +1,21 @@
 package com.vidmt.lmei.activity;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Bitmap.Config;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.PixelFormat;
-import android.graphics.Rect;
 import android.graphics.RectF;
-import android.graphics.YuvImage;
 import android.hardware.display.DisplayManager;
 import android.hardware.display.VirtualDisplay;
 import android.media.AudioManager;
 import android.media.Image;
 import android.media.ImageReader;
-import android.media.MediaMetadataRetriever;
 import android.media.projection.MediaProjection;
 import android.media.projection.MediaProjectionManager;
 import android.net.ConnectivityManager;
@@ -41,19 +31,16 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Display;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.SurfaceHolder;
-import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager.LayoutParams;
 import android.view.animation.AnimationUtils;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
@@ -64,12 +51,9 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
 import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -77,19 +61,12 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.ByteBuffer;
-import java.nio.IntBuffer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import javax.microedition.khronos.egl.EGL10;
-import javax.microedition.khronos.egl.EGLContext;
-import javax.microedition.khronos.opengles.GL10;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -101,10 +78,8 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.ta.TAApplication;
-import com.vidmt.lmei.ConversationActivity;
 import com.vidmt.lmei.EvaluateActivity;
 import com.vidmt.lmei.R;
-import com.vidmt.lmei.activity.HomeDetailActivity.AttentionView;
 import com.vidmt.lmei.adapter.GridViewAdapter;
 import com.vidmt.lmei.adapter.PersentAdapter;
 import com.vidmt.lmei.adapter.ViewPagerAdapter;
@@ -132,18 +107,18 @@ import io.rong.common.RLog;
 import io.rong.imkit.RongContext;
 import io.rong.imkit.RongIM;
 
-import io.rong.imkit.userInfoCache.RongUserInfoManager;
 import io.rong.imkit.widget.AsyncImageView;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.RongIMClient.ErrorCode;
-import io.rong.imlib.RongIMClient.ResultCallback;
 import io.rong.imlib.model.Conversation;
 import io.rong.imlib.model.UserInfo;
 import io.rong.imlib.model.Conversation.ConversationType;
 import io.rong.message.ImageMessage;
 import io.rong.message.InformationNotificationMessage;
-import io.rong.message.StickerMessage;
 
+/**
+ * 一对一通话页activity
+ */
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class SingleCallActivity extends BaseCallActivity implements Handler.Callback ,IVideoFrameListener{
 	private static final String TAG = "VoIPSingleActivity";
@@ -2400,7 +2375,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 	 * 发送礼物
 	 * @param buy_id
 	 * @param sell_id
-	 * @param token
+	 * @param_token
 	 * @param id
 	 */
 	private void sendpresent(final String buy_id,final String sell_id,final int id) {

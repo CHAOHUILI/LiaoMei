@@ -1,4 +1,4 @@
-package com.vidmt.lmei;
+package com.vidmt.lmei.activity;
 
 
 
@@ -18,20 +18,12 @@ import java.util.List;
 import java.util.Locale;
 
 import org.apache.commons.httpclient.HttpException;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import com.google.gson.reflect.TypeToken;
 import com.ta.TAApplication;
-import com.vidmt.lmei.activity.BaseActivity;
-import com.vidmt.lmei.activity.HomeDetailActivity;
-import com.vidmt.lmei.activity.MainActivity;
-import com.vidmt.lmei.activity.OnDataListener;
-import com.vidmt.lmei.activity.RongCallKit;
-import com.vidmt.lmei.activity.SealAppContext;
-import com.vidmt.lmei.activity.SingleCallActivity;
-import com.vidmt.lmei.activity.UserRechargeActivity;
-import com.vidmt.lmei.activity.HomeDetailActivity.ShowContentView;
+import com.vidmt.lmei.Application;
+import com.vidmt.lmei.CloseAccountActivity;
+import com.vidmt.lmei.R;
 import com.vidmt.lmei.adapter.GridViewAdapter;
 import com.vidmt.lmei.adapter.PersentAdapter;
 import com.vidmt.lmei.adapter.ViewPagerAdapter;
@@ -50,7 +42,6 @@ import com.vidmt.lmei.util.think.DbUtil;
 import com.vidmt.lmei.util.think.JsonUtil;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -73,8 +64,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -91,7 +80,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
+
 import io.rong.eventbus.EventBus;
 import io.rong.imkit.RongIM;
 import io.rong.imkit.RongIM.OnSendMessageListener;
@@ -116,8 +105,10 @@ import io.rong.message.ImageMessage;
 import io.rong.message.InformationNotificationMessage;
 import io.rong.message.TextMessage;
 import io.rong.message.VoiceMessage;
-import u.aly.bp;
 
+/**
+ * 聊天界面
+ */
 public class ConversationActivity extends FragmentActivity implements OnDataListener,RongIMClient.RealTimeLocationListener, View.OnClickListener,ConnectionStatusListener {
 
 	private static final int GET_USER_INFO = 111;
@@ -310,7 +301,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 		headerthemeleft.setVisibility(View.VISIBLE);
 		headerright = (LinearLayout) findViewById(R.id.headerright);
 		setActionBarTitle(mConversationType, mTargetId); 
-		if (mConversationType == Conversation.ConversationType.CUSTOMER_SERVICE) {
+		if (mConversationType == Conversation.ConversationType.CUSTOMER_SERVICE) {//猜测为礼物消费
 			headerright.setVisibility(View.GONE);
 		}else {
 			headerright.setVisibility(View.VISIBLE);
@@ -340,7 +331,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 					if (fragment != null && !fragment.onBackPressed()) {
 						if (isFromPush) {
 							isFromPush = false;
-							//						startActivity(new Intent(this, MainActivity.class));
+							//						startActivity(new Intent(this, SplashActivity.class));
 						}
 						finish();
 						//				      try {
@@ -562,7 +553,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 
 											sendTextBlackMessage("您的金币不足，请充值后再聊天。", 2);
 											LoadDataUpdate();
-											//	MainActivity.mainactivity.Tankuang(4);
+											//	SplashActivity.mainactivity.Tankuang(4);
 											Intent in = new Intent(ConversationActivity.this,CloseAccountActivity.class);
 											in.putExtra("type", 4);
 											startActivity(in);
@@ -583,7 +574,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 													in.putExtra("type", 4);
 													startActivity(in);
 
-													//													MainActivity.mainactivity.Tankuang(4);
+													//													SplashActivity.mainactivity.Tankuang(4);
 												}
 
 
@@ -593,7 +584,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 												if (persion_main.getToken()<persion.getSms_money()) {
 													sendTextBlackMessage("您的金币不足，请充值后再聊天。", 2);
 													LoadDataUpdate();
-													//MainActivity.mainactivity.Tankuang(4);
+													//SplashActivity.mainactivity.Tankuang(4);
 													Intent in = new Intent(ConversationActivity.this,CloseAccountActivity.class);
 													in.putExtra("type", 4);
 													startActivity(in);
@@ -831,7 +822,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 	 * 发送礼物
 	 * @param buy_id
 	 * @param sell_id
-	 * @param token
+	 * @param_token
 	 * @param id
 	 */
 	private void sendpresent(final String buy_id,final String sell_id,final int id) {
@@ -991,7 +982,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 					}else if (mes.contains("buy_nomoney")) {
 						chattype=3;
 						sendTextBlackMessage("您的金币不足，请充值后再聊天。", 2);
-						//MainActivity.mainactivity.Tankuang(4);
+						//SplashActivity.mainactivity.Tankuang(4);
 						LoadDataUpdate();
 						Intent in = new Intent(ConversationActivity.this,CloseAccountActivity.class);
 						in.putExtra("type", 4);
@@ -1072,7 +1063,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 						sendTextBlackMessage("",1);
 						sendTextBlackMessage("对方普通聊天收费标准："+chatpay+"金币/条", 2);
 						if (p.getVideo_state()!=1) {
-							SharedPreferencesUtil.putInt(ConversationActivity.this, "astype", 1);
+							SharedPreferencesUtil.putInt(ConversationActivity.this, "astype", 1);//是否开启
 
 						}else {
 							SharedPreferencesUtil.putInt(ConversationActivity.this, "astype", 0);
@@ -1223,7 +1214,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 					//connect(persion_main.getRongyuntoken(), persion_main);
 				}
 				if (intent.getData().getPath().contains("conversation/system")) {
-					//					Intent intent1 = new Intent(mContext, MainActivity.class);
+					//					Intent intent1 = new Intent(mContext, SplashActivity.class);
 					//					intent1.putExtra("systemconversation", true);
 					//					startActivity(intent1);
 					//					finish();
@@ -1244,7 +1235,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 				}
 
 				if (intent.getData().getPath().contains("conversation/system")) {
-					//					Intent intent1 = new Intent(mContext, MainActivity.class);
+					//					Intent intent1 = new Intent(mContext, SplashActivity.class);
 					//					intent1.putExtra("systemconversation", true);
 					//					startActivity(intent1);
 					//					finish();
@@ -1279,13 +1270,13 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 
 	/**
 	 * 收到 push 消息后，选择进入哪个 Activity
-	 * 如果程序缓存未被清理，进入 MainActivity
+	 * 如果程序缓存未被清理，进入 SplashActivity
 	 * 程序缓存被清理，进入 LoginActivity，重新获取token
 	 * <p/>
 	 * 作用：由于在 manifest 中 intent-filter 是配置在 ConversationActivity 下面，所以收到消息后点击notifacition 会跳转到 DemoActivity。
-	 * 以跳到 MainActivity 为例：
-	 * 在 ConversationActivity 收到消息后，选择进入 MainActivity，这样就把 MainActivity 激活了，当你读完收到的消息点击 返回键 时，程序会退到
-	 * MainActivity 页面，而不是直接退回到 桌面。
+	 * 以跳到 SplashActivity 为例：
+	 * 在 ConversationActivity 收到消息后，选择进入 SplashActivity，这样就把 SplashActivity 激活了，当你读完收到的消息点击 返回键 时，程序会退到
+	 * SplashActivity 页面，而不是直接退回到 桌面。
 	 */
 	private void enterActivity() {
 
@@ -1313,12 +1304,10 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 
 
 		if ("default".equals(tokens)) {
-			Log.e("ConversationActivity push", "push2");
 			//			startActivity(new Intent(ConversationActivity.this, LoginActivity.class));
 			//			finish();
 			reconnect(tokens);
 		} else {
-			Log.e("ConversationActivity push", "push3");
 			reconnect(tokens);
 		}
 	}
@@ -1335,14 +1324,13 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 			@Override
 			public void onSuccess(String s) {
 				Log.i(TAG, "---onSuccess--" + s);
-				Log.e("ConversationActivity push", "push4");
 
 				if (mDialog != null)
 					mDialog.dismiss();           
 
 				//
 				//                Intent intent = new Intent();
-				//                intent.setClass(ConversationActivity.this, MainActivity.class);
+				//                intent.setClass(ConversationActivity.this, SplashActivity.class);
 				//                intent.putExtra("PUSH_CONVERSATIONTYPE", mConversationType.toString());
 				//                intent.putExtra("PUSH_TARGETID", mTargetId);
 				//                startActivity(intent);
@@ -1685,7 +1673,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 		}
 		if (isFromPush) {
 			isFromPush = false;
-			//			startActivity(new Intent(this, MainActivity.class));
+			//			startActivity(new Intent(this, SplashActivity.class));
 			//			finish();
 		}
 		if(!fragment.onBackPressed()) {
@@ -1879,7 +1867,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 				if (fragment != null && !fragment.onBackPressed()) {
 					if (isFromPush) {
 						isFromPush = false;
-						//						startActivity(new Intent(this, MainActivity.class));
+						//						startActivity(new Intent(this, SplashActivity.class));
 					}
 					finish();
 					//				      try {
@@ -2221,11 +2209,6 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 									if (token!=0) {
 											
 										if (token<catetoken) {
-											
-											
-											
-											
-											
 											Toast.makeText(ConversationActivity.this, "您的金币值不够，请充值或者选其他的礼物吧。", Toast.LENGTH_SHORT).show();
 											//ToastShow("您的金币值不够，请充值或者选其他的礼物吧。");
 											
@@ -2590,8 +2573,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 
 
 	}
-	public void LoadDataUpdate() {
-		// TODO Auto-generated method stub
+	public void LoadDataUpdate() {//刷新数据，每次使用金币
 		new Thread(new Runnable() {
 
 			@Override

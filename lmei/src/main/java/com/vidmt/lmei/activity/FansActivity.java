@@ -46,6 +46,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
+/**
+ * 主页好友，粉丝activity
+ */
 public class FansActivity extends BaseActivity implements OnHeaderRefreshListener, OnFooterRefreshListener{
 	public static LoadingDialog dialog = null;
 	@TAInjectView(id = R.id.pull_fans)

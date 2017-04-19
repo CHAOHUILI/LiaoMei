@@ -27,6 +27,7 @@ import io.rong.imlib.model.UserInfo;
 
 /**
  * Created by weiqinxiao on 16/3/15.
+ * 选择聊天成员activity，没用到，多选的
  */
 public class CallSelectMemberActivity extends Activity {
 

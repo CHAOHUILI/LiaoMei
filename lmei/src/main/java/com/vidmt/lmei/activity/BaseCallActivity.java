@@ -40,6 +40,7 @@ import io.rong.calllib.RongCallCommon;
 
 /**
  * Created by weiqinxiao on 16/3/9.
+ * 基础通话页activity
  */
 public class BaseCallActivity extends Activity implements IRongCallListener {
 	private final static long DELAY_TIME = 1000;

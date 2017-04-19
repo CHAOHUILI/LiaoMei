@@ -17,6 +17,7 @@ import com.vidmt.lmei.dialog.ConnectionUtil;
 import com.vidmt.lmei.dialog.CustomProgressDialog;
 import com.vidmt.lmei.dialog.LoadingDialog;
 import com.vidmt.lmei.entity.Persion;
+import com.vidmt.lmei.util.rule.SharedPreferencesUtil;
 import com.vidmt.lmei.util.think.JsonUtil;
 import com.vidmt.lmei.widget.PullToRefreshView;
 import com.vidmt.lmei.widget.PullToRefreshView.OnFooterRefreshListener;
@@ -27,6 +28,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -45,6 +47,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+/**
+ * 主界面 广场页的最热activity
+ */
 public class HotChatActivity extends BaseActivity implements OnHeaderRefreshListener, OnFooterRefreshListener {
 	public static LoadingDialog dialog = null;
 	@TAInjectView(id = R.id.pull_hot)
@@ -69,6 +74,11 @@ public class HotChatActivity extends BaseActivity implements OnHeaderRefreshList
 		setContentView(R.layout.activity_hot_chat);
 		InitView();
 		dialog.show();
+		if(b_person.getSex()==1){
+			sex=2;
+			SharedPreferencesUtil.putInt(getApplicationContext(),"filter_sex",2);
+
+		}
 		LoadUserData();
 		userrefresh();
 	}
@@ -110,8 +120,8 @@ public class HotChatActivity extends BaseActivity implements OnHeaderRefreshList
 			{
 				personlist.clear();
 				pageIndex=1;
-				ident_state=intent.getIntExtra("certification", 0);
-				sex=intent.getIntExtra("sex", 0);
+				ident_state = SharedPreferencesUtil.getInt(getApplicationContext(),"filter_ident_state",0);
+				sex = SharedPreferencesUtil.getInt(getApplicationContext(),"filter_sex",0);
 				dialog.show();
 				LoadUserData();
 			}
@@ -130,6 +140,8 @@ public class HotChatActivity extends BaseActivity implements OnHeaderRefreshList
 				// dialog.show();
 				Message msg = mUHandler.obtainMessage(1);
 				try {
+
+					//用户id，页面类型，性别，认证，显示数据页
 					msg.obj = Person_Service.getUserAll(id, orderCondition, sex, ident_state, pageIndex);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block

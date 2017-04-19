@@ -5,34 +5,21 @@ import java.math.BigDecimal;
 
 import com.ta.annotation.TAInjectView;
 import com.vidmt.lmei.R;
-import com.vidmt.lmei.R.id;
-import com.vidmt.lmei.R.layout;
-import com.vidmt.lmei.R.menu;
 
 import com.vidmt.lmei.entity.Persion;
 import com.vidmt.lmei.util.rule.ManageDataBase;
 
-import com.vidmt.lmei.constant.Constant;
-import com.vidmt.lmei.controller.Person_Service;
-import com.vidmt.lmei.entity.Persion;
-import com.vidmt.lmei.util.rule.ManageDataBase;
-import com.vidmt.lmei.util.rule.SharedPreferencesContext;
 import com.vidmt.lmei.util.rule.SharedPreferencesUtil;
-import com.vidmt.lmei.util.think.JsonUtil;
 
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -43,11 +30,13 @@ import android.widget.TextView;
 import cn.jpush.android.api.JPushInterface;
 import io.rong.imkit.RongIM;
 
-import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.CSCustomServiceInfo;
 
 
+/**
+ * 用户设置页
+ */
 public class UserSettingsActivity extends BaseActivity {
 
 	@TAInjectView(id = R.id.headerthemeleft)
@@ -210,7 +199,7 @@ public class UserSettingsActivity extends BaseActivity {
 					cache.setText("0K");
 					break;
 				case R.id.aboutrel:
-					StartActivity(AboutSystemActivity.class);
+					StartActivity(AboutLmeiActivity.class);
 					break;
 
 				case R.id.eixt:

@@ -52,6 +52,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+/**
+ * 视频认证页
+ */
 public class VideoAuthenticationActivity extends BaseActivity {
 	@TAInjectView(id = R.id.headerthemeleft)
 	RelativeLayout headerthemeleft;
@@ -206,9 +209,9 @@ public class VideoAuthenticationActivity extends BaseActivity {
 				if (msg.obj != null) {
 					String mes = (String) msg.obj;
 					if (mes.equals("")) {
-						ToastShow("上传失败请重试");
+						ToastShow("更新失败请重试");
 					} else {
-						ToastShow("上传成功");
+						ToastShow("更新成功");
 						Persion p = JsonUtil.JsonToObj(mes, Persion.class);
 						dbutil.updateData(p, "id=" + b_person.getId());
 						b_person = p;
@@ -218,7 +221,7 @@ public class VideoAuthenticationActivity extends BaseActivity {
 						finish();
 					}
 				}else{
-					ToastShow("上传失败请重试");
+					ToastShow("更新失败请重试");
 				}
 				loadingDialog.dismiss();
 				break;
@@ -226,7 +229,7 @@ public class VideoAuthenticationActivity extends BaseActivity {
 		}
 	};
 
-	public void Upvideo() {
+	public void Upvideo() {//本地视频更新
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -382,13 +385,11 @@ public class VideoAuthenticationActivity extends BaseActivity {
 					ToastShow("视频路径不正确，请重新选择！");
 				}
 			}
-			Log.e("*********************************视频大小", file.length() / 1024 / 1024 + "M");
 
 			String file_name;
 			try {
 				file_name = URLDecoder.decode(file.getName(),"UTF-8");
 				String namea = (String) file_name.subSequence(file_name.length() - 3, file_name.length());
-				Log.e("*********************************视频name", namea);
 				if ("mp4".equals(namea) || "Mp4".equals(namea)) {
 					if ((file.length() / 1024 / 1024) > 20) {
 						ToastShow("文件太大了，请上传小于20M的视频");

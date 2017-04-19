@@ -6,27 +6,19 @@ import java.util.List;
 import com.google.gson.reflect.TypeToken;
 
 import com.ta.annotation.TAInjectView;
-import com.vidmt.lmei.ConversationListActivity;
 import com.vidmt.lmei.R;
-import com.vidmt.lmei.R.drawable;
-import com.vidmt.lmei.R.id;
-import com.vidmt.lmei.R.layout;
 import com.vidmt.lmei.adapter.MessageAdapter;
 import com.vidmt.lmei.controller.Person_Service;
-import com.vidmt.lmei.dialog.ConversionlistDialog;
 import com.vidmt.lmei.dialog.MessageDialog;
 import com.vidmt.lmei.entity.Notice;
 import com.vidmt.lmei.util.think.JsonUtil;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -37,6 +29,9 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+/**
+ * 系统消息页
+ */
 public class MessagesActivity extends BaseActivity {
 	@TAInjectView(id = R.id.headerthemeleft)
 	RelativeLayout headerthemeleft;

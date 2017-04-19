@@ -2,7 +2,7 @@ package com.vidmt.lmei.dialog;
 
 
 import com.vidmt.lmei.R;
-import com.vidmt.lmei.activity.MainActivity;
+import com.vidmt.lmei.activity.SplashActivity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -49,7 +49,7 @@ android.view.View.OnClickListener {
 		switch (v.getId()) {
 		case R.id.btn_dialog_confirm:
 			if(index==1){
-				((MainActivity) mAct).downLoadApk();
+				((SplashActivity) mAct).downLoadApk();
 			}
 			else{
 				
@@ -59,7 +59,7 @@ android.view.View.OnClickListener {
 		case R.id.btn_dialog_cancel:
 			dismiss();
 			if(index==1){
-				((MainActivity) mAct).AcitvityStar();
+				((SplashActivity) mAct).AcitvityStar();
 			}
 			break;
 		default:
@@ -84,7 +84,7 @@ android.view.View.OnClickListener {
 		if (keyCode == KeyEvent.KEYCODE_BACK
 				&& event.getAction() == KeyEvent.ACTION_DOWN) {
 			if(index==1){
-				//((MainActivity) mAct).startMain();
+				//((SplashActivity) mAct).startMain();
 			}
 			dismiss();
 			return true;

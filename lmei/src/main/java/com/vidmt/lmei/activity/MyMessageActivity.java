@@ -19,6 +19,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * 没发现用到
+ */
 public class MyMessageActivity extends BaseActivity {
 	private long exitTime = 0;
 	@TAInjectView(id = R.id.headerthemeleft)

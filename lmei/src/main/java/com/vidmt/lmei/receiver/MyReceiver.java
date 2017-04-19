@@ -8,8 +8,6 @@ import com.google.gson.reflect.TypeToken;
 import com.vidmt.lmei.activity.MessagesActivity;
 import com.vidmt.lmei.util.think.JsonUtil;
 import com.vidmt.lmei.CloseAccountActivity;
-import com.vidmt.lmei.activity.BaseActivity;
-import com.vidmt.lmei.activity.MainActivity;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -118,7 +116,7 @@ public class MyReceiver extends BroadcastReceiver {
 		return sb.toString();
 	}
 
-	//send msg to MainActivity
+	//send msg to SplashActivity
 	private void processCustomMessage(Context context, Bundle bundle) {
 
 		String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);
@@ -126,16 +124,16 @@ public class MyReceiver extends BroadcastReceiver {
 		Intent msgIntent = new Intent(ACTION_NAME);
 		msgIntent.putExtra("look", message);
 		context.sendBroadcast(msgIntent);
-		/*if (MainActivity.isForeground) {
+		/*if (SplashActivity.isForeground) {
 			String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);
 			String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
-			Intent msgIntent = new Intent(MainActivity.MESSAGE_RECEIVED_ACTION);
-			msgIntent.putExtra(MainActivity.KEY_MESSAGE, message);
+			Intent msgIntent = new Intent(SplashActivity.MESSAGE_RECEIVED_ACTION);
+			msgIntent.putExtra(SplashActivity.KEY_MESSAGE, message);
 			if (!ExampleUtil.isEmpty(extras)) {
 				try {
 					JSONObject extraJson = new JSONObject(extras);
 					if (null != extraJson && extraJson.length() > 0) {
-						msgIntent.putExtra(MainActivity.KEY_EXTRAS, extras);
+						msgIntent.putExtra(SplashActivity.KEY_EXTRAS, extras);
 					}
 				} catch (JSONException e) {
 

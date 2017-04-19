@@ -39,8 +39,10 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import u.aly.bp;
 
+/**
+ * 用户钱包页
+ */
 public class UserWalletActivity extends BaseActivity {
 	@TAInjectView(id = R.id.headerthemeleft)
 	RelativeLayout headerthemeleft;
@@ -119,6 +121,9 @@ public class UserWalletActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		super.onAfterSetContentView();
 		OnClickListener onClickListener = new OnClickListener() {
+			/**
+			 * @param v
+			 */
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -130,6 +135,7 @@ public class UserWalletActivity extends BaseActivity {
 					StartActivity(UserRechargeActivity.class);
 					break;
 				case R.id.walletzh:
+					//转成金币
 					if(b_person.getCapitalBalance()>=1.0){
 						new TransitionShowView(UserWalletActivity.this, walletzh);
 					}else{

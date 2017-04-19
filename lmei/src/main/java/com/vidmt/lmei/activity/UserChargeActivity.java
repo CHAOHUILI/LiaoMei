@@ -45,6 +45,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * 用户设置如何收费，聊天，视频和语言
+ */
 public class UserChargeActivity extends BaseActivity {
 
 	@TAInjectView(id = R.id.headerthemeleft)

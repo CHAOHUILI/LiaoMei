@@ -35,7 +35,7 @@ public class LoadingDialog extends ProgressDialog {
 
         gif = (ImageView) findViewById(R.id.load_gif);
         
-        gif.setBackgroundResource(R.anim.progress_round);
+        gif.setBackgroundResource(R.drawable.progress_round);
         // 通过ImageView对象拿到背景显示的AnimationDrawable
         mAnimation = (AnimationDrawable) gif.getBackground();
         

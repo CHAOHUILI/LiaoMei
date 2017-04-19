@@ -1,24 +1,90 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        debug {
+            keyAlias 'lmeilmei'
+            keyPassword 'LmeiLmei'
+            storeFile file('Lmei.keystore')
+            storePassword 'LmeiLmei'
+        }
+    }
     compileSdkVersion 21
     buildToolsVersion "25.0.0"
-
     defaultConfig {
         applicationId "com.vidmt.lmei"
         minSdkVersion 14
         targetSdkVersion 20
         multiDexEnabled true
+        manifestPlaceholders = [CHANNEL_NAME: "OFFICIAL"]
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_7
             targetCompatibility JavaVersion.VERSION_1_7
         }
     }
-
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    productFlavors {
+        official {
+            manifestPlaceholders = [CHANNEL_NAME: "OFFICIAL"]
+        }
+        google {
+            manifestPlaceholders = [CHANNEL_NAME: "GOOGLE"]
+        }
+        samsung {
+            manifestPlaceholders = [CHANNEL_NAME: "SAMSUNG"]
+        }
+        yingyongbao {
+            manifestPlaceholders = [CHANNEL_NAME: "YINGYONGBAO"]
+        }
+        baidu {
+            manifestPlaceholders = [CHANNEL_NAME: "BAIDU"]
+        }
+        qihu360 {
+            manifestPlaceholders = [CHANNEL_NAME: "QIHU360"]
+        }
+        xiaomi {
+            manifestPlaceholders = [CHANNEL_NAME: "XIAOMI"]
+        }
+        ali {
+            manifestPlaceholders = [CHANNEL_NAME: "ALI"]
+        }
+        huawei {
+            manifestPlaceholders = [CHANNEL_NAME: "HUAWEI"]
+        }
+        lenovo {
+            manifestPlaceholders = [CHANNEL_NAME: "LENOVO"]
+        }
+        leshi {
+            manifestPlaceholders = [CHANNEL_NAME: "LESHI"]
+        }
+
+        anzhi {
+            manifestPlaceholders = [CHANNEL_NAME: "ANZHI"]
+        }
+        oppo {
+            manifestPlaceholders = [CHANNEL_NAME: "OPPO"]
+        }
+        meizu {
+            manifestPlaceholders = [CHANNEL_NAME: "MEIZU"]
+        }
+        mumayi {
+            manifestPlaceholders = [CHANNEL_NAME: "MUMAYI"]
+        }
+        nduo {
+            manifestPlaceholders = [CHANNEL_NAME: "NDUO"]
+        }
+        jifeng {
+            manifestPlaceholders = [CHANNEL_NAME: "JIFENG"]
         }
     }
 }
@@ -34,6 +100,10 @@ dependencies {
     compile files('libs/MyLogger.jar')
     compile files('libs/pinyin4j-2.5.0.jar')
     compile files('libs/SMSSDK-2.0.2.jar')
-    compile files('libs/umeng-analytics-v5.6.4.jar')
+    //    compile files('libs/umeng-analytics-v5.6.4.jar')
     compile files('libs/universal-image-loader-1.8.4-with-sources.jar')
+    compile files('libs/MobCommons-2016.0303.1229.jar')
+    compile files('libs/MobTools-2016.0303.1229.jar')
+    compile files('libs/umeng_social_shareview.jar')
+    compile files('libs/umeng-analytics-v5.6.4.jar')
 }

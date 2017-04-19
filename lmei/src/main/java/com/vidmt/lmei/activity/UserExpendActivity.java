@@ -37,8 +37,10 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
-import u.aly.bp;
 
+/**
+ * 支出记录页
+ */
 public class UserExpendActivity extends BaseActivity implements OnHeaderRefreshListener, OnFooterRefreshListener{
 
 	@TAInjectView(id = R.id.headerthemeleft)

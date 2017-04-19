@@ -14,6 +14,7 @@ import com.vidmt.lmei.controller.Person_Service;
 import com.vidmt.lmei.util.think.JsonUtil;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -31,6 +32,9 @@ import android.widget.TextView;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 
+/**
+ * 修改密码页
+ */
 public class ChangePasswordActivity extends BaseActivity {
 	@TAInjectView(id = R.id.headerthemeleft)
 	RelativeLayout headerthemeleft;

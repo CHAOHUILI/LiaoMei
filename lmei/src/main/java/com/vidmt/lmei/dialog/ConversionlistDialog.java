@@ -1,17 +1,19 @@
 package com.vidmt.lmei.dialog;
 
-import com.vidmt.lmei.ConversationListActivity;
+import com.vidmt.lmei.activity.ConversationListActivity;
 import com.vidmt.lmei.R;
 import com.vidmt.lmei.activity.MessagesActivity;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import io.rong.imkit.model.UIConversation;
 
+/**
+ * 消息页长按消息，弹出从会话列表移除提示
+ */
 public class ConversionlistDialog extends BaseDialog{
 
 

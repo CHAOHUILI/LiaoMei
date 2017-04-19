@@ -111,9 +111,10 @@
     <string name="wallet1">账户余额</string>
     <string name="authentication15">立即上传</string>
     <string name="authentication14">示例视频</string>
-    <string name="authentication13">3.严禁上传非法视频，被举报后将永久封号</string>
-    <string name="authentication12">2.尽量保证可以清晰的看到您的五官</string>
-    <string name="authentication11">1.可以上传美拍、小咖秀等第三方软件上拍摄好的视频</string>
+    <string name="authentication13">4.严禁上传非法视频，被举报后将永久封号</string>
+    <string name="authentication12">3.尽量保证可以清晰的看到您的五官</string>
+    <string name="authentication11">2.可以上传美拍、小咖秀等第三方软件上拍摄好的视频</string>
+    <string name="authentication_self">1.请保上传的自拍视频是本人</string>
     <string name="authentication10">温馨提示:</string>
     <string name="authentication9">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;请上传一段拍摄好的小视频，上传后该视频会展示在您的个人资料页面，认证视频可以让您的资料更加真实，极大的提高用户对您的关注度。</string>
     <string name="authentication8">认证视频:</string>
@@ -126,7 +127,7 @@
     <string name="authentication6">模仿以上动作可提高认证通过率</string>
     <string name="authentication5">3.自拍照仅用于认证，官方将对照片保密</string>
     <string name="authentication4">2.请保证自拍照片五官清晰</string>
-    <string name="authentication3">1.请保证自拍为本人</string>
+    <string name="authentication3">1.请保证自拍照片与已上传头像均为本人</string>
     <string name="authentication2">温馨提示:</string>
     <string name="authentication1">通过聊妹官方认证以后，即可获得认证标示，真实身份，更加权威，有效提高聊妹关注度。</string>
     <string name="authenticationvideo">视频上传</string>

@@ -2,22 +2,15 @@ package com.vidmt.lmei.activity;
 
 import java.util.List;
 
-import com.google.gson.reflect.TypeToken;
 import com.ta.annotation.TAInjectView;
-import com.vidmt.lmei.ConversationListActivity;
 import com.vidmt.lmei.R;
-import com.vidmt.lmei.R.id;
-import com.vidmt.lmei.R.layout;
-import com.vidmt.lmei.R.menu;
 import com.vidmt.lmei.constant.Constant;
 import com.vidmt.lmei.controller.Person_Service;
-import com.vidmt.lmei.dialog.ConnectionUtil;
 import com.vidmt.lmei.entity.Persion;
 import com.vidmt.lmei.util.rule.ManageDataBase;
 import com.vidmt.lmei.util.think.JsonUtil;
 import com.vidmt.lmei.widget.RoundImageView;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -37,6 +30,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * 主页个人activity
+ */
 public class PersonalCenterActivity extends BaseActivity {
 	private long exitTime = 0;
 	@TAInjectView(id = R.id.headerthemeleft)
@@ -87,6 +83,8 @@ public class PersonalCenterActivity extends BaseActivity {
 	LinearLayout rechargelin;
 	@TAInjectView(id = R.id.message)
 	LinearLayout message;
+	@TAInjectView(id = R.id.settings2)
+	LinearLayout settting2;
 	@TAInjectView(id = R.id.helpcenterlin)
 	LinearLayout helpcenterlin;
 	int voice_state = 0;
@@ -221,7 +219,7 @@ public class PersonalCenterActivity extends BaseActivity {
 			super.handleMessage(msg);
 			switch (msg.what) {
 
-			case 4:
+			case 4://更新数据
 				if (msg.obj != null && !msg.obj.equals("")) {
 					String str = (String) msg.obj;
 					if (!str.equals("") && !str.equals(JsonUtil.ObjToJson(Constant.ERROR))) {
@@ -229,7 +227,7 @@ public class PersonalCenterActivity extends BaseActivity {
 						ManageDataBase.Delete(dbutil, Persion.class,null);
 						ManageDataBase.Insert(dbutil, Persion.class, p);
 						b_person = p;
-						if (b_person.getYet_photo() == 0 || b_person.getYet_video() == 0) {
+						if (b_person.getYet_photo() == 0 || b_person.getYet_video() == 0) {//已完成认证
 							authenticationmoney.setVisibility(View.VISIBLE);
 						}else{
 							authenticationmoney.setVisibility(View.GONE);
@@ -308,7 +306,9 @@ public class PersonalCenterActivity extends BaseActivity {
 					StartActivity(BlacklistActivity.class);
 					break;
 				case R.id.headerright:
-
+					StartActivity(UserSettingsActivity.class);
+					break;
+				case R.id.settings2:
 					StartActivity(UserSettingsActivity.class);
 					break;
 				case R.id.tolllin:
@@ -340,6 +340,7 @@ public class PersonalCenterActivity extends BaseActivity {
 		tolllin.setOnClickListener(onClickListener);
 		rechargelin.setOnClickListener(onClickListener);
 		message.setOnClickListener(onClickListener);
+		settting2.setOnClickListener(onClickListener);
 		helpcenterlin.setOnClickListener(onClickListener);
 	}
 

@@ -62,6 +62,9 @@ import android.widget.Toast;
 import pay.alipay.sign.AuthResult;
 import pay.alipay.sign.PayResult;
 
+/**
+ * 用户充值页
+ */
 public class UserRechargeActivity extends BaseActivity {
 	@TAInjectView(id = R.id.headerthemeleft)
 	RelativeLayout headerthemeleft;

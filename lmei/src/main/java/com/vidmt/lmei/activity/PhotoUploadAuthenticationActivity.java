@@ -42,6 +42,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * 照片认证上传页
+ */
 public class PhotoUploadAuthenticationActivity extends BaseActivity {
 
 	@TAInjectView(id = R.id.headerthemeleft)
@@ -280,7 +283,7 @@ public class PhotoUploadAuthenticationActivity extends BaseActivity {
 	 * 
 	 * @param uri
 	 *            照片路径
-	 * @param size
+	 * @paramsize
 	 *            裁剪大小
 	 */
 	private void startPhotoZoom(Uri uri) {

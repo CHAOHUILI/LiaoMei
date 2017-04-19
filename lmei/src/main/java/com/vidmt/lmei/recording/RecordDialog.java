@@ -36,7 +36,7 @@ public class RecordDialog {
 	/** 显示录音振幅的图片缓存 */
 	private Drawable[] progressImg = new Drawable[7];
 	/** 取消按钮 */
-	private ImageView btn_cancel;
+	private TextView btn_cancel;
 	/** 显示录音振幅 */
 	private TextView btn_submit;
 	/** 显示计时器 */
@@ -88,7 +88,7 @@ public class RecordDialog {
 		dialog.setOnDismissListener(onDismissListener);// 设置对话框回退键监听
 
 		progress = (ImageView) dialog_view.findViewById(R.id.sound_progress);// 振幅进度条
-		btn_cancel = (ImageView) dialog_view.findViewById(R.id.cancel);// 取消键
+		btn_cancel = (TextView) dialog_view.findViewById(R.id.cancel);// 取消键
 		btn_submit = (TextView) dialog_view.findViewById(R.id.submit);// 提交键
 		mic_icon = (ImageView) dialog.findViewById(R.id.mic);// 状态图标
 		dialog_title = (TextView) dialog.findViewById(R.id.title);// 标题
@@ -161,7 +161,7 @@ public class RecordDialog {
 				return;
 			}
 
-			Toast.makeText(context, msg, 1).show();
+			Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
 		}
 	};
 	/** 回调振幅，根据振幅设置图片 */

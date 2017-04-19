@@ -23,6 +23,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+/**
+ * 设置密码，暂无用
+ */
 public class UpdatePwdActivity extends BaseActivity {
 
 	@TAInjectView(id = R.id.update_password)

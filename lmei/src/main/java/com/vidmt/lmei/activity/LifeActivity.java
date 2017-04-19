@@ -10,6 +10,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * 没发现用处
+ */
 public class LifeActivity extends Activity {
 
 	@Override

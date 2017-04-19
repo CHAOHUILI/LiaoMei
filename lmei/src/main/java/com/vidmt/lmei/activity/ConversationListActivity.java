@@ -1,44 +1,24 @@
-package com.vidmt.lmei;
+package com.vidmt.lmei.activity;
 
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.google.gson.reflect.TypeToken;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 import com.ta.TAApplication;
-import com.vidmt.lmei.ConversationListActivity;
+import com.vidmt.lmei.Application;
 import com.vidmt.lmei.R;
-import com.vidmt.lmei.activity.FooterPageActivity;
-import com.vidmt.lmei.activity.HomeDetailActivity;
-import com.vidmt.lmei.activity.MyConversationListBehaviorListener;
-import com.vidmt.lmei.activity.SealAppContext;
-import com.vidmt.lmei.constant.Constant;
 import com.vidmt.lmei.controller.Person_Service;
-import com.vidmt.lmei.dialog.ConnectionUtil;
 import com.vidmt.lmei.dialog.LoadingDialog;
-import com.vidmt.lmei.entity.Image;
 import com.vidmt.lmei.entity.Persion;
-import com.vidmt.lmei.entity.Present;
-import com.vidmt.lmei.util.rule.BitmapBlurUtil;
 import com.vidmt.lmei.util.rule.ScreenUtils;
-import com.vidmt.lmei.util.rule.SharedPreferencesUtil;
 import com.vidmt.lmei.util.think.DbUtil;
-import com.vidmt.lmei.util.think.JsonUtil;
 
-import android.app.Activity;
 import android.app.ActionBar.LayoutParams;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -47,10 +27,7 @@ import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-import android.view.ActionMode;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -58,23 +35,21 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import cn.jpush.android.api.e;
+
 import io.rong.imkit.RongContext;
 import io.rong.imkit.RongIM;
-import io.rong.imkit.RongIM.ConversationBehaviorListener;
 import io.rong.imkit.RongIM.ConversationListBehaviorListener;
 import io.rong.imkit.fragment.ConversationListFragment;
 import io.rong.imkit.model.UIConversation;
-import io.rong.imkit.widget.ArraysDialogFragment;
-import io.rong.imkit.widget.ArraysDialogFragment.OnArraysDialogItemListener;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.RongIMClient.ConnectionStatusListener;
-import io.rong.imlib.RongIMClient.ConnectionStatusListener.ConnectionStatus;
 import io.rong.imlib.model.Conversation;
 import io.rong.imlib.model.UserInfo;
 import io.rong.imlib.model.Conversation.ConversationType;
-import u.aly.bp;
 
+/**
+ * 消息activity
+ */
 public class ConversationListActivity  extends FragmentActivity implements ConnectionStatusListener{
 	/**
 	 * 目标 Id
@@ -142,7 +117,7 @@ public class ConversationListActivity  extends FragmentActivity implements Conne
 				@Override
 				public void run() {
 
-					enterActivity();
+					enterActivity();//连接融云
 				}
 			}, 300);
 		} else {
@@ -261,7 +236,7 @@ public class ConversationListActivity  extends FragmentActivity implements Conne
 			LinearLayout linheader = (LinearLayout) findViewById(R.id.linheader);
 			if (linheader != null) {
 				int height = linheader.getLayoutParams().height;
-				linheader.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, height + bits));
+				linheader.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, height + bits));//代碼里重新設置佈局參數
 			}
 		}
 	}
@@ -483,13 +458,13 @@ public class ConversationListActivity  extends FragmentActivity implements Conne
 
 	/**
 	 * 收到 push 消息后，选择进入哪个 Activity
-	 * 如果程序缓存未被清理，进入 MainActivity
+	 * 如果程序缓存未被清理，进入 SplashActivity
 	 * 程序缓存被清理，进入 LoginActivity，重新获取token
 	 * <p/>
 	 * 作用：由于在 manifest 中 intent-filter 是配置在 ConversationActivity 下面，所以收到消息后点击notifacition 会跳转到 DemoActivity。
-	 * 以跳到 MainActivity 为例：
-	 * 在 ConversationActivity 收到消息后，选择进入 MainActivity，这样就把 MainActivity 激活了，当你读完收到的消息点击 返回键 时，程序会退到
-	 * MainActivity 页面，而不是直接退回到 桌面。
+	 * 以跳到 SplashActivity 为例：
+	 * 在 ConversationActivity 收到消息后，选择进入 SplashActivity，这样就把 SplashActivity 激活了，当你读完收到的消息点击 返回键 时，程序会退到
+	 * SplashActivity 页面，而不是直接退回到 桌面。
 	 */
 	private void enterActivity() {
 
@@ -516,13 +491,11 @@ public class ConversationListActivity  extends FragmentActivity implements Conne
 
 
 		if ("default".equals(tokens)) {
-			Log.e("ConversationActivity push", "push2");
 			//			startActivity(new Intent(ConversationActivity.this, LoginActivity.class));
 			//			finish();
 			Toast.makeText(ConversationListActivity.this, "加载", Toast.LENGTH_SHORT).show();
 			reconnect(tokens);
 		} else {
-			Log.e("ConversationActivity push", "push3");
 			reconnect(tokens);
 		}
 	}
@@ -545,7 +518,7 @@ public class ConversationListActivity  extends FragmentActivity implements Conne
 
 				//
 				//                Intent intent = new Intent();
-				//                intent.setClass(ConversationActivity.this, MainActivity.class);
+				//                intent.setClass(ConversationActivity.this, SplashActivity.class);
 				//                intent.putExtra("PUSH_CONVERSATIONTYPE", mConversationType.toString());
 				//                intent.putExtra("PUSH_TARGETID", mTargetId);
 				//                startActivity(intent);

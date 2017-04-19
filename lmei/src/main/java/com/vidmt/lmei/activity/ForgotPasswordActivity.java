@@ -10,6 +10,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * 没啥用
+ */
 public class ForgotPasswordActivity extends Activity {
 
 	@Override

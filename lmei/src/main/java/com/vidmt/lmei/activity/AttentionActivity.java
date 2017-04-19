@@ -46,6 +46,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
+/**
+ * 主页好友，关注activity
+ */
 public class AttentionActivity extends BaseActivity implements OnHeaderRefreshListener, OnFooterRefreshListener{
 	public static LoadingDialog dialog = null;
 	@TAInjectView(id = R.id.pull_attention)

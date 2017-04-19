@@ -1,11 +1,10 @@
 package com.vidmt.lmei.entity;
 
 
-
-
+/**
+ * json转换类型
+ */
 public class Address {
-	
-
 
     private String returnPath;//正常返回地址
 	
@@ -30,7 +29,6 @@ public class Address {
 	public String getThumbnails() {
 		return thumbnails;
 	}
-
 	public void setThumbnails(String thumbnails) {
 		thumbnails = thumbnails;
 	}

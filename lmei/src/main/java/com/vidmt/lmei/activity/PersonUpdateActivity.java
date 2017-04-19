@@ -115,6 +115,9 @@ import kankan.wheel.widget.OnWheelChangedListener;
 import kankan.wheel.widget.WheelView1;
 import kankan.wheel.widget.adapters.ArrayWheelAdapter;
 
+/**
+ * 个人详情页，点击个人信息页头像进入
+ */
 public class PersonUpdateActivity extends BaseActivity {
 
 	@TAInjectView(id = R.id.linheader)
@@ -269,8 +272,10 @@ public class PersonUpdateActivity extends BaseActivity {
 	int exitshow = 0;
 	String mp4url = null;
 	int pdclose = 0;
+	BroadcastReceiver broadcastReceiver;
 
 	static LoadingDialog dialog = null;
+	private IntentFilter intentToReceiveFilter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -281,6 +286,15 @@ public class PersonUpdateActivity extends BaseActivity {
 		InitView();
 		loaduserinfo();
 		personfresh();
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		if(broadcastReceiver!=null){
+			unregisterReceiver(broadcastReceiver);
+
+		}
 	}
 
 	@Override
@@ -324,7 +338,7 @@ public class PersonUpdateActivity extends BaseActivity {
 	}
 
 	private void personfresh() {
-		BroadcastReceiver broadcastReceiver = new BroadcastReceiver()
+		broadcastReceiver = new BroadcastReceiver()
 
 		{
 			@Override
@@ -332,7 +346,7 @@ public class PersonUpdateActivity extends BaseActivity {
 				loaduserinfo();
 			}
 		};
-		IntentFilter intentToReceiveFilter = new IntentFilter();
+		intentToReceiveFilter = new IntentFilter();
 		intentToReceiveFilter.addAction("personupdate");
 		registerReceiver(broadcastReceiver, intentToReceiveFilter);
 	}
@@ -1179,12 +1193,12 @@ public class PersonUpdateActivity extends BaseActivity {
 		intent.putExtra("crop", "true");
 		// aspectX aspectY 是宽高的比例
 		intent.putExtra("aspectX", 9);
-		intent.putExtra("aspectY", 11);
+		intent.putExtra("aspectY", 9);
 		intent.putExtra("scale", true);
 		intent.putExtra("scaleUpIfNeeded", true);
 		// outputX,outputY 是剪裁图片的宽高
 		intent.putExtra("outputX", 360);
-		intent.putExtra("outputY", 440);
+		intent.putExtra("outputY", 360);
 		intent.putExtra("onFaceDetection", true);
 		// intent.putExtra("return-data", true);
 		tempFile = Uri
@@ -1197,7 +1211,6 @@ public class PersonUpdateActivity extends BaseActivity {
 	/**
 	 * 保存裁剪之后的图片数据
 	 * 
-	 * @param picdata
 	 */
 	private void setPicToView(Bitmap bitmaps, int cjtype) {
 
@@ -1274,10 +1287,10 @@ public class PersonUpdateActivity extends BaseActivity {
 
 	public class BirthdayPopuWindow extends PopupWindow {
 		Calendar c = Calendar.getInstance();
-		int norYear = c.get(Calendar.YEAR);
-		int curYear = mYear;
-		int curMonth = mMonth + 1;
-		int curDate = mDay;
+//		int norYear = c.get(Calendar.YEAR);
+//		int curYear = mYear;
+//		int curMonth = mMonth + 1;
+//		int curDate = mDay;
 
 		public BirthdayPopuWindow(Context mContext, View parent) {
 			View view = View.inflate(mContext, R.layout.wheel_date_picker, null);
@@ -1352,9 +1365,9 @@ public class PersonUpdateActivity extends BaseActivity {
 			month.setVisibleItems(7);
 			day.setVisibleItems(7);
 
-			year.setCurrentItem(curYear - 1950);
-			month.setCurrentItem(curMonth - 1);
-			day.setCurrentItem(curDate - 1);
+			year.setCurrentItem(1999);
+			month.setCurrentItem(1);
+			day.setCurrentItem(1);
 
 			return view;
 		}
@@ -2035,6 +2048,7 @@ public class PersonUpdateActivity extends BaseActivity {
 		mPlayer.reset();
 		super.onResume();
 	}
+
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {

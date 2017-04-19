@@ -24,6 +24,9 @@ import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+/**
+ * 黑名单，朋友，关注，粉丝
+ */
 public class AdapterFriends extends BaseAdapter {
 	private Context context;
 	private List<Persion> list;

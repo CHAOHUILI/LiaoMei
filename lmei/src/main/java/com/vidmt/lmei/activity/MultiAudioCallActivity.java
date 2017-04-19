@@ -34,6 +34,9 @@ import io.rong.imlib.model.Discussion;
 import io.rong.imlib.model.UserInfo;
 import io.rong.message.InformationNotificationMessage;
 
+/**
+ * 多人语言，暂无用
+ */
 public class MultiAudioCallActivity extends BaseCallActivity {
 	private static final String TAG = "VoIPMultiAudioCallActivity";
 	LinearLayout maudioContainer;

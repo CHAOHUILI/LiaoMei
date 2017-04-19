@@ -48,6 +48,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
+/**
+ * 主页好友，好友的activity
+ */
 public class FriendsActivity extends BaseActivity implements OnHeaderRefreshListener, OnFooterRefreshListener {
 	public static LoadingDialog dialog = null;
 	@TAInjectView(id = R.id.pull_friends)

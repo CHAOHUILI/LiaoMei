@@ -1,412 +1,122 @@
 package com.vidmt.lmei.activity;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-import com.ta.TAApplication;
+import cn.jpush.android.api.BasicPushNotificationBuilder;
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
+import io.rong.imkit.RongIM;
+import io.rong.imlib.RongIMClient;
+import io.rong.imlib.model.Conversation;
+import io.rong.imlib.model.UserInfo;
+
 import com.ta.annotation.TAInjectView;
+import com.ta.util.TALogger;
 import com.vidmt.lmei.Application;
-import com.vidmt.lmei.CloseAccountActivity;
 import com.vidmt.lmei.R;
-import com.vidmt.lmei.R.id;
-import com.vidmt.lmei.R.layout;
-import com.vidmt.lmei.R.menu;
-import com.vidmt.lmei.adapter.AppStratAdapter;
-import com.vidmt.lmei.constant.Constant;
-import com.vidmt.lmei.controller.DownLoadManager;
-import com.vidmt.lmei.controller.Person_Service;
-import com.vidmt.lmei.dialog.ConnectionUtil;
-import com.vidmt.lmei.dialog.UpdateVersionDialog;
-import com.vidmt.lmei.dialog.UpdateVersionMustDialog;
 import com.vidmt.lmei.entity.Persion;
-import com.vidmt.lmei.entity.Version;
-import com.vidmt.lmei.util.rule.ManageDataBase;
-import com.vidmt.lmei.util.rule.SharedPreferencesUtil;
-import com.vidmt.lmei.util.think.DbUtil;
-import com.vidmt.lmei.util.think.JsonUtil;
-import com.vidmt.lmei.activity.LoginActivity;
-import com.vidmt.lmei.activity.MainActivity;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.annotation.SuppressLint;
+import android.app.LocalActivityManager;
+import android.app.Notification;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.Uri;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
-import android.widget.Button;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.RadioButton;
+import android.widget.TabHost;
+import android.widget.TextView;
+import android.widget.TabHost.OnTabChangeListener;
 import android.widget.Toast;
-import android.widget.ImageView.ScaleType;
-import cn.jpush.android.api.JPushInterface;
-import io.rong.calllib.RongCallClient;
-import io.rong.calllib.RongCallCommon;
-import io.rong.imkit.RongIM;
-import io.rong.imkit.RongIM.ConversationListBehaviorListener;
-import io.rong.imkit.model.UIConversation;
-import io.rong.imlib.RongIMClient;
-import io.rong.imlib.RongIMClient.ConnectionStatusListener;
-import io.rong.imlib.RongIMClient.ConnectionStatusListener.ConnectionStatus;
-import io.rong.imlib.model.UserInfo;
-import io.rong.imlib.model.Conversation.ConversationType;
+import android.widget.TabHost.TabSpec;
 
-public class MainActivity extends BaseActivity implements OnPageChangeListener {
-	@TAInjectView(id = R.id.main_line)
-	LinearLayout line;
-	private ImageView[] point;// 底部小圆点
-	private int currentId = 0;// 当前ID
-	private ViewPager pager;
-	private List<View> views;//
-	private int[] imageVeiwResourceId = { R.drawable.main_img1, R.drawable.main_img2, R.drawable.main_img3 };
-	private AppStratAdapter adapter;
-	public static MainActivity mainactivity;
-	private int type = 0;
-	Version version;
-
+/**
+ * 应用主界面页，包含四个activity
+ */
+@SuppressLint("NewApi")
+public class MainActivity extends BaseActivity implements OnTabChangeListener {
+	public static TabHost tabHost;
+//	@TAInjectView(id = R.id.radiogroup)
+//	public static RadioGroup radioGroup;
+	private long exitTime = 0;
+	private String[] tabStrs = new String[]{"广场","消息","好友","我的"};
+	
+	@TAInjectView(id = R.id.main_footbar_home)
+	RadioButton home;
+	@TAInjectView(id = R.id.main_footbar_bulk)
+	RadioButton ms;
+	@TAInjectView(id = R.id.main_footbar_community)
+	RadioButton find;
+	@TAInjectView(id = R.id.main_footbar_personal)
+	RadioButton main_footbar_personal;
+	@TAInjectView(id=R.id.tipcnt_tvs)
+	TextView tipcnt_tvs;
+	@TAInjectView(id=R.id.tipcnt_tvbg)
+	ImageView tipcnt_tvbg;
+	public static Handler handler;
+	@TAInjectView(id=R.id.lookme)
+	ImageView lookme;
+	public static boolean isshowHd;//true 显示
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		mainactivity = this;
-		requestWindowFeature(Window.FEATURE_NO_TITLE); // 设置无标题
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); // 设置全屏
-		type = SharedPreferencesUtil.getInt(MainActivity.this, "dog", 0);
-		if (ConnectionUtil.isConn(activity) == false) {
-			// ConnectionUtil.setNetworkMethod(activity);
-			Toast.makeText(context, "网络未连接", Toast.LENGTH_SHORT).show();
-			// toast(8);
-		}
-
-		if (type == 0) {
-			SharedPreferencesUtil.putInt(MainActivity.this, "dog", 1);
-			InitView();
-			setPoint();
-		} else {
-			View view = View.inflate(this, R.layout.last_guide, null);
-			setContentView(view);
-			RelativeLayout rela = (RelativeLayout) view.findViewById(R.id.last_background);
-			rela.setBackgroundResource(R.drawable.main_img4);
-			Button submit = (Button) view.findViewById(R.id.guide_start_app);
-			submit.setVisibility(View.GONE);
-			// 渐变展示启动屏
-			AlphaAnimation aa = new AlphaAnimation(0.0f, 0.0f);
-			aa.setDuration(3000);
-			view.startAnimation(aa);
-			aa.setAnimationListener(new AnimationListener() {
-
-				@Override
-				public void onAnimationStart(Animation animation) {
-
-					// TODO Auto-generated method stub
-
-
-				    //toast(1);
-
-				
-
-					checkVersionUpdate();
-					/*
-					 * if(b_person!=null){ //ToastShow("connect");
-					 * //ToastShow("--onTokenIncorrect");
-					 * connect(b_person.getRongyuntoken(), b_person);
-					 * //StartActivity(FooterPageActivity.class); }else{
-					 * StartActivity(LoginActivity.class); }
-					 */
-
-				}
-
-				@Override
-				public void onAnimationRepeat(Animation animation) {
-					// TODO Auto-generated method stub
-
-				}
-
-				@Override
-				public void onAnimationEnd(Animation animation) {
-					// TODO Auto-generated method stub
-
-				}
-			});
-		}
-
-	}
-
-	@Override
-	public void InitView() {
-		// TODO Auto-generated method stub
-		super.InitView();
-		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View view = inflater.inflate(R.layout.activity_main, null);
-		setContentView(view);
-		pager = (ViewPager) this.findViewById(R.id.main_viewpager);
-
-		views = new ArrayList<View>();
-
-		for (int i = 0; i < imageVeiwResourceId.length; i++) {
-			ImageView imageView = new ImageView(this);
-			imageView.setImageResource(imageVeiwResourceId[i]);
-			imageView.setScaleType(ScaleType.FIT_XY);
-			views.add(imageView);
-		}
-		adapter = new AppStratAdapter(views, MainActivity.this);
-		pager.setAdapter(adapter);
-		pager.setOnPageChangeListener(this);
-
-	}
-
-	/**
-	 * 设置小圆点
-	 * 
-	 */
-	private void setPoint() {
-		// LinearLayout ll = (LinearLayout)
-		// this.findViewById(R.id.viewpager_ll);
-		point = new ImageView[line.getChildCount()];
-		for (int i = 0; i < line.getChildCount(); i++) {
-			if (currentId == i) {
-				point[i] = (ImageView) line.getChildAt(i);
-				point[i].setImageResource(R.drawable.point_focus);
-			} else {
-				point[i] = (ImageView) line.getChildAt(i);
-				point[i].setImageResource(R.drawable.point_normal);
-			}
-		}
-
-	}
-
-	public void checkVersionUpdate() {
-		new Thread(new Runnable() {
+		setContentView(R.layout.activity_footer_page);
+		InitView(savedInstanceState);
+		
+		initData();
+		
+		registerBoradcastReceiver();
+		registerBoradcastReceiver2();
+		closeapp();
+		//		initJpush();
+		handler = mUIHandler;
+		if(RongIM.getInstance()!=null && RongIM.getInstance().getRongIMClient()!=null){
+		Handler handler = new Handler();
+		handler.postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				String info;
-				try { 
-					info = Person_Service.VersionUpdate();
-				} catch (Exception e) {
-					info=null;
-				}
-				Message msg = muHandler.obtainMessage(1);
-				msg.obj = info;
-				msg.sendToTarget();
+				RongIM.getInstance().setOnReceiveUnreadCountChangedListener(mCountListener, Conversation.ConversationType.PRIVATE);;
 			}
-		}).start();
-	}
+		}, 1500);
 
-	private Handler muHandler = new Handler() {
+	}else {
+
+		connect(b_person.getRongyuntoken(), b_person);
+
+
+	}
+		//	SealAppContext.init(MainActivity.this);
+	}
+	private Handler mUIHandler = new Handler()
+	{
 
 		@Override
 		public void handleMessage(Message msg) {
 			// TODO Auto-generated method stub
 			super.handleMessage(msg);
-			Intent intent = null;
 			switch (msg.what) {
 			case 1:
-				if (msg.obj != null) {
-
-				   // toast(11);
-
-					
-
-					String json = (String) msg.obj;
-					if (!json.equals("") && !json.equals(JsonUtil.ObjToJson(Constant.FAIL))) {
-						
-						version = JsonUtil.JsonToObj(json, Version.class);
-						Double apk_version = Double.valueOf(version.getTitle());
-						// toast(version.getTitle());
-						Double android_apk = Double.valueOf(getVersionName());
-						if (apk_version.equals(android_apk)) {
-							List<Persion> list = ManageDataBase.SelectList(dbutil, Persion.class, null);
-							if (list.size() > 0) {
-								b_person = list.get(0);
-								if (b_person != null) {
-									
-
-									if (RongIM.getInstance() == null || RongIM.getInstance().getRongIMClient() == null) {
-					
-										connect(b_person.getRongyuntoken(), b_person);
-									}else {
-						
-										StartActivity(FooterPageActivity.class);
-
-									}
-
-
-
-
-									// StartActivity(FooterPageActivity.class);
-								} else {
-									StartActivity(LoginActivity.class);
-								}
-							}else {
-								StartActivity(LoginActivity.class);
-							}
-						} else if (android_apk < apk_version) {
-							if (version.getMust() != null && version.getMust() == 1) {
-								UpdateVersionMustDialog _UpdateVersionDialog = UpdateVersionMustDialog
-										.show(MainActivity.this, R.style.mobile_dialog_full_window_dialog, "", 1);
-								_UpdateVersionDialog.show();
-							} else {
-								UpdateVersionDialog _UpdateVersionDialog = UpdateVersionDialog.show(MainActivity.this,
-										R.style.mobile_dialog_full_window_dialog, "", 1);
-								_UpdateVersionDialog.show();
-							}
-						} else {
-							List<Persion> list = ManageDataBase.SelectList(dbutil, Persion.class, null);
-							if (list.size() > 0) {
-								b_person = list.get(0);
-								if (b_person != null) {
-									// toast(3);
-
-
-									if (RongIM.getInstance() == null || RongIM.getInstance().getRongIMClient() == null) {
-					
-										connect(b_person.getRongyuntoken(), b_person);
-									}else {
-						
-										StartActivity(FooterPageActivity.class);
-
-									}
-
-
-
-									// StartActivity(FooterPageActivity.class);
-								} else {
-									StartActivity(LoginActivity.class);
-								}
-							}else {
-								StartActivity(LoginActivity.class);
-							}
-						}
-					} else {
-						//toast(112);
-						List<Persion> list = ManageDataBase.SelectList(dbutil, Persion.class, null);
-						if (list.size() > 0) {
-							b_person = list.get(0);
-							if (b_person != null) {
-							
-
-
-
-								if (RongIM.getInstance() == null || RongIM.getInstance().getRongIMClient() == null) {
-									
-									connect(b_person.getRongyuntoken(), b_person);
-								}else {
-									 
-									StartActivity(FooterPageActivity.class);
-
-								}
-
-
-
-								//connect(b_person.getRongyuntoken(), b_person);
-
-
-
-
-								// StartActivity(FooterPageActivity.class);
-							} else {
-								
-								StartActivity(LoginActivity.class);
-							}
-						}else {
-							
-							StartActivity(LoginActivity.class);
-						}
-
-					}
-
-				} else {
-					//toast(12);
-					List<Persion> list = ManageDataBase.SelectList(dbutil, Persion.class, null);
-					if (list.size() > 0) {
-						b_person = list.get(0);
-						if (b_person != null) {
-					
-
-							if (RongIM.getInstance() == null || RongIM.getInstance().getRongIMClient() == null) {
-			
-								connect(b_person.getRongyuntoken(), b_person);
-							}else {
-				
-								StartActivity(FooterPageActivity.class);
-
-							}
-							//connect(b_person.getRongyuntoken(), b_person);
-
-
-							// StartActivity(FooterPageActivity.class);
-						} else {
-							StartActivity(LoginActivity.class);
-						}
-					}else {
-						StartActivity(LoginActivity.class);
+				if(msg.obj!=null)
+				{
+					String mes = (String)msg.obj;
+					if(!mes.isEmpty())
+					{
+						//						Drawable drawable=getResources().getDrawable(R.drawable.f_personal_style2); 
+						//						main_footbar_personal.setCompoundDrawablesRelativeWithIntrinsicBounds(null, drawable, null, null);
 					}
 				}
 				break;
-			case 2:
-				ToastShow("SD卡不可用");
-				if (b_person != null) {
-					
 
-					if (RongIM.getInstance() == null || RongIM.getInstance().getRongIMClient() == null) {
-	
-						connect(b_person.getRongyuntoken(), b_person);
-					}else {
-		
-						StartActivity(FooterPageActivity.class);
-
-					}
-					//connect(b_person.getRongyuntoken(), b_person);
-					// StartActivity(FooterPageActivity.class);
-				} else {
-					StartActivity(LoginActivity.class);
-				}
-				break;
-			case 3:
-				ToastShow("下载新版本失败,请重新下载!");
-				List<Persion> list = ManageDataBase.SelectList(dbutil, Persion.class, null);
-				if (list.size() > 0) {
-					b_person = list.get(0);
-					if (b_person != null) {
-						
-
-
-						if (RongIM.getInstance() == null || RongIM.getInstance().getRongIMClient() == null) {
-		
-							connect(b_person.getRongyuntoken(), b_person);
-						}else {
-			
-							StartActivity(FooterPageActivity.class);
-
-						}
-
-
-						// StartActivity(FooterPageActivity.class);
-					} else {
-						StartActivity(LoginActivity.class);
-					}
-				}else {
-					StartActivity(LoginActivity.class);
-				}
-				break;
 			default:
 				break;
 			}
@@ -414,116 +124,231 @@ public class MainActivity extends BaseActivity implements OnPageChangeListener {
 
 	};
 
-	/*
-	 * 获取当前程序的版本号
-	 */
-	private String getVersionName() {
-		// 获取packagemanager的实例
-		PackageManager packageManager = getPackageManager();
-		// getPackageName()是你当前类的包名，0代表是获取版本信息
-		PackageInfo packInfo = null;
-		try {
-			packInfo = packageManager.getPackageInfo(getPackageName(), 0);
-		} catch (NameNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	private void closeapp() {
+		BroadcastReceiver broadcastReceiver = new BroadcastReceiver()
+
+		{
+			@Override
+			public void onReceive(Context context, Intent intent) {
+				finish();			
+				StartActivity(LoginActivity.class);
+			}
+		};
+		IntentFilter intentToReceiveFilter = new IntentFilter();
+		intentToReceiveFilter.addAction("closeapp");
+		registerReceiver(broadcastReceiver, intentToReceiveFilter);
+	}
+	//设置别名用来发消息
+	private  void initJpush()
+	{
+		//设置消息栏样式
+		BasicPushNotificationBuilder builder = new BasicPushNotificationBuilder(getApplicationContext());
+		builder.statusBarDrawable = R.drawable.ic_launcher;
+		builder.notificationFlags = Notification.FLAG_AUTO_CANCEL;  //设置为点击后自动消失
+		builder.notificationDefaults = Notification.DEFAULT_SOUND;  //设置为铃声（ Notification.DEFAULT_SOUND）或者震动（ Notification.DEFAULT_VIBRATE）  
+		JPushInterface.setPushNotificationBuilder(1, builder);
+		//设置接受信息的数量
+		JPushInterface.setLatestNotificationNumber(getApplicationContext(),3);
+		//设置别名，用户id为别名
+		Set<String> set = new HashSet<String>();
+		set.add("all"); // 这指定all 是给所有安装爱狗之家发信息             set是TAG
+		//String a = String.valueOf(1);    //别名  指定给某个用户发
+		JPushInterface.setAliasAndTags(getApplicationContext(), null, set, mAliasCallback);
+	}
+
+	private final TagAliasCallback mAliasCallback = new TagAliasCallback() {
+
+		@Override
+		public void gotResult(int code, String alias, Set<String> tags) {
+			String logs ;
+			switch (code) {
+			case 0:
+				logs = "Set tag and alias success";
+				TALogger.e("jpush success", logs);
+				break;     
+			case 6002:
+				logs = "Failed to set alias and tags due to timeout. Try again after 60s.";
+				TALogger.e("jpush Failed", logs);
+				break;
+			default:
+				logs = "Failed with errorCode = " + code;
+				TALogger.e("jpush Failed", logs);
+			}
 		}
-		return packInfo.versionName;
-	}
 
-	@Override
-	public void onPageScrollStateChanged(int arg0) {
+	};
+
+	public void InitView(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
+		tabHost = (TabHost)findViewById(R.id.thost);
+		LocalActivityManager  localActivityManager= new LocalActivityManager(this,true);
+		localActivityManager.dispatchCreate(savedInstanceState);
+		tabHost.setup(localActivityManager);
+		TabSpec tabSpec = tabHost.newTabSpec(tabStrs[0]).
+				setIndicator(tabStrs[0]).setContent(getTabItemIntent(HomeActivity.class));
+		TabSpec tabSpec1 = tabHost.newTabSpec(tabStrs[1]).
+				setIndicator(tabStrs[1]).setContent(getTabItemIntent(ConversationListActivity.class));
 
+		TabSpec tabSpec2 = tabHost.newTabSpec(tabStrs[2]).
+				setIndicator(tabStrs[2]).setContent(getTabItemIntent(MyFriendsActivity.class));
+		TabSpec tabSpec3 = tabHost.newTabSpec(tabStrs[3]).
+				setIndicator(tabStrs[3]).setContent(getTabItemIntent(PersonalCenterActivity.class));
+		tabHost.addTab(tabSpec);
+		tabHost.addTab(tabSpec1);
+		tabHost.addTab(tabSpec2);
+		tabHost.addTab(tabSpec3);
 	}
 
-	@Override
-	public void onPageScrolled(int arg0, float arg1, int arg2) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void onPageSelected(int arg0) {
-		// TODO Auto-generated method stub
-		currentId = arg0;
-		setPoint();
-		if (currentId == 2) {
-			new Handler().postDelayed(new Runnable() {
-
-				@Override
-				public void run() {
-					// TODO Auto-generated method stub
-					List<Persion> list = ManageDataBase.SelectList(dbutil, Persion.class, null);
-					if (list.size() > 0) {
-						b_person = list.get(0);
-						if (b_person != null) {
-							
-							connect(b_person.getRongyuntoken(), b_person);
-							// StartActivity(FooterPageActivity.class);
-						} else {
-							StartActivity(LoginActivity.class);
-						}
-					}else {
-						StartActivity(LoginActivity.class);
-					}
-				}
-			}, 1000);
-
-		}
-	}
-
-	/*
-	 * 从服务器中下载APK
+	/**
+	 * 初始化组件
 	 */
-	public void downLoadApk() {
-		final ProgressDialog pd = new ProgressDialog(MainActivity.this); // 进度条对话框
-		pd.setCancelable(false);
-		pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-		pd.setMessage("正在下载更新");
-		if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-			pd.dismiss();
-			Message msg = muHandler.obtainMessage(2);
-			msg.obj = 2;
-			msg.sendToTarget();
-		} else {
-			pd.show();
-			new Thread() {
-				@Override
-				public void run() {
+	private void initData() {
+		// 给radioGroup设置监听事件
+		
+
+		home.setChecked(true);
+		tabHost.setCurrentTabByTag(tabStrs[0]);
+		OnClickListener onclick = new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				switch(v.getId()){
+				case R.id.main_footbar_home:
+					getcount(false);
+					tabHost.setCurrentTabByTag(tabStrs[0]);
+					ms.setChecked(false);
+					find.setChecked(false);
+					main_footbar_personal.setChecked(false);
+					break;
+				case R.id.main_footbar_bulk:
+					getcount(false);
+					tabHost.setCurrentTabByTag(tabStrs[1]);
+					home.setChecked(false);
+					find.setChecked(false);
+					main_footbar_personal.setChecked(false);
+					break;
+				case R.id.main_footbar_community:
 					try {
-						File file = DownLoadManager.getFileFromServer(version.getAddress(), pd);
-						sleep(1000);
-						openFile(file);
-						pd.dismiss(); // 结束掉进度条对话框
+						tipcnt_tvs.setVisibility(View.GONE);
+						tipcnt_tvbg.setVisibility(View.GONE);
+						tabHost.setCurrentTabByTag(tabStrs[2]);
+						home.setChecked(false);
+						ms.setChecked(false);
+						main_footbar_personal.setChecked(false);
+						
+						//RongIM.getInstance().startConversationList(HomePageActivity.this);
 					} catch (Exception e) {
-						pd.dismiss();
-						Message msg = muHandler.obtainMessage(3);
-						msg.obj = 3;
-						msg.sendToTarget();
+						// TODO: handle exception
+						e.printStackTrace();
 					}
+
+					break;
+				case R.id.main_footbar_personal:
+					getcount(false);
+					tabHost.setCurrentTabByTag(tabStrs[3]);
+					home.setChecked(false);
+					ms.setChecked(false);
+					find.setChecked(false);
+
+					break;
 				}
-			}.start();
+
+			}
+		};
+		home.setOnClickListener(onclick);
+		ms.setOnClickListener(onclick);
+		find.setOnClickListener(onclick);
+		main_footbar_personal.setOnClickListener(onclick);
+
+		// 给radioGroup设置监听事件
+		//		radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+		//			Drawable drawable=null;
+		//			@SuppressLint("NewApi")
+		//			@Override
+		//			public void onCheckedChanged(RadioGroup group, int checkedId) {
+		//				switch (checkedId) {
+		//				case R.id.main_footbar_service:
+		//					tabHost.setCurrentTabByTag(tabStrs[0]);
+		//					//					ServiceMainActivity.s_num=0;
+		//					break;
+		//				case R.id.main_footbar_forum:
+		//					//					BBSMainActivity.b_num=0;
+		//					tabHost.setCurrentTabByTag(tabStrs[1]);
+		//					//					RongIM.getInstance().startConversationList(HomePageActivity.this);
+		//					//					RongIM.getInstance().startSubConversationList(HomePageActivity.this, Conversation.ConversationType.PRIVATE);
+		//					break;
+		//				case R.id.main_footbar_MS:
+		//					drawable=getResources().getDrawable(R.drawable.widget_bar_m); 
+		//					//					ms.setCompoundDrawablesRelativeWithIntrinsicBounds(null, drawable, null, null);	
+		//					tabHost.setCurrentTabByTag(tabStrs[2]);
+		//					break;
+		//				case R.id.main_footbar_find:
+		//					//					PersonalCenterActivity.per_code = 0;
+		//					//SharedPreferencesUtil.putString(HomePageActivity.this, "h_mes", "");
+		//					drawable=getResources().getDrawable(R.drawable.widget_bar_me); 
+		//					find.setCompoundDrawablesRelativeWithIntrinsicBounds(null, drawable, null, null);						
+		//					tabHost.setCurrentTabByTag(tabStrs[3]);
+		//					break;
+		//				}
+		//			}
+		//		});
+		//		((RadioButton) radioGroup.getChildAt(0)).toggle();
+	
+//
+//		radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+//			@Override
+//			public void onCheckedChanged(RadioGroup group, int checkedId) {
+//				switch (checkedId) {
+//				case R.id.main_footbar_home:
+//					tabHost.setCurrentTabByTag(tabStrs[0]);
+//					break;
+//				case R.id.main_footbar_bulk:
+//					tabHost.setCurrentTabByTag(tabStrs[1]);
+//					break;
+//				case R.id.main_footbar_community:
+//
+//					tabHost.setCurrentTabByTag(tabStrs[2]);
+//					break;
+//				case R.id.main_footbar_personal:
+//					tabHost.setCurrentTabByTag(tabStrs[3]);
+//					break;
+//				}
+//			}
+//		});
+//		((RadioButton) radioGroup.getChildAt(0)).toggle();
+	}
+
+
+	public void getcount(boolean get){}
+
+
+	/**
+	 * 给Tab选项卡设置内容（每个内容都是一个Activity）
+	 */
+	private Intent getTabItemIntent(Class classZ){
+		Intent intent = new Intent(MainActivity.this, classZ);
+		return intent;
+	}
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK
+				&& event.getAction() == KeyEvent.ACTION_DOWN) {
+			exit();
+			return true;
 		}
+		return super.onKeyDown(keyCode, event);
 	}
-
-	private void openFile(File file) {
-		// TODO Auto-generated method stub
-		Intent intent = new Intent();
-		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		intent.setAction(android.content.Intent.ACTION_VIEW);
-		intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-		startActivity(intent);
-	}
-
+	
 	/**
 	 * 建立与融云服务器的连接
 	 *
 	 * @param token
 	 */
-	private void connect(final String token, final Persion persion) {
-		// ToastShow(token);
-		if (getApplicationInfo().packageName.equals(Application.getCurProcessName(getApplicationContext()))) {
+	private void connect(final String token,final Persion persion) {
+		if (RongIM.getInstance().getRongIMClient()!=null) {
+			String	as;
+		}
+
+		if (getApplicationInfo().packageName.equals(Application.getApplication().getPackageName())) {
 
 			/**
 			 * IMKit SDK调用第二步,建立与服务器的连接
@@ -531,103 +356,137 @@ public class MainActivity extends BaseActivity implements OnPageChangeListener {
 			RongIM.connect(token, new RongIMClient.ConnectCallback() {
 
 				/**
-				 * Token 错误，在线上环境下主要是因为 Token 已经过期，您需要向 App Server 重新请求一个新的
-				 * Token
+				 * Token 错误，在线上环境下主要是因为 Token 已经过期，您需要向 App Server 重新请求一个新的 Token
 				 */
 				@Override
 				public void onTokenIncorrect() {
-					// ToastShow("--onTokenIncorrect");
-					
+
 					Log.d("LoginActivity", "--onTokenIncorrect");
-					ToastShow("账号异常");
-					StartActivity(LoginActivity.class);
-					finish();
-					// StartActivity(HomePageActivity.class);
-					// finish();
+					//	                StartActivity(HomePageActivity.class);
+					//					finish();
 				}
 
 				/**
 				 * 连接融云成功
-				 * 
-				 * @param userid
-				 *            当前 token
+				 * @param userid 当前 token
 				 */
 				@Override
 				public void onSuccess(String userid) {
-					// ToastShow("Success");
-					
-					Log.d("LoginActivity", "--onSuccess" + userid);
-					RongIM.getInstance().refreshUserInfoCache(
-							new UserInfo(persion.getId() + "", persion.getNick_name(), Uri.parse(persion.getPhoto())));
-					RongIM.getInstance().setMessageAttachedUserInfo(true);
 
-					StartActivity(FooterPageActivity.class);
-					// finish();
+					RongIM.getInstance().refreshUserInfoCache(new UserInfo(persion.getId()+"", persion.getNick_name(), Uri.parse(persion.getPhoto())));
+
+
+
+					initData();
+				
+					//		alist=getIntent().getParcelableArrayListExtra("alist");
+					///initJpush();
+					//		initrong();
+					//		LoadData();
+
+
+
+
+					//OnUpdateMsgUnreadCounts();
+					Handler handler = new Handler();
+					handler.postDelayed(new Runnable() {
+						@Override
+						public void run() {
+							RongIM.getInstance().setOnReceiveUnreadCountChangedListener(mCountListener, Conversation.ConversationType.PRIVATE);;
+						}
+					}, 1500);
+
+
 
 				}
 
 				/**
 				 * 连接融云失败
-				 * 
-				 * @param errorCode
-				 *            错误码，可到官网 查看错误码对应的注释
+				 * @param errorCode 错误码，可到官网 查看错误码对应的注释
 				 */
 				@Override
 				public void onError(RongIMClient.ErrorCode errorCode) {
 
-				
 					Log.d("LoginActivity", "--onError" + errorCode);
-					// connect(b_person.getRongyuntoken(), b_person);
-					StartActivity(LoginActivity.class);
-					// finish();
-					// StartActivity(HomePageActivity.class);
-					// finish();
+
+					//					StartActivity(HomePageActivity.class);
+					//					finish();
 				}
 			});
-		} else {
-			
-			StartActivity(LoginActivity.class);
 		}
 	}
+	public RongIM.OnReceiveUnreadCountChangedListener mCountListener = new RongIM.OnReceiveUnreadCountChangedListener() {
+		@Override
+		public void onMessageIncreased(int count) {
+			int unreadCount= count;
+			// TODO Auto-generated method stub
+			//		int unreadCount = IMessageSqlManager.qureyAllSessionUnreadCount();
 
-	public void gobreak() {
-		dbutil.dropTable(Persion.class);
-		RongIM.getInstance().logout();
-		// JPushInterface.stopPush(this);
-		StartActivity(LoginActivity.class);
-		finish();
-	}
 
-	public void AcitvityStar() {
-		List<Persion> list = ManageDataBase.SelectList(dbutil, Persion.class, null);
-		if (list.size() > 0) {
-			b_person = list.get(0);
-			if (b_person != null) {
-				// toast(3);
-				connect(b_person.getRongyuntoken(), b_person);
-				// StartActivity(FooterPageActivity.class);
-			} else {
-				StartActivity(LoginActivity.class);
+			if (unreadCount==0) {
+				tipcnt_tvs.setVisibility(View.GONE);
+				tipcnt_tvbg.setVisibility(View.GONE);
+
+			}else {
+				tipcnt_tvbg.setVisibility(View.VISIBLE);
+				tipcnt_tvs.setVisibility(View.VISIBLE);
+				if (unreadCount>99) {
+					tipcnt_tvs.setText("...");	
+
+				}else {
+					tipcnt_tvs.setText(unreadCount+"");
+				}
 			}
-		}else {
-			StartActivity(LoginActivity.class);
+		}
+	};
+	
+	private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver(){  
+
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			String action = intent.getAction();  
+			if(action.equals("发送广播")){  
+				lookme.setVisibility(View.VISIBLE);
+				isshowHd = true;
+			}else if(action.equals("vanish")){
+				lookme.setVisibility(View.GONE);
+				isshowHd = false;
+			}
+
+		}  
+
+	};  
+	public void registerBoradcastReceiver(){  
+		//有人看过我
+		IntentFilter myIntentFilter = new IntentFilter();  
+		myIntentFilter.addAction("发送广播");  
+		//注册广播        
+		registerReceiver(mBroadcastReceiver, myIntentFilter);  
+
+	}  
+	public void registerBoradcastReceiver2(){  
+		//查看谁看过我
+		IntentFilter myIntent = new IntentFilter();  
+		myIntent.addAction("vanish");  
+		//注册广播        
+		registerReceiver(mBroadcastReceiver, myIntent);  
+	}  
+	
+	public void exit() {
+		if ((System.currentTimeMillis() - exitTime) > 2000) {
+			Toast.makeText(getApplicationContext(),
+					this.getResources().getString(R.string.exit),
+					Toast.LENGTH_SHORT).show();
+			exitTime = System.currentTimeMillis();
+		} else {
+			exitApp();
 		}
 	}
-
-	public void AcitvityStar1() {
-		exitApp();
-	}
-
-	private void toast(int type) {
+	@Override
+	public void onTabChanged(String arg0) {
 		// TODO Auto-generated method stub
-		ToastShow(type + "");
-	}
 
-	private void toast(String type) {
-		// TODO Auto-generated method stub
-		ToastShow(type + "");
 	}
-
 
 
 

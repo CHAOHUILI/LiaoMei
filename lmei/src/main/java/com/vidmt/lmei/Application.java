@@ -14,15 +14,14 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.ta.TAApplication;
+import com.umeng.socialize.UMShareAPI;
+import com.vidmt.lmei.activity.SplashActivity;
 import com.vidmt.lmei.constant.Constant.Config;
 import com.vidmt.lmei.entity.Persion;
 import com.vidmt.lmei.util.rule.ManageDataBase;
 import com.vidmt.lmei.util.rule.SharedPreferencesUtil;
 import com.vidmt.lmei.util.think.DbUtil;
 import com.xsj.crasheye.Crasheye;
-import com.vidmt.lmei.activity.FooterPageActivity;
-import com.vidmt.lmei.activity.MainActivity;
-import com.vidmt.lmei.activity.MyConversationListBehaviorListener;
 import com.vidmt.lmei.activity.SealAppContext;
 
 import android.app.ActivityManager;
@@ -34,20 +33,12 @@ import android.os.Handler;
 import android.os.StrictMode;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
+
 import cn.jpush.android.api.JPushInterface;
-import cn.smssdk.SMSSDK;
-import io.rong.calllib.RongCallCommon;
 import io.rong.imkit.RongIM;
-import io.rong.imkit.RongIM.ConversationBehaviorListener;
-import io.rong.imkit.RongIM.ConversationListBehaviorListener;
-import io.rong.imkit.model.UIConversation;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.RongIMClient.ConnectionStatusListener;
-import io.rong.imlib.RongIMClient.ConnectionStatusListener.ConnectionStatus;
 import io.rong.imlib.model.UserInfo;
-import io.rong.imlib.model.Conversation.ConversationType;
 
 public class Application extends TAApplication  {
 	public LocationClient mLocationClient;
@@ -58,6 +49,7 @@ public class Application extends TAApplication  {
 	@SuppressWarnings("unused")
 	@Override
 	public void onCreate() {
+		//代碼規則設置
 		if (Config.DEVELOPER_MODE && Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
 			StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().penaltyDialog().build());
 			StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll().penaltyDeath().build());
@@ -74,7 +66,8 @@ public class Application extends TAApplication  {
 		//		//jpush
 		JPushInterface.setDebugMode(true);
 		JPushInterface.init(this);
-	
+		com.umeng.socialize.Config.DEBUG=true;
+		UMShareAPI.get(this);
 		/**
 		 * 注意：
 		 *
@@ -138,25 +131,17 @@ public class Application extends TAApplication  {
 					break;
 				case KICKED_OFFLINE_BY_OTHER_CLIENT://用户账户在其他设备登录，本机会被踢掉线
 
-					MainActivity.mainactivity.Tankuang(2);
+					SplashActivity.mainactivity.Tankuang(2);
 					// Toast.makeText(getApplicationContext(), "您的账号在其他地方登录", Toast.LENGTH_SHORT).show();
 					break;
 				}
-
-
-
-
 
 			}
 
 
 		});
-		//友盟配置appid，appkey
-		//SMSSDK.initSDK(this,"da1e2b341f7e","48b01ac168d7a2ad7280ecc93515059f");
+
 	}
-
-
-
 
 	public static Application getInstance()
 	{
@@ -259,7 +244,6 @@ public class Application extends TAApplication  {
 
 	/**
 	 * 得到发送广播
-	 * @param address
 	 */
 	public void sendBroadCast(String city)
 	{
@@ -274,7 +258,6 @@ public class Application extends TAApplication  {
 	 * 设置地图相关参数
 	 * @Title initLocation
 	 * @Description TODO(这里用一句话描述这个方法的作用)
-	 * @param     参数
 	 * @return void    返回类型
 	 */
 	private void initLocation()

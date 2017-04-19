@@ -9,6 +9,9 @@ import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * 好像没啥用
+ */
 public class CustomProgressDialog extends Dialog {
 	private Context context = null;
 	private static CustomProgressDialog customProgressDialog = null;

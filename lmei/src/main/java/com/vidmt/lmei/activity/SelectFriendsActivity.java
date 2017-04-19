@@ -45,6 +45,9 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.AdapterView.OnItemClickListener;
 
+/**
+ * 查找好友的页面
+ */
 public class SelectFriendsActivity extends BaseActivity {
 
 	@TAInjectView(id = R.id.headerthemeleft)

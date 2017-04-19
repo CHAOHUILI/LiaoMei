@@ -44,7 +44,7 @@ import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 
 /**
- * 注册 * @author Ws
+ * 注册页 * @author Ws
  *
  */
 public class RegisterActivity extends BaseActivity  {
@@ -168,7 +168,6 @@ public class RegisterActivity extends BaseActivity  {
 		}
 	};
 
-	private HashMap<String, String> countryRules;
 
 	@Override
 	protected void onAfterSetContentView() {
@@ -308,7 +307,7 @@ public class RegisterActivity extends BaseActivity  {
 						ToastShow(Constant.ERROR_MES);
 						isClick = false;
 					} else if (JsonUtil.JsonToObj(str, String.class).equals(Constant.SUCCESS)) {
-						GetCode();
+						GetCode();//获取验证码
 
 					} else if (JsonUtil.JsonToObj(str, String.class).equals("tel_yet")) {
 						ToastShow("手机号已注册");

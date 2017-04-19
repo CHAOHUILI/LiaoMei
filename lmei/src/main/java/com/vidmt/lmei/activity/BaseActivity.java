@@ -51,20 +51,20 @@ import com.mrwujay.cascade.service.XmlParserHandler;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
-import com.nostra13.universalimageloader.core.process.BitmapProcessor;
 import com.ta.util.TALogger;
 import com.umeng.analytics.MobclickAgent;
 import com.vidmt.lmei.CloseAccountActivity;
 import com.vidmt.lmei.R;
 import com.vidmt.lmei.dialog.ConnectionUtil;
-import com.vidmt.lmei.dialog.CustomProgressDialog;
 import com.vidmt.lmei.dialog.LoadingDialog;
 import com.vidmt.lmei.entity.Persion;
 import com.vidmt.lmei.util.rule.ManageDataBase;
 import com.vidmt.lmei.util.rule.ScreenUtils;
 import com.vidmt.lmei.util.think.DbUtil;
-import com.vidmt.lmei.util.think.LogUtil;
 
+/**
+ * 基础activity
+ */
 public class BaseActivity extends ThinkAndroidBaseActivity implements ConversationListBehaviorListener{
 
 	// test
@@ -154,7 +154,6 @@ public class BaseActivity extends ThinkAndroidBaseActivity implements Conversati
 
 			Window win = getWindow();
 			// win.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-			WindowManager.LayoutParams winParams = win.getAttributes();
 			final int bits = ScreenUtils.getStatusHeight(this);
 			View layoutAll = findViewById(R.id.linheader);
 			// 设置系统栏需要的内偏移
@@ -229,9 +228,7 @@ public class BaseActivity extends ThinkAndroidBaseActivity implements Conversati
 
 	/**
 	 * 通过流转换成bitmap
-	 * 
-	 * @param ima
-	 * @param imageView
+	 * 无用
 	 */
 	public InputStream GetIma(String path) {
 		URL url;

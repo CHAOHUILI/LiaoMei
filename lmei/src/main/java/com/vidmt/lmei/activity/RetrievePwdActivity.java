@@ -28,6 +28,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+/**
+ * 获取验证码，暂无用
+ */
 public class RetrievePwdActivity extends BaseActivity {
 
 	@TAInjectView(id = R.id.retreve_tel)
@@ -248,7 +251,6 @@ public class RetrievePwdActivity extends BaseActivity {
 	 * 获取手机验证码
 	 * @Title GetSms
 	 * @Description TODO(这里用一句话描述这个方法的作用)
-	 * @param     参数
 	 * @return void    返回类型
 	 */
 	public void GetSms()

@@ -45,6 +45,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
+/**
+ * 黑名单activity
+ */
 public class BlacklistActivity extends BaseActivity implements OnHeaderRefreshListener, OnFooterRefreshListener{
 	@TAInjectView(id = R.id.headerthemeleft)
 	RelativeLayout headerthemeleft;

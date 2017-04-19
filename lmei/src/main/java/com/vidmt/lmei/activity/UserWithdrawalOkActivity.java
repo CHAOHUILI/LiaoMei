@@ -24,6 +24,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+/**
+ * 提现成功页
+ */
 public class UserWithdrawalOkActivity extends BaseActivity {
 	@TAInjectView(id = R.id.headerthemeleft)
 	RelativeLayout headerthemeleft;
@@ -64,7 +67,7 @@ public class UserWithdrawalOkActivity extends BaseActivity {
 		headercontentv.setVisibility(View.GONE);
 		Drawable drawable = context.getResources().getDrawable(R.drawable.header_left);
 		user.setBackgroundDrawable(drawable);
-		headercontent.setText("体现详情");
+		headercontent.setText("提现详情");
 	}
 
 	@Override

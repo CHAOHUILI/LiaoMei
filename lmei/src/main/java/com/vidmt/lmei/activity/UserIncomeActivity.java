@@ -40,6 +40,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
+/**
+ * 收入记录页
+ */
 public class UserIncomeActivity extends BaseActivity implements OnHeaderRefreshListener, OnFooterRefreshListener {
 
 	@TAInjectView(id = R.id.headerthemeleft)

@@ -25,7 +25,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
- * 添加支付宝
+ * 钱包，提现账户，添加支付宝，填写信息页
  * 
  * @author as
  *

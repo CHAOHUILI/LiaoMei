@@ -2,26 +2,19 @@ package com.vidmt.lmei.activity;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.provider.MediaStore.Video;
 import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-import cn.smssdk.contact.OnContactChangeListener;
 
-import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.httpclient.HttpException;
-
 import com.ta.TAApplication;
 import com.vidmt.lmei.Application;
-import com.vidmt.lmei.ConversationListActivity;
 import com.vidmt.lmei.dialog.ConversionlistDialog;
 import com.vidmt.lmei.entity.Persion;
 import com.vidmt.lmei.util.rule.ManageDataBase;
@@ -30,25 +23,19 @@ import com.vidmt.lmei.util.think.DbUtil;
 
 import io.rong.calllib.AgoraVideoFrame;
 import io.rong.calllib.IVideoFrameListener;
-import io.rong.calllib.RongCallClient;
 import io.rong.calllib.RongCallCommon;
 import io.rong.calllib.message.CallSTerminateMessage;
-import io.rong.imkit.RongCallKit;
 import io.rong.imkit.RongContext;
 import io.rong.imkit.RongIM;
 import io.rong.imkit.model.GroupUserInfo;
 import io.rong.imkit.model.UIConversation;
 import io.rong.imkit.widget.AlterDialogFragment;
-import io.rong.imkit.widget.ArraysDialogFragment;
-import io.rong.imkit.widget.ArraysDialogFragment.OnArraysDialogItemListener;
 import io.rong.imkit.widget.provider.FileInputProvider;
 import io.rong.imkit.widget.provider.ImageInputProvider;
 import io.rong.imkit.widget.provider.InputProvider;
 import io.rong.imkit.widget.provider.LocationInputProvider;
-import io.rong.imlib.RongCommonDefine;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.RongIMClient.ConnectionStatusListener;
-import io.rong.imlib.RongIMClient.ConnectionStatusListener.ConnectionStatus;
 import io.rong.imlib.location.RealTimeLocationConstant;
 import io.rong.imlib.location.message.RealTimeLocationStartMessage;
 import io.rong.imlib.model.Conversation;
@@ -60,7 +47,6 @@ import io.rong.message.ContactNotificationMessage;
 import io.rong.message.GroupNotificationMessage;
 import io.rong.message.ImageMessage;
 import io.rong.message.LocationMessage;
-import u.aly.cv;
 
 /**
  * 融云相关监听 事件集合类

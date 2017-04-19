@@ -1,6 +1,6 @@
 package com.vidmt.lmei.dialog;
 
-import com.vidmt.lmei.ConversationListActivity;
+import com.vidmt.lmei.activity.ConversationListActivity;
 import com.vidmt.lmei.R;
 import com.vidmt.lmei.activity.MessagesActivity;
 

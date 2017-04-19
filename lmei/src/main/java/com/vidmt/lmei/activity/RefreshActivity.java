@@ -15,6 +15,9 @@ import com.vidmt.lmei.widget.PullToRefreshView.OnHeaderRefreshListener;
 import android.os.Bundle;
 import android.widget.ListView;
 
+/**
+ * 暂无
+ */
 public class RefreshActivity extends BaseActivity implements OnHeaderRefreshListener,OnFooterRefreshListener {
 	@TAInjectView(id = R.id.pull)
 	PullToRefreshView pull;

@@ -17,6 +17,7 @@ import com.vidmt.lmei.dialog.ConnectionUtil;
 import com.vidmt.lmei.dialog.CustomProgressDialog;
 import com.vidmt.lmei.dialog.LoadingDialog;
 import com.vidmt.lmei.entity.Persion;
+import com.vidmt.lmei.util.rule.SharedPreferencesUtil;
 import com.vidmt.lmei.util.think.JsonUtil;
 import com.vidmt.lmei.widget.PullToRefreshView;
 import com.vidmt.lmei.widget.PullToRefreshView.OnFooterRefreshListener;
@@ -46,6 +47,9 @@ import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import junit.runner.BaseTestRunner;
 
+/**
+ * 主界面 广场页的 最新activity
+ */
 public class LatestChatActivity extends BaseActivity implements OnHeaderRefreshListener, OnFooterRefreshListener {
 	public static LoadingDialog dialog = null;
 	@TAInjectView(id = R.id.pull_latest)
@@ -71,6 +75,10 @@ public class LatestChatActivity extends BaseActivity implements OnHeaderRefreshL
 		setContentView(R.layout.activity_latest_chat);
 		InitView();
 		dialog.show();
+		if(b_person.getSex()==1){
+			sex=2;
+	        SharedPreferencesUtil.putInt(getApplicationContext(),"filter_sex",2);
+		}
 		LoadUserData();
 		userrefresh();
 	}
@@ -109,8 +117,8 @@ public class LatestChatActivity extends BaseActivity implements OnHeaderRefreshL
 			public void onReceive(Context context, Intent intent) {
 				personlist.clear();
 				pageIndex=1;
-				ident_state = intent.getIntExtra("certification", 0);
-				sex = intent.getIntExtra("sex", 0);
+				ident_state = SharedPreferencesUtil.getInt(getApplicationContext(),"filter_ident_state",0);
+				sex = SharedPreferencesUtil.getInt(getApplicationContext(),"filter_sex",0);
 				dialog.show();
 				LoadUserData();
 			}

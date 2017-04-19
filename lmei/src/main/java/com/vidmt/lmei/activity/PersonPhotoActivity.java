@@ -58,6 +58,9 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 
+/**
+ * 我的图片浏览页
+ */
 public class PersonPhotoActivity extends BaseActivity {
 
 	@TAInjectView(id = R.id.linheader)
@@ -480,7 +483,7 @@ public class PersonPhotoActivity extends BaseActivity {
 	 * 
 	 * @param uri
 	 *            照片路径
-	 * @param size
+	 * @paramsize
 	 *            裁剪大小
 	 */
 	private void startPhotoZoom(Uri uri) {
@@ -541,14 +544,15 @@ public class PersonPhotoActivity extends BaseActivity {
 	 * 
 	 * @param picdata
 	 */
+
 	private void setPicToView(Intent picdata) {
 		Bundle bundle = picdata.getExtras();
 		Image image = new Image();
-		if (bundle != null) {
+//		if (bundle != null) {
 			photo = getBitmapFromUri(getTempUri());
 			image.setBitmap(photo);
 			image.setStatus(1);
-		}
+//		}
 		list.remove(list.size() - 1);
 		list.add(image);
 		Image img = new Image();

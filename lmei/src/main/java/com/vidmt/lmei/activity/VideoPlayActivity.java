@@ -27,6 +27,9 @@ import android.view.WindowManager;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
+/**
+ * 视频播放页
+ */
 public class VideoPlayActivity extends BaseActivity {
 	@TAInjectView(id = R.id.videoview)
 	VideoView videoview;// 视频

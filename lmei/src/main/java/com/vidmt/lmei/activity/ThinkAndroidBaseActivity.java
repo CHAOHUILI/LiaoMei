@@ -5,6 +5,9 @@ import android.widget.Toast;
 import com.ta.TAActivity;
 import com.ta.util.netstate.TANetWorkUtil.netType;
 
+/**
+ * 判断网络连接页
+ */
 public class ThinkAndroidBaseActivity extends TAActivity
 {
 	@Override

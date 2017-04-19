@@ -13,9 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ta.TAApplication;
-import com.vidmt.lmei.ConversationActivity;
 import com.vidmt.lmei.R;
-import com.vidmt.lmei.dialog.LoadingDialog;
 import com.vidmt.lmei.entity.Persion;
 import com.vidmt.lmei.util.rule.ManageDataBase;
 import com.vidmt.lmei.util.rule.SharedPreferencesUtil;
@@ -31,7 +29,6 @@ import io.rong.imkit.widget.provider.InputProvider;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.Conversation;
 import io.rong.imlib.model.Discussion;
-import u.aly.bp;
 
 public class VideoCallInputProvider extends InputProvider.ExtendProvider {
 	private static final String TAG = "VideoCallInputProvider";

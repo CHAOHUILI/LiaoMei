@@ -1,8 +1,9 @@
 package com.vidmt.lmei.constant;
 
+
 public class Constant {
 	public static class Config {
-		public static final boolean DEVELOPER_MODE = false;
+		public static final boolean DEVELOPER_MODE = false;//debug模式
 	}
 
 	public static final String TEL = "0351-5632599";
@@ -21,7 +22,9 @@ public class Constant {
 	public static int c_id = 3;
 
 	public static int p_id = 1;
-	public static final String HOST = "http://lmei.vidmt.com/lmeiApi/";
+	public static final String HOST = "http://192.168.0.119:8080/lmeiApi/";
+//	public static final String HOST = "http://192.168.0.111:8080/lmeiApi/";
+//	public static final String HOST = "http://lmei.vidmt.com/lmeiApi/";
 	/**
 	 * 用户注册
 	 */
@@ -37,7 +40,7 @@ public class Constant {
 	/**
 	 * 第三方登录
 	 */
-	public static final String THIRD_LOGIN = HOST + "reg_and_third";
+	public static final String THIRD_LOGIN = HOST + "reg_and_third";//
 	/**
 	 *修改个人数据 传什么改什么
 	 */ 
@@ -123,7 +126,7 @@ other_id     别人的id     int
 	 */
 	public static final String RECHARGE = HOST + "ALiPay/getaliorder?";
 	/**
-	 * 充值
+	 * 充值提现记录
 	 */
 	public static final String RECHARGERECODE = HOST + "recharge?";
 	/**

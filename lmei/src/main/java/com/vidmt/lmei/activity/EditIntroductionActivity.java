@@ -21,6 +21,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+/**
+ * 个人简介，个性签名页
+ */
 public class EditIntroductionActivity extends BaseActivity {
 
 	@TAInjectView(id = R.id.linheader)
