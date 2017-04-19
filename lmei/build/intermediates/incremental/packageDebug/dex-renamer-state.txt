@@ -1,4 +1,7 @@
-#Thu Apr 06 11:05:05 CST 2017
-base.0=D\:\\projects\\Lmei\\lmei\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
-renamed.0=classes.dex
-file.0=D\:\\projects\\Lmei\\lmei\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+#Tue Apr 18 18:48:35 CST 2017
+base.0=D\:\\projects\\Lmei\\lmei\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_56b606ba3e9992967647db0262aa63d04d11f226
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=D\:\\projects\\Lmei\\lmei\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_ca3059b58927c273139d4ede10c0933e6144fc70\\classes.dex
+base.1=D\:\\projects\\Lmei\\lmei\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_ca3059b58927c273139d4ede10c0933e6144fc70
+file.0=D\:\\projects\\Lmei\\lmei\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_56b606ba3e9992967647db0262aa63d04d11f226\\classes.dex

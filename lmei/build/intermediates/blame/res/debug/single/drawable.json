@@ -28,6 +28,10 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_bg_editinput.xml"
     },
     {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_share_video.png",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable\\umeng_socialize_share_video.png"
+    },
+    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_kakao.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_kakao.png"
     },
@@ -60,14 +64,6 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_sms_on.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable\\abc_cab_background_top_material.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable\\abc_btn_check_material.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_kakao_gray.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_kakao_gray.png"
     },
@@ -76,16 +72,12 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_voip_checkbox.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_gmail_off.png",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_gmail_off.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_ic_no_selector.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_ic_no_selector.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_gmail_off.png",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_gmail_off.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_window_shadow_pad.xml",
@@ -124,6 +116,10 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_button_white.9.png"
     },
     {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_menu_default.png",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable\\umeng_socialize_menu_default.png"
+    },
+    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_read_receipt_request_button.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_read_receipt_request_button.xml"
     },
@@ -144,16 +140,12 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_cs_list_divider_style.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\f_merchants_style.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable\\f_merchants_style.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_sp_grid_mask.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_sp_grid_mask.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\f_merchants_style.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable\\f_merchants_style.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_cs_corner_single_check_style.xml",
@@ -176,16 +168,24 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_voip_speaker_selector.xml"
     },
     {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_sina.png",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable\\umeng_socialize_sina.png"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_share_web.png",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable\\umeng_socialize_share_web.png"
+    },
+    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_button_login_normal.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_button_login_normal.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_sina_off.png",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_sina_off.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_ic_voice.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_ic_voice.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_sina_off.png",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_sina_off.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_ic_location.xml",
@@ -208,8 +208,16 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\com_facebook_button_send_background.xml"
     },
     {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\progress_round.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable\\progress_round.xml"
+    },
+    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_instagram_off.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_instagram_off.png"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_delete.png",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable\\umeng_socialize_delete.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_alipay.png",
@@ -332,12 +340,12 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable\\wheel_val.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_voip_hangup_selector.xml",
-        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_voip_hangup_selector.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_gmail_on.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_gmail_on.png"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_voip_hangup_selector.xml",
+        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_voip_hangup_selector.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\widget_bar_bg.xml",
@@ -348,16 +356,16 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_button_grey.9.png"
     },
     {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_edit_bg.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable\\umeng_socialize_edit_bg.xml"
+    },
+    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_ic_smiley.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_ic_smiley.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_ed_public_service_search_selector.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_ed_public_service_search_selector.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_voip_float_bg.xml",
@@ -368,12 +376,12 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_title_tab_button_left.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_yixin_gray.png",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_yixin_gray.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_btn_input.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_btn_input.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_yixin_gray.png",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_yixin_gray.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_bg_item.xml",
@@ -424,6 +432,10 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable\\homefilter.xml"
     },
     {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_copy.png",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable\\umeng_socialize_copy.png"
+    },
+    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_laiwang_dynamic.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_laiwang_dynamic.png"
     },
@@ -456,6 +468,10 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_laiwang_dynamic_gray.png"
     },
     {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_more.png",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable\\umeng_socialize_more.png"
+    },
+    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_blue_bg_round.xml",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\messenger_button_blue_bg_round.xml"
     },
@@ -464,36 +480,16 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_laiwang.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_btn_send.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_btn_send.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_button_grey_blue.xml",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_button_grey_blue.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable\\abc_edit_text_material.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_wxcircle.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_wxcircle.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_location_off.png",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_location_off.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_wechat_gray.png",
@@ -502,6 +498,10 @@
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_corner_location_style.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_corner_location_style.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_location_off.png",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_location_off.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_pb_file_download_progress.xml",
@@ -516,12 +516,12 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_ic_text.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_google.png",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_google.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_title_tab_left_pressed.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_title_tab_left_pressed.png"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_google.png",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_google.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_at_button.xml",
@@ -544,12 +544,12 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_follow_on.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_share_to_button.xml",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_share_to_button.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_foursquare.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_foursquare.png"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_share_to_button.xml",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_share_to_button.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_instagram_on.png",
@@ -616,10 +616,6 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_ac_btn_file_download_open_button.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable\\abc_btn_radio_material.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_x_button.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_x_button.png"
     },
@@ -636,6 +632,10 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_button_login.xml"
     },
     {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_back_icon.png",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable\\umeng_socialize_back_icon.png"
+    },
+    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_share_transparent_corner.xml",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_share_transparent_corner.xml"
     },
@@ -644,12 +644,12 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\messenger_button_blue_bg_selector.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_ic_camera.xml",
-        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_ic_camera.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_title_right_bt_normal.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_title_right_bt_normal.png"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_ic_camera.xml",
+        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_ic_camera.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_ic_phone.xml",
@@ -680,10 +680,6 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_whatsapp_gray.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable\\abc_tab_indicator_material.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_follow_check.xml",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_follow_check.xml"
     },
@@ -700,10 +696,6 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_ic_picture.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable\\abc_textfield_search_material.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_linkedin.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_linkedin.png"
     },
@@ -716,12 +708,12 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_ic_extend.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_sidebar_normal.xml",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_sidebar_normal.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_tx_on.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_tx_on.png"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_sidebar_normal.xml",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_sidebar_normal.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_evernote_gray.png",
@@ -736,8 +728,8 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_ic_admin_selector.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable\\abc_switch_thumb_material.xml"
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_share_music.png",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable\\umeng_socialize_share_music.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\rc_sel_picsel_toolbar_send.xml",
@@ -784,6 +776,10 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_oauth_check_on.png"
     },
     {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_btn_bg.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable\\umeng_socialize_btn_bg.xml"
+    },
+    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_title_back_bt_normal.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_title_back_bt_normal.png"
     },
@@ -800,16 +796,16 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable\\rc_bg_mentionlist_item.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_yixin.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_yixin.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_qq_off.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable\\umeng_socialize_qq_off.png"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_copyurl.png",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable\\umeng_socialize_copyurl.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable\\login.xml",

@@ -8,12 +8,12 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\recording.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\user_income.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\user_income.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\my_friends.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\my_friends.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\user_income.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\user_income.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\user_expend.xml",
@@ -40,10 +40,6 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\retrieve_pwd.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\register_improve.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\register_improve.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\register.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\register.xml"
     },
@@ -52,16 +48,20 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\update_pwd.xml"
     },
     {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\register_improve.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\register_improve.xml"
+    },
+    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\user_recharge.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\user_recharge.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\video_authentication.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\video_authentication.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\messages.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\messages.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\video_authentication.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\video_authentication.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\person_photo.xml",
@@ -72,24 +72,24 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\de_fix_username.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\conversation.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\conversation.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\user_help_center.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\user_help_center.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\conversation.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\conversation.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\main.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\blacklist.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\blacklist.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\my_message.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\my_message.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\blacklist.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\blacklist.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\about_system.xml",
@@ -132,12 +132,12 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\friends.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\login.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\login.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\photo_upload_authentication.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\photo_upload_authentication.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\login.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\login.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\home.xml",
@@ -220,12 +220,12 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\home_detail.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\evaluate.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\evaluate.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\car.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\car.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\evaluate.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\menu\\evaluate.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\menu\\user_audit.xml",

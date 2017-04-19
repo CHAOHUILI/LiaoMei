@@ -1,59 +1,7 @@
 [
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\in.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\in.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\anim\\abc_slide_in_top.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\umeng_socialize_shareboard_animation_out.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\umeng_socialize_shareboard_animation_out.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\translate_anim.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\translate_anim.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\anim\\abc_fade_in.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\anim\\abc_slide_out_bottom.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\umeng_socialize_slide_out_from_bottom.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\umeng_socialize_slide_out_from_bottom.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\umeng_socialize_slide_in_from_bottom.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\umeng_socialize_slide_in_from_bottom.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\anim\\abc_slide_out_top.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\out.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\out.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\mobile_dialog_out_from_bottom.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\mobile_dialog_out_from_bottom.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\push_bottom_in.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\push_bottom_in.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\frame_meituan.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\frame_meituan.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\anim\\abc_fade_out.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out.xml",
@@ -62,6 +10,10 @@
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\push_buttom_out.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\push_buttom_out.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\in.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\in.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\umeng_socialize_fade_out.xml",
@@ -76,20 +28,44 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\fade_in.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\progress_round.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\progress_round.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\umeng_socialize_shareboard_animation_in.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\umeng_socialize_shareboard_animation_in.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\umeng_socialize_shareboard_animation_out.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\umeng_socialize_shareboard_animation_out.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\translate_anim.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\translate_anim.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\umeng_socialize_fade_in.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\umeng_socialize_fade_in.xml"
     },
     {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\umeng_socialize_slide_in_from_bottom.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\umeng_socialize_slide_in_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\umeng_socialize_slide_out_from_bottom.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\umeng_socialize_slide_out_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\out.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\out.xml"
+    },
+    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\slide_in.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\mobile_dialog_out_from_bottom.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\mobile_dialog_out_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\push_bottom_in.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\push_bottom_in.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\mobile_dialog_in_from_bottom.xml",
@@ -98,9 +74,5 @@
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\push_bottom_in_1.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\anim\\push_bottom_in_1.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\anim\\abc_slide_in_bottom.xml"
     }
 ]

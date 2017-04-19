@@ -1,9 +1,5 @@
 [
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_ab_back_mtrl_am_alpha.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_ic_ab_back_mtrl_am_alpha.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\z_arrow_up.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\z_arrow_up.png"
     },
@@ -18,10 +14,6 @@
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\xvoice_cancel.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\xvoice_cancel.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_textfield_search_activated_mtrl_alpha.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_textfield_search_activated_mtrl_alpha.9.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\persentsbgs.png",
@@ -48,24 +40,8 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\persentsbged.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_popup_background_mtrl_mult.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_popup_background_mtrl_mult.9.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_selector_disabled_holo_light.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_light.9.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_btn_check_to_on_mtrl_015.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_btn_check_to_on_mtrl_015.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\g_ratingbar1.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\g_ratingbar1.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_menu_share_mtrl_alpha.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_ic_menu_share_mtrl_alpha.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\progress_loading_image_01.png",
@@ -76,16 +52,8 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\loginhone.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_pressed_holo_light.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_list_pressed_holo_light.9.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\toast_bg.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\toast_bg.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00001.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\mic_6.png",
@@ -96,20 +64,12 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\liweutu.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_btn_radio_to_on_mtrl_000.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_btn_radio_to_on_mtrl_000.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\go.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\go.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\updateversion.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\updateversion.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_textfield_activated_mtrl_alpha.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_textfield_activated_mtrl_alpha.9.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\giftguan.png",
@@ -124,20 +84,8 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\goback.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_divider_mtrl_alpha.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_list_divider_mtrl_alpha.9.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\z_arrow_down.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\z_arrow_down.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_share_pack_holo_dark.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_ab_share_pack_holo_dark.9.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_textfield_search_default_mtrl_alpha.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_textfield_search_default_mtrl_alpha.9.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\regstercode.png",
@@ -148,28 +96,12 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\mic_4.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_menu_cut_mtrl_alpha.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_ic_menu_cut_mtrl_alpha.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_clear_mtrl_alpha.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_ic_clear_mtrl_alpha.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\registerpwd02.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\registerpwd02.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\mic_1.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\mic_1.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_go_search_api_mtrl_alpha.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_ic_go_search_api_mtrl_alpha.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_menu_hardkey_panel_mtrl_mult.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\user_tel.png",
@@ -188,10 +120,6 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\presentbg.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_longpressed_holo.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_list_longpressed_holo.9.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\liguan.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\liguan.png"
     },
@@ -204,10 +132,6 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\widget_bar_bg_p.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_menu_moreoverflow_mtrl_alpha.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_ic_menu_moreoverflow_mtrl_alpha.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\user_pwd1.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\user_pwd1.png"
     },
@@ -216,20 +140,12 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\registercode.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_pressed_holo_dark.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_list_pressed_holo_dark.9.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\sendpresent.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\sendpresent.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\chatbg.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\chatbg.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_textfield_default_mtrl_alpha.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_textfield_default_mtrl_alpha.9.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\head_search.png",
@@ -252,28 +168,12 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\user_pwd.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\emotionstore_progresscancelbtn.png",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\emotionstore_progresscancelbtn.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\giftbg.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\giftbg.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_menu_copy_mtrl_am_alpha.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_tab_indicator_mtrl_alpha.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_tab_indicator_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_cab_background_top_mtrl_alpha.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_cab_background_top_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_search_api_mtrl_alpha.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_ic_search_api_mtrl_alpha.png"
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\emotionstore_progresscancelbtn.png",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\emotionstore_progresscancelbtn.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\mic_3.png",
@@ -282,10 +182,6 @@
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\registerpwd01.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\registerpwd01.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00012.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\voice_search_recognize_error.png",
@@ -300,32 +196,12 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\mic_2.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_btn_radio_to_on_mtrl_015.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_btn_radio_to_on_mtrl_015.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\mic_5.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\mic_5.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_focused_holo.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_list_focused_holo.9.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\xvoice_cancel_pressed.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\xvoice_cancel_pressed.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_menu_paste_mtrl_am_alpha.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_ic_menu_paste_mtrl_am_alpha.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_selector_disabled_holo_dark.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_dark.9.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_btn_check_to_on_mtrl_000.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_btn_check_to_on_mtrl_000.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\de_username_safe.png",
@@ -334,22 +210,6 @@
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\mic.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\mic.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_voice_search_api_mtrl_alpha.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_ic_voice_search_api_mtrl_alpha.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_menu_selectall_mtrl_alpha.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_ic_menu_selectall_mtrl_alpha.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_spinner_mtrl_am_alpha.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_spinner_mtrl_am_alpha.9.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_commit_search_api_mtrl_alpha.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_ic_commit_search_api_mtrl_alpha.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\persons.png",
@@ -364,19 +224,11 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\header_left.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_switch_track_mtrl_alpha.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_switch_track_mtrl_alpha.9.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\screening_ima.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\screening_ima.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\head_locate.png",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\drawable-hdpi\\head_locate.png"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_share_pack_holo_light.9.png",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\drawable-hdpi\\abc_ab_share_pack_holo_light.9.png"
     }
 ]

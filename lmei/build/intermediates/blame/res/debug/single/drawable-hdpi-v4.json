@@ -128,11 +128,11 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable-hdpi-v4\\umeng_socialize_share_music.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\umeng_socialize_share_video.png",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable-hdpi-v4\\umeng_socialize_share_video.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\sendliwu.png",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\drawable-hdpi-v4\\sendliwu.png"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\umeng_socialize_share_video.png",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable-hdpi-v4\\umeng_socialize_share_video.png"
     }
 ]

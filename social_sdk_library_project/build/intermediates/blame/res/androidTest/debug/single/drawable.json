@@ -32,20 +32,20 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_action_back_selected.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_alipay.png",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_alipay.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_shape_solid_black.xml",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_shape_solid_black.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_whatsapp_gray.png",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_whatsapp_gray.png"
+        "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_alipay.png",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_alipay.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_location_off.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_location_off.png"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_whatsapp_gray.png",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_whatsapp_gray.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_title_tab_left_pressed.png",
@@ -380,24 +380,24 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_button_blue.9.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_google.png",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_google.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_title_back_bt.xml",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_title_back_bt.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_google.png",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_google.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_line.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_line.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_yixin_circle_gray.png",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_yixin_circle_gray.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_share_to_button.xml",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_share_to_button.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_yixin_circle_gray.png",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_yixin_circle_gray.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_at_button.xml",

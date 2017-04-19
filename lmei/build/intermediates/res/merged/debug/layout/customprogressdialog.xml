@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dip"
-            android:background="@anim/progress_round"
+            android:background="@drawable/progress_round"
             android:paddingLeft="10dip"
             android:paddingRight="10dip" />
     <TextView  

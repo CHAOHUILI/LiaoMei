@@ -806,12 +806,15 @@
     <color name="umeng_socialize_grid_divider_line">#F8F8F8</color>
     <color name="umeng_socialize_list_item_bgcolor">#FFFFFF</color>
     <color name="umeng_socialize_list_item_textcolor">#333333</color>
+    <color name="umeng_socialize_shareactivity">#D4E0E5</color>
+    <color name="umeng_socialize_shareactivitydefault">#ffffff</color>
     <color name="umeng_socialize_text_friends_list">#959696</color>
     <color name="umeng_socialize_text_share_content">#666666</color>
     <color name="umeng_socialize_text_time">#999999</color>
     <color name="umeng_socialize_text_title">#464f61</color>
     <color name="umeng_socialize_text_ucenter">#595959</color>
     <color name="umeng_socialize_ucenter_bg">#EEEEEE</color>
+    <color name="umeng_socialize_web_bg">#F4F4F4</color>
     <color name="white">#FFFFFF</color>
     <color name="yellow">#FFFF00</color>
     <declare-styleable name="AsyncImageView"><attr format="dimension" name="RCMinShortSideSize"/><attr format="dimension" name="RCCornerRadius"/><attr format="boolean" name="RCMask"/><attr name="RCShape">
@@ -1078,22 +1081,23 @@
     <string name="authentication">个人认证</string>
     <string name="authentication1">通过聊妹官方认证以后，即可获得认证标示，真实身份，更加权威，有效提高聊妹关注度。</string>
     <string name="authentication10">温馨提示:</string>
-    <string name="authentication11">1.可以上传美拍、小咖秀等第三方软件上拍摄好的视频</string>
-    <string name="authentication12">2.尽量保证可以清晰的看到您的五官</string>
-    <string name="authentication13">3.严禁上传非法视频，被举报后将永久封号</string>
+    <string name="authentication11">2.可以上传美拍、小咖秀等第三方软件上拍摄好的视频</string>
+    <string name="authentication12">3.尽量保证可以清晰的看到您的五官</string>
+    <string name="authentication13">4.严禁上传非法视频，被举报后将永久封号</string>
     <string name="authentication14">示例视频</string>
     <string name="authentication15">立即上传</string>
     <string name="authentication16">完成认证送金币</string>
     <string name="authentication17">送100金币</string>
     <string name="authentication18">送150金币</string>
     <string name="authentication2">温馨提示:</string>
-    <string name="authentication3">1.请保证自拍为本人</string>
+    <string name="authentication3">1.请保证自拍照片与已上传头像均为本人</string>
     <string name="authentication4">2.请保证自拍照片五官清晰</string>
     <string name="authentication5">3.自拍照仅用于认证，官方将对照片保密</string>
     <string name="authentication6">模仿以上动作可提高认证通过率</string>
     <string name="authentication7">马上认证</string>
     <string name="authentication8">认证视频:</string>
     <string name="authentication9">        请上传一段拍摄好的小视频，上传后该视频会展示在您的个人资料页面，认证视频可以让您的资料更加真实，极大的提高用户对您的关注度。</string>
+    <string name="authentication_self">1.请保上传的自拍视频是本人</string>
     <string name="authenticationphoto">照片认证</string>
     <string name="authenticationvideo">视频上传</string>
     <string name="birthday">出生日期</string>
@@ -1838,12 +1842,14 @@
     <string name="umeng_socialize_comment" translatable="false">评论</string>
     <string name="umeng_socialize_comment_detail" translatable="false">评论详情</string>
     <string name="umeng_socialize_content_hint">说点啥…</string>
+    <string name="umeng_socialize_female">女</string>
     <string name="umeng_socialize_friends" translatable="false">关注的好友</string>
     <string name="umeng_socialize_img_des"/>
     <string name="umeng_socialize_laiwang_default_content">友盟社会化组件（SDK）让移动应用快速整合社交分享功能</string>
     <string name="umeng_socialize_login">登录</string>
     <string name="umeng_socialize_login_qq">QQ空间</string>
     <string name="umeng_socialize_mail">邮件</string>
+    <string name="umeng_socialize_male">男</string>
     <string name="umeng_socialize_msg_hor" translatable="false">小时前</string>
     <string name="umeng_socialize_msg_min" translatable="false">分钟前</string>
     <string name="umeng_socialize_msg_sec" translatable="false">秒前</string>
@@ -1862,24 +1868,28 @@
     <string name="umeng_socialize_text_authorize">授权</string>
     <string name="umeng_socialize_text_choose_account">选择已有帐号登录</string>
     <string name="umeng_socialize_text_comment_hint">说点什么吧…</string>
-    <string name="umeng_socialize_text_douban_key">豆瓣网</string>
+    <string name="umeng_socialize_text_dingding_key">钉钉</string>
+    <string name="umeng_socialize_text_douban_key">豆瓣</string>
+    <string name="umeng_socialize_text_dropbox_key">DropBox</string>
     <string name="umeng_socialize_text_evernote_key">印象笔记</string>
-    <string name="umeng_socialize_text_facebook_key">facebook</string>
+    <string name="umeng_socialize_text_facebook_key">Facebook</string>
+    <string name="umeng_socialize_text_facebookmessager_key">Facebook Messager</string>
     <string name="umeng_socialize_text_flickr_key">Flickr</string>
     <string name="umeng_socialize_text_foursquare_key">Foursquare</string>
     <string name="umeng_socialize_text_friend_list">好友列表</string>
     <string name="umeng_socialize_text_googleplus_key">GooglePlus</string>
-    <string name="umeng_socialize_text_instagram_key">instagram</string>
-    <string name="umeng_socialize_text_kakao_key">Kakao Talk</string>
+    <string name="umeng_socialize_text_instagram_key">Instagram</string>
+    <string name="umeng_socialize_text_kakao_key">KakaoTalk</string>
     <string name="umeng_socialize_text_laiwang_dynamic_key">来往动态</string>
     <string name="umeng_socialize_text_laiwang_key">来往</string>
-    <string name="umeng_socialize_text_laiwangdynamic_key">来往动态</string>
+    <string name="umeng_socialize_text_laiwangdynamic_key">点点虫动态</string>
     <string name="umeng_socialize_text_line_key">LINE</string>
     <string name="umeng_socialize_text_linkedin_key">Linkedin</string>
     <string name="umeng_socialize_text_loading_message">载入中,请稍候...</string>
     <string name="umeng_socialize_text_login_fail">登录失败了，请重试</string>
-    <string name="umeng_socialize_text_pinterest_key">pinterest</string>
-    <string name="umeng_socialize_text_pocket_key">pocket</string>
+    <string name="umeng_socialize_text_more_key">更多</string>
+    <string name="umeng_socialize_text_pinterest_key">Pinterest</string>
+    <string name="umeng_socialize_text_pocket_key">Pocket</string>
     <string name="umeng_socialize_text_qq_key">QQ</string>
     <string name="umeng_socialize_text_qq_zone_key">QQ空间</string>
     <string name="umeng_socialize_text_renren_key">人人网</string>
@@ -1890,10 +1900,11 @@
     <string name="umeng_socialize_text_tencent_oauth_login_fail">授权登录失败</string>
     <string name="umeng_socialize_text_tencent_version_no_match">版本不匹配，SSO只对微博客户端V3.8.1及以上的版本提供支持</string>
     <string name="umeng_socialize_text_tumblr_key">Tumblr</string>
-    <string name="umeng_socialize_text_twitter_key">twitter</string>
+    <string name="umeng_socialize_text_twitter_key">Twitter</string>
     <string name="umeng_socialize_text_ucenter">个人中心</string>
     <string name="umeng_socialize_text_unauthorize">未授权</string>
     <string name="umeng_socialize_text_visitor">游客</string>
+    <string name="umeng_socialize_text_vkontakte_key">VKontakte</string>
     <string name="umeng_socialize_text_waitting">请稍候...</string>
     <string name="umeng_socialize_text_waitting_message">,请稍候...</string>
     <string name="umeng_socialize_text_waitting_qq">跳转QQ中，请稍候...</string>
@@ -1905,7 +1916,9 @@
     <string name="umeng_socialize_text_waitting_yixin">跳转易信中，请稍候...</string>
     <string name="umeng_socialize_text_waitting_yixin_circle">跳转易信朋友圈中，请稍候...</string>
     <string name="umeng_socialize_text_weixin_circle_key">微信朋友圈</string>
+    <string name="umeng_socialize_text_weixin_fav_key">微信收藏</string>
     <string name="umeng_socialize_text_weixin_key">微信</string>
+    <string name="umeng_socialize_text_wenxin_fav">微信收藏</string>
     <string name="umeng_socialize_text_whatsapp_key">WhatsApp</string>
     <string name="umeng_socialize_text_ydnote_key">有道云笔记</string>
     <string name="umeng_socialize_text_yixin_key">易信</string>
@@ -1964,27 +1977,25 @@
     <string name="ynote_showword">有道云笔记</string>
     <string name="you">你</string>
     <string name="you_are_sharing_location">你正在共享位置</string>
+    <style name="ACPLDialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
     <style name="AnimBottom" parent="@android:style/Animation">
         <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
         <item name="android:windowExitAnimation">@anim/push_buttom_out</item>
     </style>
     <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-
-
-
-
-        -->
+        
     </style>
     <style name="AppStart" parent="android:Theme">
         <item name="android:windowBackground">@drawable/main_img1</item>
         <item name="android:windowNoTitle">true</item>
     </style>
     <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        
     </style>
     <style name="ContentOverlay" parent="@android:style/Theme.Light">
         <item name="android:windowNoTitle">true</item>
@@ -2003,7 +2014,7 @@
         <item name="android:windowNoTitle">true</item>  
     </style>
     <style name="FullBleedTheme">
-        <!-- API 19 theme customizations can go here. -->
+        
     </style>
     <style name="MessengerButton">
     <item name="android:clickable">true</item>
@@ -2040,8 +2051,8 @@
     <item name="android:layout_gravity">center</item>
     <item name="android:drawablePadding">4dp</item>
     <item name="android:gravity">center</item>
-    <!--suppress NewApi -->
-    <!-- <item name="android:textAllCaps">true</item> -->
+    
+    
     <item name="android:textSize">14sp</item>
     <item name="android:textStyle">bold</item>
   </style>
@@ -2076,17 +2087,17 @@
     <style name="MyDialogStyleBottom">
         <item name="android:windowAnimationStyle">@style/AnimBottom</item>
         <item name="android:windowFrame">@null</item>
-        <!-- 边框 -->
+        
         <item name="android:windowIsFloating">true</item>
-        <!-- 是否浮现在activity之上 -->
+        
         <item name="android:windowIsTranslucent">true</item>
-        <!-- 半透明 -->
+        
         <item name="android:windowNoTitle">true</item>
-        <!-- 无标题 -->
+        
         <item name="android:windowBackground">@android:color/transparent</item>
-        <!-- 背景透明 -->
+        
         <item name="android:backgroundDimEnabled">true</item>
-        <!-- 模糊 -->
+        
     </style>
     <style name="RCTheme" parent="@android:style/Theme.Light">
         <item name="android:listDivider">@android:color/transparent</item>
@@ -2158,7 +2169,7 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowBackground">@drawable/main_img4</item>
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        
     </style>
     <style name="Theme.UMDefault" parent="android:style/Theme.NoTitleBar"/>
     <style name="Theme.UMDialog" parent="android:style/Theme.Dialog">
@@ -2167,7 +2178,7 @@
     </style>
     <style name="Transparent" parent="android:Theme.Light">
 
-        <!-- 将Activity的Theme设置成透明 -->
+        
         <item name="android:windowIsTranslucent">true</item>
     </style>
     <style name="Widget.GifMoviewView" parent="@android:style/Widget"/>
@@ -2248,7 +2259,7 @@
     </style>
     <style name="jhAppTheme" parent="@android:style/Theme.Light">
         <item name="android:windowNoTitle">true</item>
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        
     </style>
     <style name="line">
         <item name="android:background">#e0e0e0</item>

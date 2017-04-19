@@ -1,39 +1,19 @@
 [
     {
-        "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\anim\\abc_fade_in.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\release\\anim\\umeng_socialize_fade_out.xml",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\anim\\umeng_socialize_fade_out.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_top.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\anim\\abc_slide_out_top.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_out.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\anim\\abc_fade_out.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_bottom.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\anim\\abc_slide_out_bottom.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\release\\anim\\umeng_socialize_shareboard_animation_in.xml",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\anim\\umeng_socialize_shareboard_animation_in.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\release\\anim\\umeng_socialize_fade_in.xml",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\anim\\umeng_socialize_fade_in.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\release\\anim\\umeng_socialize_slide_in_from_bottom.xml",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\anim\\umeng_socialize_slide_in_from_bottom.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_top.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\anim\\abc_slide_in_top.xml"
+        "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\release\\anim\\umeng_socialize_fade_in.xml",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\anim\\umeng_socialize_fade_in.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\release\\anim\\umeng_socialize_slide_out_from_bottom.xml",
@@ -42,9 +22,5 @@
     {
         "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\release\\anim\\umeng_socialize_shareboard_animation_out.xml",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\anim\\umeng_socialize_shareboard_animation_out.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_bottom.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\anim\\abc_slide_in_bottom.xml"
     }
 ]

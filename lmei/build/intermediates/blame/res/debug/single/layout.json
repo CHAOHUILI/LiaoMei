@@ -32,10 +32,6 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_change_password.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_action_menu_layout.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\features_loading.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\features_loading.xml"
     },
@@ -64,14 +60,6 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_item_voice_message.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_include.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_activity_chooser_view_include.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\pay_external.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\pay_external.xml"
     },
@@ -84,24 +72,24 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_wi_vo_popup.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_voip_viewlet_remote_user.xml",
-        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_voip_viewlet_remote_user.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fr_image.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_fr_image.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_voip_viewlet_remote_user.xml",
+        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_voip_viewlet_remote_user.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_register_improve.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_register_improve.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\adapter_hobby.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\adapter_hobby.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_wi_file_list_adapter.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_wi_file_list_adapter.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\adapter_hobby.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\adapter_hobby.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_wi_txt_provider.xml",
@@ -134,10 +122,6 @@
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_public_service_conversation.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_item_public_service_conversation.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_charge.xml",
@@ -184,10 +168,6 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_forgot_password.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_search_view.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_latest_chat.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_latest_chat.xml"
     },
@@ -210,10 +190,6 @@
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_voip_call_bottom_incoming_button_layout.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_voip_call_bottom_incoming_button_layout.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fr_conversation.xml",
@@ -332,10 +308,6 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_mention_list_item.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_withdraw_record.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_user_withdraw_record.xml"
     },
@@ -408,16 +380,16 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_item_public_service_input_menus.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_public_service_list.xml",
-        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_item_public_service_list.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_blacklist.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_blacklist.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_text_message.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_item_text_message.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_public_service_list.xml",
+        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_item_public_service_list.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\main_header.xml",
@@ -444,10 +416,6 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_my_friends.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_withdrawal.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_user_withdrawal.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\adapter_str.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\adapter_str.xml"
     },
@@ -456,12 +424,12 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_fr_photo.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_conversation_list.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_conversation_list.xml"
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_withdrawal.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_user_withdrawal.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_conversation_list.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_conversation_list.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_hot_chat.xml",
@@ -496,20 +464,16 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_item_progress.xml"
     },
     {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_withdrawal_ok.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_user_withdrawal_ok.xml"
+    },
+    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_voip_user_portrait.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_voip_user_portrait.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\mesdialog.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\mesdialog.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_withdrawal_ok.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_user_withdrawal_ok.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_emoji_item.xml",
@@ -524,20 +488,12 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\layout\\messenger_button_send_blue_large.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_list_menu_item_layout.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ac_albums.xml",
+        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_ac_albums.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_post_share.xml",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\layout\\umeng_socialize_post_share.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ac_albums.xml",
-        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_ac_albums.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_help_center.xml",
@@ -556,10 +512,6 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\dot.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_action_bar_title_item.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_recharge.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_user_recharge.xml"
     },
@@ -576,12 +528,12 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\layout\\umeng_socialize_facebook_login_activity_layout.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\present.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\present.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_app_service_conversation.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_item_app_service_conversation.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\present.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\present.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ac_camera.xml",
@@ -604,10 +556,6 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_person_update.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_activity_chooser_view.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_voip_contact_container.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_voip_contact_container.xml"
     },
@@ -628,12 +576,12 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\main_footer.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_voip_listitem_select_member.xml",
-        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_voip_listitem_select_member.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_demo.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_demo.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_voip_listitem_select_member.xml",
+        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_voip_listitem_select_member.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_messages_item.xml",
@@ -672,20 +620,12 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_fr_messagelist.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_screen_simple.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_public_service_rich_content_message.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_item_public_service_rich_content_message.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_video_authentication.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_video_authentication.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_photo_authentication.xml",
@@ -696,6 +636,10 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\number_picker_with_selector_wheel.xml"
     },
     {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_failed_load_page.xml",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\layout\\umeng_socialize_failed_load_page.xml"
+    },
+    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_sms.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_sms.xml"
     },
@@ -704,24 +648,16 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_voip_activity_single_call.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_failed_load_page.xml",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\layout\\umeng_socialize_failed_load_page.xml"
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_voip_user_info.xml",
+        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_voip_user_info.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\toast_sex.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\toast_sex.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_voip_user_info.xml",
-        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_voip_user_info.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\record_item.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\record_item.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_simple_dropdown_hint.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_simple_dropdown_hint.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fr_public_service_sub_list.xml",
@@ -788,16 +724,16 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_wi_plugins.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\exitshow_loading2.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\exitshow_loading2.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_voip_multi_video_calling_bottom_view.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_voip_multi_video_calling_bottom_view.xml"
     },
     {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\exitshow_loading2.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\exitshow_loading2.xml"
+    },
+    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_oauth_dialog.xml",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\layout\\umeng_socialize_oauth_dialog.xml"
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\umeng_socialize_oauth_dialog.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_close_account.xml",
@@ -820,16 +756,8 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_footer_page.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_expanded_menu_layout.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_brokennetwork.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_brokennetwork.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_action_menu_item_layout.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\adapter_report.xml",
@@ -848,16 +776,20 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_fans.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_wi_text_btn.xml",
-        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_wi_text_btn.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fr_file_list.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_fr_file_list.xml"
     },
     {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_wi_text_btn.xml",
+        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_wi_text_btn.xml"
+    },
+    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\gridview.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\gridview.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\luyin.xml",
+        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\luyin.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_conversation.xml",
@@ -866,10 +798,6 @@
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_update_pwd.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_update_pwd.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\luyin.xml",
-        "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\luyin.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_pic_popup_window.xml",
@@ -892,10 +820,6 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_item_public_service_message.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_list_menu_item_radio.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_personal_center.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_personal_center.xml"
     },
@@ -904,12 +828,12 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\layout\\umeng_socialize_simple_spinner_item.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_picprev_activity.xml",
-        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_picprev_activity.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_wi_block.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_wi_block.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_picprev_activity.xml",
+        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_picprev_activity.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\hobby_loading.xml",
@@ -942,10 +866,6 @@
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_evaluate.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_evaluate.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_action_bar_up_container.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_base_alert_dialog_button.xml",
@@ -988,24 +908,12 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_voip_video_call_user_info.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_list_menu_item_icon.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_round.xml",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\layout\\messenger_button_send_white_round.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_screen_toolbar.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_addzfb.xml",
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\activity_addzfb.xml"
-    },
-    {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
-        "source": "C:\\Users\\lihuichao\\.android\\build-cache\\a4216ebac022f3834a4e2b38125c478397d15043\\output\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_agreement.xml",
@@ -1016,12 +924,12 @@
         "source": "D:\\projects\\Lmei\\lmei\\src\\main\\res\\layout\\customprogressdialog.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fr_public_service_inf.xml",
-        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_fr_public_service_inf.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_voip_audio_call_user_info.xml",
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_voip_audio_call_user_info.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fr_public_service_inf.xml",
+        "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\default\\res\\layout\\rc_fr_public_service_inf.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\lmei\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_group_conversation.xml",

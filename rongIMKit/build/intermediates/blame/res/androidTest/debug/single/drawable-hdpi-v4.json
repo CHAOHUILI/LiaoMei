@@ -36,12 +36,12 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable-hdpi-v4\\messenger_bubble_small_blue.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\messenger_bubble_large_white.png",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable-hdpi-v4\\messenger_bubble_large_white.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\umeng_socialize_share_pic.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable-hdpi-v4\\umeng_socialize_share_pic.png"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\messenger_bubble_large_white.png",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable-hdpi-v4\\messenger_bubble_large_white.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\messenger_bubble_large_blue.png",
@@ -104,12 +104,12 @@
         "source": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\yiguangzhu.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\com_facebook_button_like_icon_selected.png",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable-hdpi-v4\\com_facebook_button_like_icon_selected.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_background.9.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable-hdpi-v4\\com_facebook_tooltip_blue_background.9.png"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\com_facebook_button_like_icon_selected.png",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable-hdpi-v4\\com_facebook_button_like_icon_selected.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\rc_voip_audio.9.png",
