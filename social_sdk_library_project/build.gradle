@@ -8,21 +8,29 @@ android {
         minSdkVersion 8
         targetSdkVersion 10
     }
-
+    signingConfigs {
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.debug
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.debug
         }
     }
 }
 
 dependencies {
-    compile files('libs/SocialSDK_QQZone_1.jar')
-    compile files('libs/SocialSDK_QQZone_2.jar')
-    compile files('libs/SocialSDK_QQZone_3.jar')
-    compile files('libs/SocialSDK_Sina.jar')
-    compile files('libs/SocialSDK_WeiXin_1.jar')
-    compile files('libs/SocialSDK_WeiXin_2.jar')
-    compile files('libs/umeng_social_sdk.jar')
+    compile files('libs/umeng_social_api.jar')
+    compile files('libs/umeng_social_net.jar')
+    compile files('libs/umeng_social_tool.jar')
+    compile files('libs/SocialSDK_Sina_Simplify.jar')
+    compile files('libs/SocialSDK_QQ_Simplify.jar')
+    compile files('libs/SocialSDK_WeiXin_Full.jar')
+    //    compile files('libs/wechat-sdk-android-with-mta-1.1.6.jar')
+    compile files('libs/wechat-sdk-android-with-mta-1.1.6.jar')
 }
