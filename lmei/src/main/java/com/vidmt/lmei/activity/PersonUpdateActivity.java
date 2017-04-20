@@ -518,7 +518,11 @@ public class PersonUpdateActivity extends BaseActivity {
 							rela_uservoiceerror.setVisibility(View.VISIBLE);
 						}
 						userdetailnicknameedit.setText(p.getNick_name());
-						userdetailage.setText(p.getAge() + "");
+						if(p.getAge()!=null){
+							userdetailage.setText(p.getAge() + "");
+						}else {
+							userdetailage.setText(18+"");
+						}
 						userdetailnum.setText("ID:" + p.getOtherkey());
 						scroll_my.setVisibility(View.VISIBLE);
 						rela_error.setVisibility(View.GONE);
@@ -1365,9 +1369,9 @@ public class PersonUpdateActivity extends BaseActivity {
 			month.setVisibleItems(7);
 			day.setVisibleItems(7);
 
-			year.setCurrentItem(1999);
-			month.setCurrentItem(1);
-			day.setCurrentItem(1);
+			year.setCurrentItem(49);
+			month.setCurrentItem(0);
+			day.setCurrentItem(0);
 
 			return view;
 		}

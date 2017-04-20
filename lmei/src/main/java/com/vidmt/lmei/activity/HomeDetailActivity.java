@@ -51,6 +51,7 @@ import com.vidmt.lmei.widget.CircleImageView;
 import com.vidmt.lmei.widget.HorizontalListView;
 import com.vidmt.lmei.widget.MyGridView;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -675,7 +676,7 @@ public class HomeDetailActivity extends BaseActivity {
 								userdetailarea.setText(p.getArea());
 							}
 							if (p.getBirthday() == null) {
-
+								userdetailbirthday.setText("1999-01-01");
 							} else {
 								userdetailbirthday.setText(p.getBirthday());
 							}
@@ -757,7 +758,11 @@ public class HomeDetailActivity extends BaseActivity {
 								rela_uservoicecontent.setVisibility(View.GONE);
 								rela_uservoiceerror.setVisibility(View.VISIBLE);
 							}
-							userdetailage.setText(p.getAge() + "");
+							if(p.getAge()!=null){
+								userdetailage.setText(p.getAge() + "");
+							}else {
+								userdetailage.setText(18+"");
+							}
 							userdetailnum.setText("ID:" + p.getOtherkey());
 							scroll_my.setVisibility(View.VISIBLE);
 							rela_error.setVisibility(View.GONE);
@@ -1192,12 +1197,7 @@ public class HomeDetailActivity extends BaseActivity {
 					try {
 						if (RongIM.getInstance() == null && RongIM.getInstance().getRongIMClient() == null) {
 							ToastShow("网络出现问题  ，请检查 网络设置。");
-							
-							
-							
-							
 						} else {
-
 							try {
 								if (chattype == 1) {
 									if (isplay == true) {
@@ -1213,7 +1213,6 @@ public class HomeDetailActivity extends BaseActivity {
 										T.cancel();
 										T = null;
 									}
-
 									finish();
 									if (pdshowdate == 1) {
 										Intent intents = new Intent("friendschild");
@@ -1262,7 +1261,7 @@ public class HomeDetailActivity extends BaseActivity {
 					}
 					break;
 				case R.id.vioceout:
-					loaduserinfo();
+//					loadChartStatus();
 					SharedPreferencesUtil.putInt(HomeDetailActivity.this, "sxdate", 1);
 					try {
 
@@ -1400,10 +1399,7 @@ public class HomeDetailActivity extends BaseActivity {
 
 					break;
 				case R.id.videoout:
-					jhuser = Person_Service.loaduserinfo(b_person.getId(), userid);
-					if(jhuser!=null){
-						p = JsonUtil.JsonToObj(jhuser, Persion.class);
-					}
+					loadChartStatus();
 					SharedPreferencesUtil.putInt(HomeDetailActivity.this, "sxdate", 1);
 					try {
 						if (RongIM.getInstance() == null && RongIM.getInstance().getRongIMClient() == null) {
@@ -1547,6 +1543,18 @@ public class HomeDetailActivity extends BaseActivity {
 				// ToastShow("音频已缓存好");
 			}
 		});
+	}
+
+	private void loadChartStatus() {
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				jhuser = Person_Service.loaduserinfo(b_person.getId(), userid);
+				if(jhuser!=null){
+					p = JsonUtil.JsonToObj(jhuser, Persion.class);
+				}
+			}
+		}).start();
 	}
 
 	@Override

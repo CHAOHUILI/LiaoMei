@@ -367,8 +367,14 @@ orderid    int      4接口返回值
     s_position_y   double   用户经度
 	 */
 
-	public  static final String FRESHLOGIN = HOST+"/login_again?";
-	
-	
-	
+	public  static final String FRESHLOGIN = HOST+"login_again?";
+
+
+
+	//退出登陆
+	public  static final String LOGINOUT = HOST+"login_out?id=";
+
+
+
+
 }

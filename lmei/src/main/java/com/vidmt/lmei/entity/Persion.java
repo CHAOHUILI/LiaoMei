@@ -15,7 +15,7 @@ public class Persion implements Serializable{
 	private String nick_name;//昵称
 	private Integer sex;//性别，1.男   2.女
 	private String birthday;//生日
-	private Integer age;//生日
+	private Integer age;//年龄
 	private Integer level;//级别
 	private Integer token;//爱意
 	private String qq;//QQ号

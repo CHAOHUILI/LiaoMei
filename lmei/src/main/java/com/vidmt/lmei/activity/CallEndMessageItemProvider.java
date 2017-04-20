@@ -179,10 +179,6 @@ public class CallEndMessageItemProvider extends IContainerItemProvider.MessagePr
          				
          			}
         } else {
-        	
-        	
-        	
-        	
             action = RongVoIPIntent.RONG_INTENT_ACTION_VOIP_SINGLEAUDIO;
             int ltype = SharedPreferencesUtil.getInt(view.getContext(), "astype", 0);
         	

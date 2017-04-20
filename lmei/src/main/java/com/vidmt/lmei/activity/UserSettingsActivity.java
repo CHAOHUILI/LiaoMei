@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import com.ta.annotation.TAInjectView;
 import com.vidmt.lmei.R;
 
+import com.vidmt.lmei.controller.Person_Service;
 import com.vidmt.lmei.entity.Persion;
 import com.vidmt.lmei.util.rule.ManageDataBase;
 
@@ -131,7 +132,6 @@ public class UserSettingsActivity extends BaseActivity {
 				case R.id.mute:
 					loadingDialog.show();
 					if (type==1) {
-						
 						RongIM.getInstance().removeNotificationQuietHours(new RongIMClient.OperationCallback() {
 							@Override
 							public void onSuccess() {
@@ -203,6 +203,7 @@ public class UserSettingsActivity extends BaseActivity {
 					break;
 
 				case R.id.eixt:
+					String jhuser = Person_Service.sendGet(b_person.getId());
 					RongIM.getInstance().logout();
 					ManageDataBase.Delete(dbutil, Persion.class, null);
 					ToastShow("退出成功");
@@ -211,9 +212,8 @@ public class UserSettingsActivity extends BaseActivity {
 					Intent intents = new Intent("closeapp");
 					sendBroadcast(intents);
 					break;
+
 				case R.id.feedback:
-					
-					
 					//首先需要构造使用客服者的用户信息
 					CSCustomServiceInfo.Builder csBuilder = new CSCustomServiceInfo.Builder();
 					CSCustomServiceInfo csInfo = csBuilder.nickName("聊妹").build();
