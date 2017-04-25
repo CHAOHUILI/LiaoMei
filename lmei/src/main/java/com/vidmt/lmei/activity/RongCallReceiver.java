@@ -11,9 +11,7 @@ public class RongCallReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
         RLog.d("RongCallReceiver", "intent = " + intent);
-        
-        
-        
+
         try {
         	 if (intent.getAction().equals(RongVoIPIntent.RONG_INTENT_ACTION_VOIP_INIT)) {
                  RongCallService.onInit(context);

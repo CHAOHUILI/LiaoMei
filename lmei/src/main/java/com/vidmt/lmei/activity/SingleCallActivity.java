@@ -230,6 +230,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.rc_voip_activity_single_call);
+
 		dbutil = new DbUtil((TAApplication) this.getApplication());
 		List<Persion>  	users= dbutil.selectData(Persion.class,null);
 		if(users !=null)
@@ -239,6 +240,13 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 				try {
 					persion_main = users.get(0);
 					mtargetId =  persion_main.getId()+"";
+					new Thread(new Runnable() {
+						@Override
+						public void run() {
+							Person_Service.update_presence(mtargetId,2+"");
+						}
+					}).start();
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -1101,6 +1109,12 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 	}
 	@Override
 	protected void onDestroy() {
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				Person_Service.update_presence(mtargetId,1+"");
+			}
+		}).start();
 		RongContext.getInstance().getEventBus().unregister(this);
 		super.onDestroy();
 	}

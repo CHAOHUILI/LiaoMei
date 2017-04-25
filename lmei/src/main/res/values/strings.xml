@@ -477,7 +477,7 @@
     <string name="de_message_content_draft">[草稿]</string>
     <string name="de_message_at_me">[有人@我]</string>
     <string name="set_privacy">隐私</string>
-    <string name="set_set">设置</string>
+    <string name="set_set">系统设置</string>
     <string name="set_rongcloud">关于 SealTalk</string>
     <string name="set_logout">注销</string>
     <string name="de_save">"保存"</string>

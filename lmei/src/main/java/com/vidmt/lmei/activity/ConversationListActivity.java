@@ -14,6 +14,7 @@ import com.vidmt.lmei.controller.Person_Service;
 import com.vidmt.lmei.dialog.LoadingDialog;
 import com.vidmt.lmei.entity.Persion;
 import com.vidmt.lmei.util.rule.ScreenUtils;
+import com.vidmt.lmei.util.rule.SharedPreferencesUtil;
 import com.vidmt.lmei.util.think.DbUtil;
 
 import android.app.ActionBar.LayoutParams;
@@ -303,14 +304,20 @@ public class ConversationListActivity  extends FragmentActivity implements Conne
 									if (userInfo==null) {
 										RongIM.getInstance().startPrivateChat(ConversationListActivity.this,TargetId,
 												TargetId + "//" + persion_main.getId()+"");
+										SharedPreferencesUtil.putString(getApplicationContext(),"she_id",TargetId);
+
 									}else {
 										RongIM.getInstance().startPrivateChat(ConversationListActivity.this,TargetId,
 												userInfo.getName() + "//" + persion_main.getId()+"");
+										SharedPreferencesUtil.putString(getApplicationContext(),"she_id",TargetId);
+
 									}
 
 								}else {
 									RongIM.getInstance().startPrivateChat(ConversationListActivity.this, uiConversation.getConversationTargetId(),
 											uiConversation.getUIConversationTitle() + "//" + uiConversation.getConversationSenderId());
+									SharedPreferencesUtil.putString(getApplicationContext(),"she_id",uiConversation.getConversationTargetId());
+
 								}
 
 							}

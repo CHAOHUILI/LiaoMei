@@ -16,12 +16,12 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\layout\\umeng_socialize_titile_bar.xml"
     },
     {
-        "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\messenger_button_send_blue_small.xml",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\layout\\messenger_button_send_blue_small.xml"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\com_facebook_login_fragment.xml",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\layout\\com_facebook_login_fragment.xml"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\messenger_button_send_blue_small.xml",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\layout\\messenger_button_send_blue_small.xml"
     },
     {
         "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\umeng_socialize_shareboard_item.xml",

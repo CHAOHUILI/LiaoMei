@@ -4,12 +4,12 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable-mdpi-v4\\com_facebook_tooltip_blue_xout.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\com_facebook_close.png",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable-mdpi-v4\\com_facebook_close.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\com_facebook_tooltip_black_background.9.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable-mdpi-v4\\com_facebook_tooltip_black_background.9.png"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\com_facebook_close.png",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\default\\res\\drawable-mdpi-v4\\com_facebook_close.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\rongIMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\com_facebook_tooltip_blue_topnub.png",

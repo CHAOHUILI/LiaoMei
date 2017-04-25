@@ -32,7 +32,7 @@ public class Person_Service {
 	* @param @return    参数
 	* @return String    返回类型
 	 */
-	public static String insert(String u_tel,String password,String birthday,String photo,int sex,String nick_name)
+	public static String insert(String u_tel,String password,String birthday,String photo,int sex,String nick_name,String a,String ver,String ch,String dev)
 	{
 		//password = MD5.md5(password);
 		RequestParams params = new RequestParams();
@@ -42,6 +42,10 @@ public class Person_Service {
 		params.put("photo", photo);
 		params.put("sex", sex+"");
 		params.put("nick_name", nick_name);
+		params.put("os", a);
+		params.put("ver", ver);
+		params.put("ch", ch);
+		params.put("dev", dev);
 		String str = HttpUtil.doPost(Constant.USER_REGISTER, params);
 		return str;
 	}
@@ -69,13 +73,17 @@ public class Person_Service {
 	* @param @return    参数
 	* @return String    返回类型
 	 */
-	public static String login(String utel,String password,String third_login)
+	public static String login(String utel,String password,String third_login,String a,String ver,String ch,String dev)
 	{
 		//password = MD5.md5(password);
 		RequestParams params = new RequestParams();
 		params.put("tel", utel);
 		params.put("pwd", password);
 		params.put("third_login", third_login);
+		params.put("os",a);
+		params.put("ver",ver);
+		params.put("ch",ch);
+		params.put("dev",dev);
 		return HttpUtil.doPost(Constant.USER_LOGIN, params);
 	}
 	public static String updatePwd(String tel,String password)
@@ -85,13 +93,17 @@ public class Person_Service {
 		params.put("pwd", password);
 		return HttpUtil.doPost(Constant.UPDATEPOWD, params);
 	}
-	public static String third_login(String third_login,String nick_name,String birth_day,int sex,String photo){
+	public static String third_login(String third_login,String nick_name,String birth_day,int sex,String photo,String a,String ver,String ch,String dev){
 		RequestParams params = new RequestParams();
 		params.put("third_login", third_login);
 		params.put("nick_name", nick_name);
 		params.put("birth_day", birth_day);
 		params.put("sex", sex+"");
 		params.put("photo", photo);
+		params.put("os", a);
+		params.put("ver", ver);
+		params.put("ch", ch);
+		params.put("dev", dev);
 		String json = HttpUtil.doPost(Constant.THIRD_LOGIN, params);
 		return json;
 	}
@@ -140,6 +152,7 @@ public class Person_Service {
 		}
 		return result;
 	}
+
 	public static String myIncome(String utel,String password)
 	{
 		//password = MD5.md5(password);
@@ -148,7 +161,15 @@ public class Person_Service {
 		params.put("pwd", password);
 		return HttpUtil.doPost(Constant.MYINCOME , params);
 	}
-	
+	public static String update_presence(String id,String status)
+	{
+		//password = MD5.md5(password);
+		RequestParams params = new RequestParams();
+		params.put("id", id);
+		params.put("presence", status);
+		return HttpUtil.doPost(Constant.UPDATE_PRESENCE , params);
+	}
+
 	public static String loginupdage(int id)
 	{
 		RequestParams params = new RequestParams();

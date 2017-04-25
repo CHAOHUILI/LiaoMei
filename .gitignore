@@ -8,9 +8,13 @@
 /build
 /gradle
 /captures
+/lmei/build
+/rongIMKit/build
+/social_sdk_library_project/build
 .externalNativeBuild
 /gradle.properties
 /gradlew
 /gradlew.bat
 /import-summary.txt
 /Lmei.iml
+

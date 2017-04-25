@@ -131,7 +131,7 @@ public class PhotoAuthenticationActivity extends BaseActivity {
 
 		// aspectX aspectY 是宽高的比例
 		intent.putExtra("aspectX", 9);
-		intent.putExtra("aspectY", 10);
+		intent.putExtra("aspectY", 9);
 
 		// outputX,outputY 是剪裁图片的宽高
 		intent.putExtra("outputX", size);

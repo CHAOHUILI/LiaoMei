@@ -13,6 +13,7 @@ import com.ta.TAApplication;
 import com.ta.annotation.TAInjectView;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
+import com.vidmt.lmei.Manifest;
 import com.vidmt.lmei.R;
 import com.vidmt.lmei.constant.Constant;
 import com.vidmt.lmei.controller.Person_Service;
@@ -27,12 +28,14 @@ import com.vidmt.lmei.util.rule.SharedPreferencesUtil;
 import com.vidmt.lmei.util.think.DbUtil;
 import com.vidmt.lmei.util.think.JsonUtil;
 
+import android.app.Application;
 import android.app.LocalActivityManager;
 import android.app.ActionBar.LayoutParams;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.BitmapDrawable;
@@ -40,6 +43,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -112,7 +116,6 @@ public class HomeActivity extends BaseActivity {
     int sex = 0;  //0，全部，1，选择显示男，2，选择显示女
     private LoadingDialog mDialog;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -140,6 +143,8 @@ public class HomeActivity extends BaseActivity {
                 }
             }, 300);
         }
+
+
 
 
     }

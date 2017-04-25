@@ -2,8 +2,10 @@ package com.vidmt.lmei.activity;
 
 import android.app.Notification;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -104,13 +106,28 @@ public class LoginActivity extends BaseActivity {
     IWXAPI mWeixinAPI = null;
     Tencent mTencent = null;
 //	protected static UMSocialService mController = UMServiceFactory.getUMSocialService("com.umeng.login");
+    int ver;
+    String channel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        String default_login = getIntent().getStringExtra("default_login");
+
         themes();
         InitView();
+        if("default_login".equals(default_login)){
+            name= SharedPreferencesUtil.getString(getApplicationContext(),"phoneNumber","");
+            pwd=SharedPreferencesUtil.getString(getApplicationContext(),"passWord","");
+
+            if("".equals(name)||"".equals(pwd)){
+
+            }else {
+                LoadData();
+            }
+
+        }
     }
 
     @Override
@@ -157,6 +174,14 @@ public class LoginActivity extends BaseActivity {
         if (mTencent == null) {
             mTencent = Tencent.createInstance("QQ号", this);
         }
+        try {
+            ver = com.vidmt.lmei.Application.getInstance().getPackageManager().getPackageInfo(com.vidmt.lmei.Application.getInstance().getPackageName(),
+                    PackageManager.GET_CONFIGURATIONS).versionCode;
+            channel = com.vidmt.lmei.Application.getInstance().getPackageManager().getApplicationInfo(com.vidmt.lmei.Application.getInstance().getPackageName(),
+                    PackageManager.GET_META_DATA).metaData.getString("UMENG_CHANNEL");
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -190,7 +215,6 @@ public class LoginActivity extends BaseActivity {
                         break;
 
                     case R.id.wb:
-                        //loadingDialog.show();
 //					mController.getConfig().setSsoHandler(new SinaSsoHandler());
 //                        currentTime = Calendar.getInstance().getTimeInMillis();
 //					if (currentTime - lastClickTime > MIN_CLICK_DELAY_TIME) {
@@ -265,6 +289,7 @@ public class LoginActivity extends BaseActivity {
 
                                     @Override
                                     public void onError(SHARE_MEDIA share_media, int i, Throwable throwable) {
+                                        Log.i("loginactivity",i+throwable.toString()+share_media.toString());
 
                                     }
 
@@ -277,7 +302,7 @@ public class LoginActivity extends BaseActivity {
 
                             @Override
                             public void onError(SHARE_MEDIA share_media, int i, Throwable throwable) {
-
+                                Log.i("loginactivity",i+throwable.toString()+share_media.toString());
                             }
 
                             @Override
@@ -352,7 +377,6 @@ public class LoginActivity extends BaseActivity {
 //
 //							@Override
 //							public void onStart(SHARE_MEDIA platform) {
-//								loadingDialog.show();
 //							}
 //						});
 //					}
@@ -421,7 +445,6 @@ public class LoginActivity extends BaseActivity {
 //							public void onStart(SHARE_MEDIA platform) {
 //								// Toast.makeText(LoginActivity.this, "授权开始",
 //								// Toast.LENGTH_SHORT).show();
-//								loadingDialog.show();
 //							}
 //
 //							@Override
@@ -434,7 +457,6 @@ public class LoginActivity extends BaseActivity {
 //
 //							@Override
 //							public void onComplete(Bundle value, SHARE_MEDIA platform) {
-//								// loadingDialog.show();
 //								// Toast.makeText(LoginActivity.this, "授权完成",
 //								// Toast.LENGTH_SHORT).show();
 //								uid = value.get("uid").toString();
@@ -556,7 +578,6 @@ public class LoginActivity extends BaseActivity {
 //									// Toast.makeText(LoginActivity.this,
 //									// "授权开始",
 //									// Toast.LENGTH_SHORT).show();
-//									loadingDialog.show();
 //								}
 //
 //								@Override
@@ -662,6 +683,7 @@ public class LoginActivity extends BaseActivity {
         // Context.INPUT_METHOD_SERVICE);
         // imm.hideSoftInputFromWindow(logintel.getWindowToken(), 0);
         name = logintel.getText().toString().trim();
+        SharedPreferencesUtil.putString(getApplicationContext(),"phoneNumber",name);
         pwd = person_pwd.getText().toString().trim();
         if ("".equals(name)) // ||tel.equals("请输入您的手机号")
         {
@@ -672,6 +694,7 @@ public class LoginActivity extends BaseActivity {
         } else {
             loadingDialog.show();
 
+            SharedPreferencesUtil.putString(getApplicationContext(),"passWord",pwd);
             LoadData();
         }
     }
@@ -683,7 +706,7 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void run() {
                 // TODO Auto-generated method stub
-                String jhuser = Person_Service.login(name, pwd, uid);
+                String jhuser = Person_Service.login(name, pwd, uid,"a",ver+"",channel, Build.MODEL);
                 Message msg = mUIHandler.obtainMessage(1);
                 msg.obj = jhuser;
                 msg.sendToTarget();
@@ -692,14 +715,12 @@ public class LoginActivity extends BaseActivity {
     }
 
     public void ThirdLogin() {
-        // loadingDialog.show();
         new Thread(new Runnable() {
             @Override
             public void run() {
                 // TODO Auto-generated method stub
                 String Third = uid;
-
-                String jhuser = Person_Service.third_login(Third, name, birthday, gender, icon);
+                String jhuser = Person_Service.third_login(Third, name, birthday, gender, icon,"a",ver+"",channel,Build.MODEL);
                 Message msg = mUIHandler.obtainMessage(2);
                 msg.obj = jhuser;
                 msg.sendToTarget();
@@ -875,6 +896,7 @@ public class LoginActivity extends BaseActivity {
                     } catch (Exception e) {
                         // TODO: handle exception
                         e.printStackTrace();
+                        Log.i("rongyun",e.toString());
                     }
                     Looper.loop();
                     // StartActivity(HomePageActivity.class);
@@ -936,6 +958,7 @@ public class LoginActivity extends BaseActivity {
             });
         } else {
             Toast.makeText(LoginActivity.this, "连接融云失败", Toast.LENGTH_SHORT).show();
+            loadingDialog.dismiss();
         }
     }
 

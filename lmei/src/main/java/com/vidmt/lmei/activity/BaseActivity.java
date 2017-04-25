@@ -39,6 +39,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import cn.jpush.android.api.JPushInterface;
 import io.rong.imkit.RongIM;
 import io.rong.imkit.RongIM.ConversationListBehaviorListener;
 import io.rong.imkit.model.UIConversation;
@@ -180,11 +182,13 @@ public class BaseActivity extends ThinkAndroidBaseActivity implements Conversati
 		super.onResume();
 		//InitView();
 		MobclickAgent.onResume(this);
+		JPushInterface.onResume(this);
 	}
 
 	public void onPause() {
 		super.onPause();
 		MobclickAgent.onPause(this);
+		JPushInterface.onPause(this);
 	}
 
 	/**
@@ -196,6 +200,13 @@ public class BaseActivity extends ThinkAndroidBaseActivity implements Conversati
 	public void StartActivity(Class aclass) {
 		Intent intent = new Intent();
 		intent.setClass(context, aclass);
+//		intent.putExtra("default_login","default_login");
+		startActivity(intent);
+	}
+	public void StartActivity2(Class aclass) {
+		Intent intent = new Intent();
+		intent.setClass(context, aclass);
+		intent.putExtra("default_login","default_login");
 		startActivity(intent);
 	}
 

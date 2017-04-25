@@ -3,6 +3,7 @@ import java.lang.reflect.Type;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 
 
 /**
@@ -24,7 +25,7 @@ public class JsonUtil {
 	  enableComplexMapKeySerialization().setDateFormat("yyyy-MM-dd") //支持复杂读写map
 		.create();
 	  return  gson.fromJson(jsonStr, claz);
-  } 
+  }
   /**
    * jsonStr转换成对象  list可以转
    * @param jsonStr 传入服务器得到的jsonStr

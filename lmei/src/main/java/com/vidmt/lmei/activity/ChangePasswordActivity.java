@@ -81,7 +81,6 @@ public class ChangePasswordActivity extends BaseActivity {
 	private String code_num = "";
 	Timer timer;
 	int type = 0;
-	public static RegisterActivity RegisterActivity;
 	private String password;
 	private String[] code_error = new String[] { "-1", "-2", "-3", "-4", "-6", "-11", "-14", "-21", "-41", "-42",
 			"-51" };

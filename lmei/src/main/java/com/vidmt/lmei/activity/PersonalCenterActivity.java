@@ -101,9 +101,7 @@ public class PersonalCenterActivity extends BaseActivity {
 		themes();
 		registerBoradcastReceiver();
 		registerBoradcastReceiver2();
-		LoadDataUpdate();
 		LoadAuthenticationData();
-		
 	}
 
 	@Override

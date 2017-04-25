@@ -28,12 +28,12 @@
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\umeng_socialize_share_video.png"
     },
     {
-        "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\com_facebook_close.png",
-        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\com_facebook_close.png"
-    },
-    {
         "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\com_facebook_button_send_icon.png",
         "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\com_facebook_button_send_icon.png"
+    },
+    {
+        "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\com_facebook_close.png",
+        "source": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\com_facebook_close.png"
     },
     {
         "merged": "D:\\projects\\Lmei\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_bottomnub.png",

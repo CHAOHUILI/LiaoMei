@@ -506,13 +506,11 @@
         </activity>
 
         <!-- 融云集成 -->
-
-
         <!-- app的key -->
         <meta-data
             android:name="RONG_CLOUD_APP_KEY"
             android:value="tdrvipkstm8d5" />
-        <!-- tdrvipkstm8d5     3argexb63j9ae -->
+        <!-- 线下 tdrvipkstm8d5    线上 3argexb63j9ae   Secrete  fsbj5XApmUMeJQ-->
         <!--
       <activity
             android:name=".ConversationListActivity"

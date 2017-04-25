@@ -58,22 +58,22 @@ public class MultiAudioCallActivity extends BaseCallActivity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.rc_voip_ac_muti_audio);
-		maudioContainer = (LinearLayout) findViewById(R.id.rc_voip_container);
-		incomingLayout = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.rc_voip_item_incoming_maudio,
-				null);
-		outgoingLayout = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.rc_voip_item_outgoing_maudio,
-				null);
-		outgoingController = (FrameLayout) LayoutInflater.from(this)
-				.inflate(R.layout.rc_voip_call_bottom_connected_button_layout, null);
-		incomingController = (FrameLayout) LayoutInflater.from(this)
-				.inflate(R.layout.rc_voip_call_bottom_incoming_button_layout, null);
-
-		startForCheckPermissions = getIntent().getBooleanExtra("checkPermissions", false);
-		if (!requestCallPermissions(RongCallCommon.CallMediaType.AUDIO)) {
-			return;
-		}
-		RongContext.getInstance().getEventBus().register(this);
-		initView();
+//		maudioContainer = (LinearLayout) findViewById(R.id.rc_voip_container);
+//		incomingLayout = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.rc_voip_item_incoming_maudio,
+//				null);
+//		outgoingLayout = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.rc_voip_item_outgoing_maudio,
+//				null);
+//		outgoingController = (FrameLayout) LayoutInflater.from(this)
+//				.inflate(R.layout.rc_voip_call_bottom_connected_button_layout, null);
+//		incomingController = (FrameLayout) LayoutInflater.from(this)
+//				.inflate(R.layout.rc_voip_call_bottom_incoming_button_layout, null);
+//
+//		startForCheckPermissions = getIntent().getBooleanExtra("checkPermissions", false);
+//		if (!requestCallPermissions(RongCallCommon.CallMediaType.AUDIO)) {
+//			return;
+//		}
+//		RongContext.getInstance().getEventBus().register(this);
+//		initView();
 	}
 
 	@Override
@@ -82,7 +82,7 @@ public class MultiAudioCallActivity extends BaseCallActivity {
 		if (!requestCallPermissions(RongCallCommon.CallMediaType.AUDIO)) {
 			return;
 		}
-		initView();
+//		initView();
 
 		super.onNewIntent(intent);
 	}
@@ -148,7 +148,8 @@ public class MultiAudioCallActivity extends BaseCallActivity {
 	@SuppressLint("NewApi")
 	void initView() {
 		Intent intent = getIntent();
-		callAction = RongCallAction.valueOf(intent.getStringExtra("callAction"));
+//		callAction = RongCallAction.valueOf(intent.getStringExtra("callAction"));
+		callAction = null;
 		if (callAction == null || callAction.equals(RongCallAction.ACTION_RESUME_CALL)) {
 			return;
 		}

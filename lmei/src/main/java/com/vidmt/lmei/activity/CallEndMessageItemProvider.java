@@ -36,6 +36,9 @@ import io.rong.imkit.widget.provider.IContainerItemProvider;
 import io.rong.imlib.model.Message;
 import io.rong.imlib.model.UserInfo;
 
+/**
+ * 呼叫结束后聊天界面发送消息，记录聊天（语言，视频接听，未接听，取消）情况
+ */
 @ProviderTag(messageContent = CallSTerminateMessage.class, showSummaryWithName = false, showProgress = false, showWarning = false)
 public class CallEndMessageItemProvider extends IContainerItemProvider.MessageProvider<CallSTerminateMessage> {
     class ViewHolder {
@@ -166,8 +169,7 @@ public class CallEndMessageItemProvider extends IContainerItemProvider.MessagePr
         String action = null;
         if (mediaType.equals(RongCallCommon.CallMediaType.VIDEO)) {
         	
-        	
-        	
+
             action = RongVoIPIntent.RONG_INTENT_ACTION_VOIP_SINGLEVIDEO;
             int ltypes = SharedPreferencesUtil.getInt(view.getContext(), "vstype", 0);
          			if (ltypes==1) {

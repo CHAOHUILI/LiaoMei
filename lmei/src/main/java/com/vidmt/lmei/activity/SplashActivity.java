@@ -183,7 +183,8 @@ public class SplashActivity extends BaseActivity implements OnPageChangeListener
 			@Override
 			public void run() {
 				String info;
-				try { 
+				try {
+
 					info = Person_Service.VersionUpdate();
 				} catch (Exception e) {
 					info=null;
@@ -223,7 +224,7 @@ public class SplashActivity extends BaseActivity implements OnPageChangeListener
 					
 										connect(b_person.getRongyuntoken(), b_person);
 									}else {
-										StartActivity(MainActivity.class);
+										StartActivity2(LoginActivity.class);
 									}
 
 
@@ -259,7 +260,7 @@ public class SplashActivity extends BaseActivity implements OnPageChangeListener
 										connect(b_person.getRongyuntoken(), b_person);
 									}else {
 						
-										StartActivity(MainActivity.class);
+										StartActivity2(LoginActivity.class);
 
 									}
 
@@ -288,18 +289,10 @@ public class SplashActivity extends BaseActivity implements OnPageChangeListener
 									connect(b_person.getRongyuntoken(), b_person);
 								}else {
 									 
-									StartActivity(MainActivity.class);
+									StartActivity2(LoginActivity.class);
 
 								}
 
-
-
-								//connect(b_person.getRongyuntoken(), b_person);
-
-
-
-
-								// StartActivity(MainActivity.class);
 							} else {
 								
 								StartActivity(LoginActivity.class);
@@ -324,13 +317,10 @@ public class SplashActivity extends BaseActivity implements OnPageChangeListener
 								connect(b_person.getRongyuntoken(), b_person);
 							}else {
 				
-								StartActivity(MainActivity.class);
+								StartActivity2(LoginActivity.class);
 
 							}
-							//connect(b_person.getRongyuntoken(), b_person);
 
-
-							// StartActivity(MainActivity.class);
 						} else {
 							StartActivity(LoginActivity.class);
 						}
@@ -349,7 +339,7 @@ public class SplashActivity extends BaseActivity implements OnPageChangeListener
 						connect(b_person.getRongyuntoken(), b_person);
 					}else {
 		
-						StartActivity(MainActivity.class);
+						StartActivity2(LoginActivity.class);
 
 					}
 					//connect(b_person.getRongyuntoken(), b_person);
@@ -372,7 +362,7 @@ public class SplashActivity extends BaseActivity implements OnPageChangeListener
 							connect(b_person.getRongyuntoken(), b_person);
 						}else {
 			
-							StartActivity(MainActivity.class);
+							StartActivity2(LoginActivity.class);
 
 						}
 
@@ -440,7 +430,7 @@ public class SplashActivity extends BaseActivity implements OnPageChangeListener
 							connect(b_person.getRongyuntoken(), b_person);
 							// StartActivity(MainActivity.class);
 						} else {
-							StartActivity(LoginActivity.class);
+							StartActivity2(LoginActivity.class);
 						}
 					}else {
 						StartActivity(LoginActivity.class);
@@ -539,7 +529,7 @@ public class SplashActivity extends BaseActivity implements OnPageChangeListener
 							new UserInfo(persion.getId() + "", persion.getNick_name(), Uri.parse(persion.getPhoto())));
 					RongIM.getInstance().setMessageAttachedUserInfo(true);
 
-					StartActivity(MainActivity.class);
+					StartActivity2(LoginActivity.class);
 					// finish();
 
 				}

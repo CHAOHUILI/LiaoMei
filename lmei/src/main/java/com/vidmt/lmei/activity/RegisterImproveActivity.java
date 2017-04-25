@@ -26,12 +26,14 @@ import android.app.ActionBar.LayoutParams;
 import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -110,7 +112,8 @@ public class RegisterImproveActivity extends BaseActivity {
 	String uid;
 	String phone;
 	String pwd;
-	
+	int ver;
+	String channel;
 	private String path;// 图片地址
 	private String flieName = "";
 	private boolean isTrue = true;
@@ -177,7 +180,9 @@ public class RegisterImproveActivity extends BaseActivity {
 						ToastShow("请选择性别");
 					}else{
 						loadingDialog.show();
-					LoadData();
+						SharedPreferencesUtil.putString(getApplicationContext(),"passWord",pwd);
+
+						LoadData();
 					}
 					break;
 				default:
@@ -201,14 +206,24 @@ public class RegisterImproveActivity extends BaseActivity {
     }
     @Override
 	public void LoadData() {
+
+
 		// TODO Auto-generated method stub
 		super.LoadData();
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
+				try {
+					ver = com.vidmt.lmei.Application.getInstance().getPackageManager().getPackageInfo(com.vidmt.lmei.Application.getInstance().getPackageName(),
+							PackageManager.GET_CONFIGURATIONS).versionCode;
+					channel = com.vidmt.lmei.Application.getInstance().getPackageManager().getApplicationInfo(com.vidmt.lmei.Application.getInstance().getPackageName(),
+							PackageManager.GET_META_DATA).metaData.getString("UMENG_CHANNEL");
+				} catch (PackageManager.NameNotFoundException e) {
+					e.printStackTrace();
+				}
 				//String jhuser = Person_Service.insert(phone,pwd,birthday1,photo,gender,username);
 				Message msg = mUIHandler.obtainMessage(1);
-				msg.obj = Person_Service.insert(phone,pwd,birthday1,photo,gender,username);
+				msg.obj = Person_Service.insert(phone,pwd,birthday1,photo,gender,username,"a",ver+"",channel, Build.MODEL);
 				msg.sendToTarget();
 			}
 		}).start();
@@ -225,7 +240,9 @@ public class RegisterImproveActivity extends BaseActivity {
 					String mes = (String) msg.obj;
 					if (mes.equals(JsonUtil.ObjToJson("error"))||mes.equals("")||mes.equals(JsonUtil.ObjToJson(""))||mes.equals(JsonUtil.ObjToJson("reg_error"))||mes.equals(JsonUtil.ObjToJson("param_error"))) {
 						ToastShow("注册失败请重试");
-					}else {
+                        loadingDialog.dismiss();
+
+                    }else {
 						loadingDialog.dismiss();
 						p_perPersion = JsonUtil.JsonToObj(mes, Persion.class);
 	             		inityunong(p_perPersion);					
@@ -235,10 +252,11 @@ public class RegisterImproveActivity extends BaseActivity {
 					}
 				}else{
 					ToastShow("注册失败请重试");
-				}
+                    loadingDialog.dismiss();
+
+                }
 				break;
-			case 2:			
-			break;
+
 			default:
 				break;
 			}
@@ -298,7 +316,8 @@ public class RegisterImproveActivity extends BaseActivity {
 					ManageDataBase.Insert(dbutil, Persion.class, p_perPersion);
 					initJpush(p_perPersion);
 					RongIM.getInstance().refreshUserInfoCache(new UserInfo(persion.getId()+"",persion.getNick_name(), Uri.parse(persion.getPhoto())));
-					RongIM.getInstance().setMessageAttachedUserInfo(true); 
+					RongIM.getInstance().setMessageAttachedUserInfo(true);
+					SharedPreferencesUtil.putString(getApplicationContext(),"phoneNumber",phone);
 					StartActivity(MainActivity.class);
 					finish();
 				}
@@ -443,7 +462,7 @@ public class RegisterImproveActivity extends BaseActivity {
 		intent.putExtra("crop", "true");
 		// aspectX aspectY 是宽高的比例
 		intent.putExtra("aspectX", 9);
-		intent.putExtra("aspectY", 10);
+		intent.putExtra("aspectY", 9);
 		intent.putExtra("scale",true);
 		intent.putExtra("scaleUpIfNeeded", true);
 		// outputX,outputY 是剪裁图片的宽高
@@ -563,7 +582,6 @@ public class RegisterImproveActivity extends BaseActivity {
 					dismiss();
 				}
 			});
-
 		}
 	}
     

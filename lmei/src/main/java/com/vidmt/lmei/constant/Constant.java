@@ -27,10 +27,12 @@ public class Constant {
 //	public static final String HOST = "http://lmei.vidmt.com/lmeiApi/";
 	/**
 	 * 用户注册
+	 * 头像图片64,
 	 */
 	public static final String USER_REGISTER = HOST + "reg_and_third?"; // tel=?&pwd=?
 	/**
 	 * 用户登录
+	 *
 	 */
 	public static final String USER_LOGIN = HOST + "login?"; // tel=?&pwd=?
 	/**
@@ -39,6 +41,7 @@ public class Constant {
 	public static final String UPDATEPOWD = HOST + "find_pwd?"; // tel=?&pwd=?
 	/**
 	 * 第三方登录
+	 * 头像上传图片正常，非64
 	 */
 	public static final String THIRD_LOGIN = HOST + "reg_and_third";//
 	/**
@@ -50,7 +53,7 @@ public class Constant {
 	 */
 	public static final String VERSION = HOST + "version";
 	/**
-	 * 设置语音、视频
+	 * 设置语音、视频（没有用到）
 	 */
 	public static final String MYINCOME = HOST + "my_income";
 	/**
@@ -98,7 +101,7 @@ public class Constant {
 	 */
 	public static final String ALOWDEANSWER = HOST + "alowed_to_answer";
 	/**
-	 * 查看详情
+	 * 查看别人详情
 	 */
 	public static final String SELECTUSERINFODETILE = HOST + "otherPersionInfo?";
 	/**
@@ -369,12 +372,9 @@ orderid    int      4接口返回值
 
 	public  static final String FRESHLOGIN = HOST+"login_again?";
 
-
-
 	//退出登陆
 	public  static final String LOGINOUT = HOST+"login_out?id=";
 
-
-
-
+	//在线状态id:用户id,presence: 0离线，1在线空闲，2在线聊天中
+	public  static final String UPDATE_PRESENCE = HOST+"update_presence";
 }

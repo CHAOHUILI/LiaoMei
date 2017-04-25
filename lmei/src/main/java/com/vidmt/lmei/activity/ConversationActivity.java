@@ -19,8 +19,10 @@ import java.util.Locale;
 
 import org.apache.commons.httpclient.HttpException;
 
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import com.ta.TAApplication;
+import com.umeng.analytics.MobclickAgent;
 import com.vidmt.lmei.Application;
 import com.vidmt.lmei.CloseAccountActivity;
 import com.vidmt.lmei.R;
@@ -837,6 +839,8 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 			}
 		}).start();
 	}
+
+	private Persion p;
 	private Handler mUIHandler = new Handler(){
 		public void handleMessage(android.os.Message msg) {
 			super.handleMessage(msg);
@@ -1056,7 +1060,11 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 					if("".equals(mes)){
 						Toast.makeText(ConversationActivity.this, "网络异常，请稍后再试", Toast.LENGTH_SHORT).show();
 					}else {
-						Persion p = JsonUtil.JsonToObj(mes, Persion.class);
+						try {
+							p = JsonUtil.JsonToObj(mes, Persion.class);
+						}catch (JsonSyntaxException e){
+							MobclickAgent.reportError(getApplicationContext(),e);
+						}
 						int ltype = SharedPreferencesUtil.getInt(ConversationActivity.this, "ltype", 0);
 						chatpay = p.getSms_money();
 						headtitle.setText(p.getNick_name());

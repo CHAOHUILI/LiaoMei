@@ -174,7 +174,7 @@ public class RegisterActivity extends BaseActivity  {
 		// TODO Auto-generated method stub
 		super.onAfterSetContentView();
 		OnClickListener onClickListener = new OnClickListener() {
-			public static final int MIN_CLICK_DELAY_TIME = 1000;
+			public static final int MIN_CLICK_DELAY_TIME = 5000;
 			private long lastClickTime = 0;
 
 			@Override
@@ -198,6 +198,9 @@ public class RegisterActivity extends BaseActivity  {
 						} else {
 							ToastShow("手机号不允许空");
 						}
+					}else {
+						Log.i("dianji","keyi");
+						break;
 					}
 					break;
 				case R.id.Ok:
@@ -280,7 +283,6 @@ public class RegisterActivity extends BaseActivity  {
 
 	public void GetUtel(final String tel) {
 		new Thread(new Runnable() {
-
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
@@ -295,7 +297,6 @@ public class RegisterActivity extends BaseActivity  {
 
 		@Override
 		public void handleMessage(Message msg) {
-			// TODO Auto-generated method stub
 			super.handleMessage(msg);
 			switch (msg.what) {
 			case 1:
