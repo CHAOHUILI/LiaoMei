@@ -467,7 +467,7 @@ public class RegisterImproveActivity extends BaseActivity {
 		intent.putExtra("scaleUpIfNeeded", true);
 		// outputX,outputY 是剪裁图片的宽高
 		intent.putExtra("outputX", 360);
-		intent.putExtra("outputY", 270);
+		intent.putExtra("outputY", 360);
 		intent.putExtra("onFaceDetection", true);
 		// intent.putExtra("return-data", true);
 		tempFile = Uri

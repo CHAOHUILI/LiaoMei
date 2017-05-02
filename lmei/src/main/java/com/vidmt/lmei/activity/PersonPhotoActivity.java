@@ -59,7 +59,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 
 /**
- * 我的图片浏览页
+ * 我的图片浏览页，gridview
  */
 public class PersonPhotoActivity extends BaseActivity {
 

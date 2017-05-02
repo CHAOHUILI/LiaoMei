@@ -28,8 +28,12 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.ta.TAApplication;
 import com.vidmt.lmei.R;
+import com.vidmt.lmei.controller.Person_Service;
+import com.vidmt.lmei.entity.Persion;
 import com.vidmt.lmei.util.rule.SharedPreferencesUtil;
+import com.vidmt.lmei.util.think.DbUtil;
 
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -45,6 +49,9 @@ import io.rong.calllib.RongCallCommon;
 public class BaseCallActivity extends Activity implements IRongCallListener {
 	private final static long DELAY_TIME = 1000;
 	static final int REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS = 100;
+	protected DbUtil dbutil;
+	protected  Persion persion_main;
+	protected  String mtargetId;//我的id
 
 	private MediaPlayer mMediaPlayer;
 	private int time = 0;
@@ -99,7 +106,34 @@ public class BaseCallActivity extends Activity implements IRongCallListener {
 		}else {
 			SharedPreferencesUtil.putInt(BaseCallActivity.this, "chattype", 0);
 		}
+		refreshStatus();
 	}
+
+	private void refreshStatus() {
+		dbutil = new DbUtil((TAApplication) this.getApplication());
+		List<Persion>  	users= dbutil.selectData(Persion.class,null);
+		if(users !=null)
+		{
+			if(users.size()>0)
+			{
+				try {
+					persion_main = users.get(0);
+					mtargetId =  persion_main.getId()+"";
+					new Thread(new Runnable() {
+						@Override
+						public void run() {
+							Person_Service.update_presence(mtargetId,2+"");
+						}
+					}).start();
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			}
+		}
+	}
+
 	//正在拨
 	public void onOutgoingCallRinging() {
 		mMediaPlayer = MediaPlayer.create(this, R.raw.voip_outgoing_ring);
@@ -224,16 +258,18 @@ public class BaseCallActivity extends Activity implements IRongCallListener {
 		
 		if (SingleCallActivity.singleCallActivity!=null) {
 			SingleCallActivity.singleCallActivity.vends();	
-		}else {
-
 		}
 		RongCallClient.getInstance().setVoIPCallListener(null);
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				Person_Service.update_presence(mtargetId,1+"");
+			}
+		}).start();
 	}
 
 	@Override
 	public void onRemoteUserInvited(String userId, RongCallCommon.CallMediaType mediaType) {
-	
-
 
 	}
 
@@ -271,12 +307,19 @@ public class BaseCallActivity extends Activity implements IRongCallListener {
 		//            finish();
 		//            return;
 		//        }
+
 		if (shouldShowFloat) {
 			Bundle bundle = new Bundle();
 			String action = onSaveFloatBoxState(bundle);
 			if (action != null) {
 				bundle.putString("action", action);
-				CallFloatBoxView.showFloatBox(getApplicationContext(), bundle, time);
+				CallFloatBoxView.showFloatBox(getApplicationContext(), bundle, time,mtargetId);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Person_Service.update_presence(mtargetId,2+"");
+                    }
+                }).start();
 			}
 		}
 	}

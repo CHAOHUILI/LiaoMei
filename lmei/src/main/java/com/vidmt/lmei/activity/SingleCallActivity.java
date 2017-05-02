@@ -144,8 +144,6 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 	public static   Handler sehandler;
 
 	Bitmap Bmp;
-	View decorview;
-	private SimpleDateFormat dateFormat = null;
 	private String strDate = null;
 	private String pathImage = null;
 	private String nameImage = null;
@@ -153,22 +151,13 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 	private MediaProjection mMediaProjection = null;
 	private VirtualDisplay mVirtualDisplay = null;
 
-	public static int mResultCode = 0;
-	public static Intent mResultData = null;
-	public static MediaProjectionManager mMediaProjectionManager1 = null;
-
-	private WindowManager mWindowManager1 = null;
 	private int windowWidth = 0;
 	private int windowHeight = 0;
 	private ImageReader mImageReader = null;
-	private DisplayMetrics metrics = null;
 	private int mScreenDensity = 0;
 	private MediaProjectionManager mMediaProjectionManager;
 	private int REQUEST_MEDIA_PROJECTION = 1;
-	protected DbUtil dbutil;
-	protected  Persion persion_main; 
 
-	private String mtargetId;//我的id
 	private int  tonken;//金币
 	private PersentAdapter  persentAdapter;
 	private View parent;
@@ -196,10 +185,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 	File photofile;
 	private int paytoken;//支付金币数
 
-	private ViewPager mPager;
 	private List<View> mPagerList;
-	private List<Model> mDatas;
-	private LinearLayout mLlDot;
 	private int type;
 	/**
 	 * 总的页数
@@ -217,9 +203,6 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 	protected DisplayImageOptions options;
 
 	private Persion	persion;
-
-	private  SurfaceHolder  surfaceHolder = null;
-
 	private int  islike=0;
 
 	public static SingleCallActivity singleCallActivity;
@@ -228,31 +211,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 	@TargetApi(23)
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		setContentView(R.layout.rc_voip_activity_single_call);
-
-		dbutil = new DbUtil((TAApplication) this.getApplication());
-		List<Persion>  	users= dbutil.selectData(Persion.class,null);
-		if(users !=null)
-		{
-			if(users.size()>0)
-			{
-				try {
-					persion_main = users.get(0);
-					mtargetId =  persion_main.getId()+"";
-					new Thread(new Runnable() {
-						@Override
-						public void run() {
-							Person_Service.update_presence(mtargetId,2+"");
-						}
-					}).start();
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-
-			}
-		}
 		options = new DisplayImageOptions.Builder()
 				.showStubImage(R.drawable.sisterlog)
 				.showImageForEmptyUri(R.drawable.sisterlog)
@@ -1109,12 +1068,6 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 	}
 	@Override
 	protected void onDestroy() {
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				Person_Service.update_presence(mtargetId,1+"");
-			}
-		}).start();
 		RongContext.getInstance().getEventBus().unregister(this);
 		super.onDestroy();
 	}
@@ -1827,10 +1780,6 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 		return version; 
 	}
 	private void vstart() {
-		// TODO Auto-generated method stub
-
-
-
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -1860,7 +1809,6 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 
 
 	public void vend(final int chatid) {
-		// TODO Auto-generated method stub
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -1886,12 +1834,9 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 		}).start();
 	}
 	public void LoadStrangerData() {
-		// TODO Auto-generated method stub
 		new Thread(new Runnable() {
-
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				// dialog.show();
 				Message msg = mUIHandler.obtainMessage(5);
 				try {
@@ -1906,7 +1851,6 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 
 					}
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					msg.obj = null;
 				}
 				msg.sendToTarget();
@@ -1948,12 +1892,12 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 					/**
 					 * 
 					 * 异常 = error
-                                                       对方被禁用 = sell_error
-                                                       自己被禁用 = buy_error
-                                                       对方不开启语音 = sell_novoice
-                                                       对方不开启视频 = sell_novideo
-                                                       自己与对方有未处理的语音消费 = voice_noend正常情况不会出现此反馈
-                                                       自己与对方有未处理的视频消费 = video_noend正常情况不会出现此反馈
+					 对方被禁用 = sell_error
+					 自己被禁用 = buy_error
+					 对方不开启语音 = sell_novoice
+					 对方不开启视频 = sell_novideo
+					 自己与对方有未处理的语音消费 = voice_noend正常情况不会出现此反馈
+					 自己与对方有未处理的视频消费 = video_noend正常情况不会出现此反馈
 					 */
 					String mes = (String) msg.obj;
 

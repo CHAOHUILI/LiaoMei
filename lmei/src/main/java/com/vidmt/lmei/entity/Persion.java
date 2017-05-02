@@ -17,7 +17,7 @@ public class Persion implements Serializable{
 	private String birthday;//生日
 	private Integer age;//年龄
 	private Integer level;//级别
-	private Integer token;//爱意
+	private Integer token;//金币数量
 	private String qq;//QQ号
 	private String area;//城市
 	private String photo;//头像

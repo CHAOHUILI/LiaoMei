@@ -23,6 +23,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.vidmt.lmei.R;
+import com.vidmt.lmei.controller.Person_Service;
 import com.vidmt.lmei.util.rule.SharedPreferencesUtil;
 
 import io.rong.common.RLog;
@@ -46,8 +47,12 @@ public class CallFloatBoxView {
 	private static WindowManager wm;
 	private static Bundle mBundle;
 	private static final String TAG = "CallFloatBoxView";
+	protected static String mtargetId;
 
-	public static void showFloatBox(Context context, Bundle bundle, int time) {
+
+	public static void showFloatBox(Context context, Bundle bundle, int time,String id) {
+		mtargetId=id;
+
 		if (isShown) {
 			return;
 		}
@@ -165,7 +170,12 @@ public class CallFloatBoxView {
 
 					RongIM.getInstance().insertMessage(Conversation.ConversationType.PRIVATE, callProfile.getTargetId(), senderId, message, null);
 				}
-
+				new Thread(new Runnable() {
+					@Override
+					public void run() {
+						Person_Service.update_presence(mtargetId,1+"");
+					}
+				}).start();
 				if ( SingleCallActivity.erunnable==null) {
 
 
