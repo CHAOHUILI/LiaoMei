@@ -126,7 +126,7 @@ public class HomeActivity extends BaseActivity {
         }
         themes();
         InitView();
-        login_again();
+//        login_again();
         LoadDataUpdate();//更新信息，是否禁用
         if (RongIM.getInstance().getCurrentConnectionStatus().equals(RongIMClient.ConnectionStatusListener.ConnectionStatus.DISCONNECTED)) {
             RongIM.init(this);
@@ -257,7 +257,6 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void login_again() {//刷新用戶時間，
-        // TODO Auto-generated method stub
         //刷新登录时间
         new Thread(new Runnable() {
             @Override

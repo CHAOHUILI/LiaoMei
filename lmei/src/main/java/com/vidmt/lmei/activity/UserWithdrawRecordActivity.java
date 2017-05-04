@@ -129,7 +129,7 @@ public class UserWithdrawRecordActivity extends BaseActivity {
 		new Thread(new Runnable(){
 			@Override
 			public void run() {
-				String json = Person_Service.selectWithdrawByPid(b_person.getId());//1 充值，2提现
+				String json = Person_Service.selectWithdrawByPid(b_person.getId());
 				Message msg = mUIHandler.obtainMessage(1);
 				msg.obj = json;
 				msg.sendToTarget();	

@@ -124,7 +124,7 @@ public class UserRechargeRecordActivity extends BaseActivity {
 		new Thread(new Runnable(){
 			@Override
 			public void run() {
-				String json = Person_Service.Recharge(b_person.getId(), 1);//1 充值，2提现
+				String json = Person_Service.Recharge(b_person.getId(), 1);
 				Message msg = mUIHandler.obtainMessage(1);
 				msg.obj = json;
 				msg.sendToTarget();	

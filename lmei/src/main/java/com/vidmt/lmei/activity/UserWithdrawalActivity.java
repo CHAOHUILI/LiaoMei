@@ -105,6 +105,10 @@ public class UserWithdrawalActivity extends BaseActivity {
 		withdrawalnex.setOnClickListener(onClickListener);
 		headerthemeleft.setOnClickListener(onClickListener);
 	}
+
+	/**
+	 * 提现申请
+	 */
 	public void LoadData() {
 		super.LoadData();
 		loadingDialog.show();

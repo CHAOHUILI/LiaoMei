@@ -164,7 +164,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 	private Present cates;
 	private int incalltype;//1为拨出2为接入
 
-	private int chatid=0;//聊天id;
+	private int chatid=0;//聊天id，跟person的id无关;
 	View kk;
 	private LinearLayout rc_voip_liiwu;//礼物out
 	private TextView times;//时间
@@ -897,11 +897,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 
 				if (callSession.getCallId()!=null) {
 					RongCallClient.getInstance().hangUpCall(callSession.getCallId()); 
-				} 
-
-			}else {
-
-
+				}
 			}
 			}
 
@@ -909,8 +905,6 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 
 		if (incalltype==1) {
 			vstart();
-
-
 		}else if (incalltype==2) {
 
 			try {
@@ -918,11 +912,8 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-
 			vstart();
 			getviews();
-			
-
 		}
 
 		if (ehandler!=null) {
@@ -1523,9 +1514,6 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 		if (callStatus != null && callStatus.equals(RongCallCommon.CallStatus.CONNECTED)) {
 
 			super.onBackPressed();
-
-
-
 		} else {
 			RongCallClient.getInstance().hangUpCall(callSession.getCallId());
 			if (chatid==0) {
@@ -1535,7 +1523,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 
 				//Toast.makeText(SingleCallActivity.this, "onBackPressed", Toast.LENGTH_SHORT);
 
-				vend(chatid);	
+//				vend(chatid);
 				RongCallAction callAction = RongCallAction.valueOf(getIntent().getStringExtra("callAction"));
 				if (callAction.equals(RongCallAction.ACTION_OUTGOING_CALL)) {
 
@@ -1713,8 +1701,6 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 		}
 	}
 	private void tophoto(final String file) {
-		// TODO Auto-generated method stub
-
 
 		new Thread(new Runnable() {
 			@Override
@@ -1796,7 +1782,6 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 					Rankingmap = Chat_Service.vstart(mtargetId, targetId,type );
 				}else if (incalltype==2) {
 					Rankingmap = Chat_Service.vstart(targetId, mtargetId,type );
-
 				}
 
 				android.os.Message msg = mUIHandler.obtainMessage(1);
@@ -2985,7 +2970,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 
 			}else {
 				//Toast.makeText(SingleCallActivity.this, "onBackPressed", Toast.LENGTH_SHORT);
-				vend(chatid);
+//				vend(chatid);
 				RongCallAction callAction = RongCallAction.valueOf(getIntent().getStringExtra("callAction"));
 				if (callAction.equals(RongCallAction.ACTION_OUTGOING_CALL)) {
 

@@ -368,7 +368,7 @@ public class PersonUpdateActivity extends BaseActivity {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				String jhuser = Person_Service.persionOne(b_person.getId());
+				String jhuser = Person_Service.persionOne(b_person.getId()+"");
 				Message msg = mUIHandler.obtainMessage(1);
 				msg.obj = jhuser;
 				msg.sendToTarget();

@@ -227,7 +227,6 @@ public class UserWalletActivity extends BaseActivity {
 
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
 
 					dismiss();
 					loadingDialog.show();
@@ -238,7 +237,6 @@ public class UserWalletActivity extends BaseActivity {
 
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
 
 					dismiss();
 				}
@@ -261,6 +259,9 @@ public class UserWalletActivity extends BaseActivity {
 		registerReceiver(broadcastReceiver, intentToReceiveFilter);
 	}
 
+	/**
+	 * 	加载绑定的支付宝信息
+	 */
 	@Override
 	public void LoadData() {
 		new Thread(new Runnable() {

@@ -2102,7 +2102,7 @@ public class HomeDetailActivity extends BaseActivity {
             public void run() {
 
                 // TODO Auto-generated method stub
-                String jhuser = Person_Service.selectisblack(b_person.getId(), userid);
+                String jhuser = Person_Service.selectisblack(b_person.getId()+"", userid+"");
                 Message msg = mUIHandlerres.obtainMessage(2);
                 msg.obj = jhuser;
                 msg.sendToTarget();

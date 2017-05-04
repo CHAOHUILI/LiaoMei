@@ -138,6 +138,7 @@ public class LatestChatActivity extends BaseActivity implements OnHeaderRefreshL
 				// dialog.show();
 				Message msg = mUHandler.obtainMessage(1);
 				try {
+					//用户id，页面类型，性别，认证，显示数据页
 					msg.obj = Person_Service.getUserAll(id, orderCondition, sex, ident_state, pageIndex);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block

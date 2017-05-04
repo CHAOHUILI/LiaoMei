@@ -108,6 +108,10 @@ public class Person_Service {
 		return json;
 	}
 
+	/**
+	 * 退出登陆
+	 * @param login_out 用户id
+	 */
 	public static String sendGet(int login_out) {
 		String result = "";
 		BufferedReader in = null;
@@ -161,6 +165,13 @@ public class Person_Service {
 		params.put("pwd", password);
 		return HttpUtil.doPost(Constant.MYINCOME , params);
 	}
+
+	/**
+	 * 更新用户状态
+	 * @param id 用户id
+	 * @param status 状态 1，空闲，2，正在通话
+	 * @return
+	 */
 	public static String update_presence(String id,String status)
 	{
 		//password = MD5.md5(password);
@@ -170,12 +181,24 @@ public class Person_Service {
 		return HttpUtil.doPost(Constant.UPDATE_PRESENCE , params);
 	}
 
+	/**
+	 * 查询用户是否被禁用
+	 * @param id
+	 * @return
+	 */
 	public static String loginupdage(int id)
 	{
 		RequestParams params = new RequestParams();
 		params.put("id", id+"");
 		return HttpUtil.doPost(Constant.PERSIONINFOUPDATE, params);
 	}
+
+	/**
+	 * 充值接口
+	 * @param tokenid 套餐id
+	 * @param id 用户id
+	 * @return
+	 */
 	public static String PayIns(int tokenid,int id)
 	{
 		RequestParams params = new RequestParams();
@@ -183,6 +206,12 @@ public class Person_Service {
 		params.put("persion_id", id+"");
 		return HttpUtil.doPost(Constant.RECHARGE, params);
 	}
+
+	/**
+	 * 验证手机号
+	 * @param tel 号码
+	 * @return
+	 */
 	public static String isPhone(String tel)
 	{
 		RequestParams params = new RequestParams();
@@ -191,7 +220,7 @@ public class Person_Service {
 	}
 	
 	/**
-	 * 修改个人信息
+	 * 修改个人信息，头像和相册都在内
 	 * @param p
 	 * @return
 	 */
@@ -216,7 +245,7 @@ public class Person_Service {
 		return json;
 	}
 	/**
-	 * 修改个人信息2   不同的地方是 头像不需要转base64,直接上传地址
+	 * 图片或视频认证
 	 * @param p
 	 * @return
 	 */
@@ -226,6 +255,14 @@ public class Person_Service {
 		String json = HttpUtil.doPost(Constant.EDITDATED, params);
 		return json;
 	}
+
+	/**
+	 * 举报
+	 * @param self_id
+	 * @param other_id
+	 * @param reason
+	 * @return
+	 */
 	public static String complaint(int self_id,int other_id,String reason){
 		RequestParams params = new RequestParams();
 		params.put("self_id", self_id+"");
@@ -235,7 +272,7 @@ public class Person_Service {
 		return json;
 	}
 	/**
-	 * 查看支付宝信息
+	 * 查看绑定的支付宝信息
 	 * @param pid 用户id
 	 * @return list<Aliacount>
 	 */
@@ -245,6 +282,11 @@ public class Person_Service {
 		String json = HttpUtil.doPost(Constant.SELECTBYPERSIONID, params);
 		return json;
 	}
+
+	/**
+	 * 加载主页用户信息
+	 * 	用户id，页面类型，性别，认证，显示数据页
+	 */
 	public static String getUserAll(int id,int orderCondition,int sex,int ident_state,int pageIndex){
 		RequestParams params = new RequestParams();
 		params.put("id", id+"");
@@ -255,6 +297,11 @@ public class Person_Service {
 		String json = HttpUtil.doPost(Constant.SELECTUSERINFO, params);
 		return json;
 	}
+
+	/**
+	 * 获取好友，粉丝，关注列表
+	 * 参数 用户id  类型包含好友，粉丝，关注    key是关键字，搜索好友用到
+	 */
 	public static String selectfriends(int id,int flag,String key){
 		RequestParams params = new RequestParams();
 		params.put("id", id+"");
@@ -263,6 +310,13 @@ public class Person_Service {
 		String json = HttpUtil.doPost(Constant.SELECTFRIENDSINFO, params);
 		return json;
 	}
+
+	/**
+	 * 	查找某人，添加好友
+	 * @param id 自己id
+	 * @param key 关键字
+	 * @return
+	 */
 	public static String selectstranger(int id,String key){
 		RequestParams params = new RequestParams();
 		params.put("id", id+"");
@@ -270,12 +324,22 @@ public class Person_Service {
 		String json = HttpUtil.doPost(Constant.SELECTSTRANGERINFO, params);
 		return json;
 	}
+
+	/**
+	 * 黑名单
+	 * @param id
+	 * @return
+	 */
 	public static String myblacklist(int id){
 		RequestParams params = new RequestParams();
 		params.put("id", id+"");
 		String json = HttpUtil.doPost(Constant.MYBLACKLIST, params);
 		return json;
 	}
+
+	/**
+	 * 添加关注
+	 */
 	public static String addpaste(int persion_id,int accept_id){
 		RequestParams params = new RequestParams();
 		params.put("persion_id", persion_id+"");
@@ -283,13 +347,20 @@ public class Person_Service {
 		String json = HttpUtil.doPost(Constant.ADDPASTE, params);
 		return json;
 	}
-	
+
+	/**
+	 * 取消关注
+	 */
 	public static String unsubscribe(int id){
 		RequestParams params = new RequestParams();
 		params.put("id", id+"");
 		String json = HttpUtil.doPost(Constant.UNSUBSCRIBE, params);
 		return json;
 	}
+
+	/**
+	 * 拉黑n
+	 */
 	public static String featuresblack(int persion_id,int other_id){
 		RequestParams params = new RequestParams();
 		params.put("persion_id", persion_id+"");
@@ -297,12 +368,20 @@ public class Person_Service {
 		String json = HttpUtil.doPost(Constant.ADDBLACK, params);
 		return json;
 	}
+
+	/**
+	 *取消拉黑
+	 */
 	public static String cancelPullBlack(int id){
 		RequestParams params = new RequestParams();
 		params.put("id", id+"");
 		String json = HttpUtil.doPost(Constant.DELBLACK, params);
 		return json;
 	}
+
+	/**
+	 * 允许视频或者音频
+	 */
 	public static String alowed_to_answer(int id,int voice_state,int video_state){
 		RequestParams params = new RequestParams();
 		params.put("id", id+"");
@@ -311,6 +390,10 @@ public class Person_Service {
 		String json = HttpUtil.doPost(Constant.ALOWDEANSWER, params);
 		return json;
 	}
+
+	/**
+	 * 查看别人信息
+	 */
 	public static String loaduserinfo(int self_id,int other_id){
 		RequestParams params = new RequestParams();
 		params.put("self_id", self_id+"");
@@ -318,13 +401,18 @@ public class Person_Service {
 		String json = HttpUtil.doPost(Constant.SELECTUSERINFODETILE, params);
 		return json;
 	}
-	public static String selectisblack(int self_id,int other_id){
-		RequestParams params = new RequestParams();
-		params.put("self_id", self_id+"");
-		params.put("other_id", other_id+"");
-		String json = HttpUtil.doPost(Constant.SELECTISBLACK, params);
-		return json;
-	}
+
+
+//	public static String selectisblack(int self_id,int other_id){
+//		RequestParams params = new RequestParams();
+//		params.put("self_id", self_id+"");
+//		params.put("other_id", other_id+"");
+//		String json = HttpUtil.doPost(Constant.SELECTISBLACK, params);
+//		return json;
+//	}
+	/**
+	 *查看对方是否拉黑自己
+	 */
 	public static String selectisblack(String self_id,String other_id){
 		RequestParams params = new RequestParams();
 		params.put("self_id", self_id);
@@ -332,11 +420,20 @@ public class Person_Service {
 		String json = HttpUtil.doPost(Constant.SELECTISBLACK, params);
 		return json;
 	}
+
+	/**
+	 * 充值套餐列表加载
+	 */
 	public static String selecttokeninfo(){
 		RequestParams params = new RequestParams();
 		String json = HttpUtil.doPost(Constant.SELECTTOKENINFO, params);
 		return json;
 	}
+
+	/**
+	 *绑定支付宝
+	 * id 支付宝账号 真实姓名
+	 */
 	public static String AddAliCount(int persion_id,String account,String realname){
 		RequestParams params = new RequestParams();
 		params.put("persion_id", persion_id+"");
@@ -345,6 +442,12 @@ public class Person_Service {
 		String json = HttpUtil.doPost(Constant.ADDALICOUNT, params);
 		return json;
 	}
+
+
+	/**
+	 * 申请提现
+	 * id 金额
+	 */
 	public static String applicationWithdraw(int pid,String money){
 		RequestParams params = new RequestParams();
 		params.put("pid", pid+"");
@@ -352,12 +455,21 @@ public class Person_Service {
 		String json = HttpUtil.doPost(Constant.WITHDRAW, params);
 		return json;
 	}
+
+	/**
+	 *  收费价格信息加载
+	 *  level   用户级别
+	 */
 	public static String getcharge(int level){
 		RequestParams params = new RequestParams();
 		params.put("level", level+"");
 		String json = HttpUtil.doPost(Constant.SELCETCHARGE, params);
 		return json;
 	}
+
+	/**
+	 * 语言价格更新
+	 */
 	public static String updatevoicecharge(int id,int voice_money){
 		RequestParams params = new RequestParams();
 		params.put("id", id+"");
@@ -365,6 +477,10 @@ public class Person_Service {
 		String json = HttpUtil.doPost(Constant.UPDATECHARGE, params);
 		return json;
 	}
+
+	/**
+	 *视频价格更新
+	 */
 	public static String updatevideocharge(int id,int video_money){
 		RequestParams params = new RequestParams();
 		params.put("id", id+"");
@@ -372,6 +488,10 @@ public class Person_Service {
 		String json = HttpUtil.doPost(Constant.UPDATECHARGE, params);
 		return json;
 	}
+
+	/**
+	 *conversation页消息价格更新
+	 */
 	public static String updatesmscharge(int id,int sms_money){
 		RequestParams params = new RequestParams();
 		params.put("id", id+"");
@@ -384,6 +504,8 @@ public class Person_Service {
 	 * @param persion_id 用户id
 	 * @param state    1收入，2支出
 	 * @param pageIndex  分页
+	 *         flag貌似没用
+
 	 * flag  1级分页
 	 * @return
 	 */
@@ -402,6 +524,7 @@ public class Person_Service {
 	 * oid 对方id
 	 * @param state    1收入，2支出
 	 * @param pageIndex  分页
+	 *               flag貌似没用
 	 * @return
 	 */
 	public static String balance2(int persion_id,int oid,int state,int pageIndex,String flag){
@@ -428,9 +551,9 @@ public class Person_Service {
 			return js;
 		}
 		/**
-		 * 充值提现记录
+		 * 充值记录
 		 * @param persion_id
-		 * @param type  1充值 2提现
+		 * @param type 没啥用
 		 * @return
 		 */
 		public static String Recharge(int persion_id,int type){
@@ -452,19 +575,15 @@ public class Person_Service {
 			String json = HttpUtil.doPost(Constant.SELECTWITHDRAWBYPID, params);
 			return json;
 		}
+
+//	public static String persionOne(int id){
+//		RequestParams params = new RequestParams();
+//		params.put("id", id+"");
+//		String json = HttpUtil.doPost(Constant.PERSIONONE, params);
+//		return json;
+//	}
 	/**
-	 *更新个人数据
-	 * @param id
-	 * @return
-	 */
-	public static String persionOne(int id){
-		RequestParams params = new RequestParams();
-		params.put("id", id+"");
-		String json = HttpUtil.doPost(Constant.PERSIONONE, params);
-		return json;
-	}
-	/**
-	 *更新个人数据
+	 *加载个人数据
 	 * @param id
 	 * @return
 	 */
@@ -488,7 +607,7 @@ public class Person_Service {
 	}
 	/**
 	 * 删除系统消息
-	 * @param id
+	 * @param id 消息id
 	 * id=&flag=3
 	 * @return
 	 */
@@ -499,12 +618,24 @@ public class Person_Service {
 		String json = HttpUtil.doPost(Constant.DELNOTICE, params);
 		return json;
 	}
+
+	/**
+	 * 钱转为金币
+	 * @param id 用户id
+	 * @return
+	 */
 	public static String transition(int id){
 		RequestParams params = new RequestParams();
 		params.put("id", id+"");
 		String json = HttpUtil.doPost(Constant.TRANSITION, params);
 		return json;
 	}
+
+	/**
+	 * 检查版本更新
+	 * @return
+	 * @throws Exception
+	 */
 	public static String VersionUpdate() throws Exception{
 		RequestParams params = new RequestParams();
 		params.put("type", 1+"");
