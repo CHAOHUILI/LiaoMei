@@ -491,8 +491,9 @@ public class PersonUpdateActivity extends BaseActivity {
 							String[] photo = p.getSup_ability().split("_");
 							userhobbylist.clear();
 							for (int i = 0; i < photo.length; i++) {
-
-								userhobbylist.add(photo[i]);
+								if(!photo[i].equals("")){
+									userhobbylist.add(photo[i]);
+								}
 							}
 							userdetailhobbyonum.setText("" + photo.length);
 							userdetailhobygridview.setVisibility(View.VISIBLE);

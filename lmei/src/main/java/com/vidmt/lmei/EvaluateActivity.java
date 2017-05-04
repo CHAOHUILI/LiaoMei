@@ -141,7 +141,7 @@ public class EvaluateActivity extends BaseActivity {
 				);
 
 
-		vend(orderid);
+//		vend(orderid);
 		confirmbtn.setOnClickListener(new OnClickListener() {
 
 			@Override

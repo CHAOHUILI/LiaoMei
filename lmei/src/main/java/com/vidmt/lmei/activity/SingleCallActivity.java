@@ -909,7 +909,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 
 		if (incalltype==1) {
 			vstart();
-			
+
 
 		}else if (incalltype==2) {
 
@@ -951,8 +951,8 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 
 							vend(chatid);
 
-							
-							
+
+
 							new Thread(new Runnable() {
 								@Override
 								public void run() {
@@ -1488,7 +1488,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 	@Override
 	public String onSaveFloatBoxState(Bundle bundle) {
 		super.onSaveFloatBoxState(bundle);
-		vend(chatid);
+//		vend(chatid);//处理扣钱多一次问题
 		callSession = RongCallClient.getInstance().getCallSession();
 		bundle.putBoolean("muted", muted);
 		bundle.putBoolean("handFree", handFree);

@@ -236,6 +236,7 @@ public class PersonPhotoActivity extends BaseActivity {
 					myadapter.notifyDataSetChanged();
 					break;
 				case R.id.headerright:
+				    loadingDialog.show();
 					pdphoto=0;
 					// 遍历list 找到要上传的照片并转化成base64
 					getImgUri(list);
@@ -335,7 +336,6 @@ public class PersonPhotoActivity extends BaseActivity {
 	}
 
 	protected void editDate(final String json) {
-		loadingDialog.show();
 		Persion p = new Persion();
 		p.setId(b_person.getId());
 		p.setAlbum(json);
