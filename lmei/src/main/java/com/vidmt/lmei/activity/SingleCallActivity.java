@@ -207,6 +207,8 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 
 	public static SingleCallActivity singleCallActivity;
 	private AgoraVideoFrame agoraVideoFrame;
+	private int pos;
+
 	@Override
 	@TargetApi(23)
 	protected void onCreate(Bundle savedInstanceState) {
@@ -324,9 +326,8 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				curIndex=0;
 				new PopupWindows(SingleCallActivity.this,kk,1,2);
-				//dashang.setVisibility(View.GONE);
 				//	Toast.makeText(SingleCallActivity.this, "wen", Toast.LENGTH_SHORT).show();
 			}
 		});
@@ -2295,9 +2296,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 		};
 	};
 	/**
-	 *请求礼物
-	 *
-	 * 
+	 *获取礼物列表礼物
 	 */
 	private void genpresent() {
 		// TODO Auto-generated method stub
@@ -2446,7 +2445,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 					gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 						@Override
 						public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-							int pos = position + curIndex * pageSize;
+							pos = position + curIndex * pageSize;
 
 							// TODO Auto-generated method stub
 
@@ -2531,7 +2530,6 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 
 							//						}
 
-							Toast.makeText(SingleCallActivity.this, presents.get(pos).getPresent_name(), Toast.LENGTH_SHORT).show();
 							//Toast.makeText(ConversationActivity.this, mDatas.get(pos).getName(), Toast.LENGTH_SHORT).show();
 						}
 					});
@@ -2869,6 +2867,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 				// TODO Auto-generated method stub
 				arg0.describeContents();
 				sendpresent(mtargetId, targetId, cates.getId());
+				Toast.makeText(SingleCallActivity.this, presents.get(pos).getPresent_name(), Toast.LENGTH_SHORT).show();
 
 			}
 

@@ -199,6 +199,8 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 
 	private int isblack=0;
 	String str ;
+	private int pos;
+
 	@Override
 	@TargetApi(23)
 	protected void onCreate(Bundle savedInstanceState) {
@@ -394,7 +396,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 
 			@Override
 			public void onClick(View v) {
-
+				curIndex = 0;
 				new PopupWindows(ConversationActivity.this,kk,1);
 			}
 		});
@@ -802,9 +804,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 		}
 	}
 	/**
-	 *请求礼物
-	 *
-	 * 
+	 *获取礼物列表礼物
 	 */
 	private void genpresent() {
 		// TODO Auto-generated method stub
@@ -2080,6 +2080,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 				arg0.describeContents();
 
 				sendpresent(targetId, mTargetId, cates.getId());
+				Toast.makeText(ConversationActivity.this, presents.get(pos).getPresent_name(), Toast.LENGTH_SHORT).show();
 
 			}
 
@@ -2193,7 +2194,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 					gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 						@Override
 						public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-							int pos = position + curIndex * pageSize;
+							pos = position + curIndex * pageSize;
 
 							// TODO Auto-generated method stub
 							if (checkNetworkState()==false) {
@@ -2307,7 +2308,6 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 											//Toast.makeText(ECChattingActivity.this, "选择礼物"+cates.getPresent_name(),Toast.LENGTH_SHORT).show();
 										}
 									}
-									curIndex=0;
 									dismiss();
 
 								}	

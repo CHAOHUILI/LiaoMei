@@ -289,6 +289,7 @@ public class HomeDetailActivity extends BaseActivity {
     private int chattype;// 1为从 会话界面
     int sxdate = 0;
     private LoadingDialog mDialog;
+    private int pos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -468,7 +469,7 @@ public class HomeDetailActivity extends BaseActivity {
     }
 
     /**
-     * 请求礼物
+     * 获取礼物列表
      */
     private void genpresent() {
         // TODO Auto-generated method stub
@@ -1391,6 +1392,7 @@ public class HomeDetailActivity extends BaseActivity {
                             if (myisblack == 1) {
                                 ToastShow("您被对方拉黑，不能进行此操作");
                             } else {
+                                curIndex = 0;
                                 new PopupWindows(HomeDetailActivity.this, chatgift, 1);
                             }
 
@@ -2180,7 +2182,6 @@ public class HomeDetailActivity extends BaseActivity {
      * 礼物选取界面
      **/
     public class PopupWindows extends PopupWindow {
-
         public PopupWindows() {
             // TODO Auto-generated method stub
 
@@ -2228,7 +2229,7 @@ public class HomeDetailActivity extends BaseActivity {
                     gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            int pos = position + curIndex * pageSize;
+                            pos = position + curIndex * pageSize;
 
                             // TODO Auto-generated method stub
                             if (checkNetworkState() == false) {
@@ -2432,7 +2433,6 @@ public class HomeDetailActivity extends BaseActivity {
                         dismiss();
                         //Intent intents = new Intent(HomeDetailActivity.this, UserRechargeActivity.class);
                         //startActivity(intents);
-                        dismiss();
 
                     }
                 });
@@ -2465,7 +2465,6 @@ public class HomeDetailActivity extends BaseActivity {
                 //
                 // @Override
                 // public void onClick(View v) {
-                // // TODO Auto-generated method stub
                 // if (checkNetworkState()==false) {
                 //
                 // Toast.makeText(ConversationActivity.this,
@@ -2573,6 +2572,7 @@ public class HomeDetailActivity extends BaseActivity {
         }
         // 默认显示第一页
         mLlDot.getChildAt(0).findViewById(R.id.v_dot).setBackgroundResource(R.drawable.dot_selected);
+
         mPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             public void onPageSelected(int position) {
                 // 取消圆点选中
@@ -2770,6 +2770,7 @@ public class HomeDetailActivity extends BaseActivity {
                         arg0.describeContents();
 
                         sendpresent(b_person.getId() + "", p.getId() + "", cates.getId());
+                        Toast.makeText(HomeDetailActivity.this, presents.get(pos).getPresent_name(), Toast.LENGTH_SHORT).show();
 
                     }
 
