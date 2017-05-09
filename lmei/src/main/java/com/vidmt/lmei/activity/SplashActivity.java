@@ -225,6 +225,7 @@ public class SplashActivity extends BaseActivity implements OnPageChangeListener
 										connect(b_person.getRongyuntoken(), b_person);
 									}else {
 										StartActivity2(LoginActivity.class);
+										overridePendingTransition(0,0);
 									}
 
 
@@ -261,6 +262,7 @@ public class SplashActivity extends BaseActivity implements OnPageChangeListener
 									}else {
 						
 										StartActivity2(LoginActivity.class);
+										overridePendingTransition(0,0);
 
 									}
 
@@ -290,6 +292,7 @@ public class SplashActivity extends BaseActivity implements OnPageChangeListener
 								}else {
 									 
 									StartActivity2(LoginActivity.class);
+									overridePendingTransition(0,0);
 
 								}
 
@@ -318,6 +321,7 @@ public class SplashActivity extends BaseActivity implements OnPageChangeListener
 							}else {
 				
 								StartActivity2(LoginActivity.class);
+								overridePendingTransition(0,0);
 
 							}
 
@@ -340,6 +344,7 @@ public class SplashActivity extends BaseActivity implements OnPageChangeListener
 					}else {
 		
 						StartActivity2(LoginActivity.class);
+						overridePendingTransition(0,0);
 
 					}
 					//connect(b_person.getRongyuntoken(), b_person);
@@ -363,6 +368,7 @@ public class SplashActivity extends BaseActivity implements OnPageChangeListener
 						}else {
 			
 							StartActivity2(LoginActivity.class);
+							overridePendingTransition(0,0);
 
 						}
 
@@ -431,6 +437,8 @@ public class SplashActivity extends BaseActivity implements OnPageChangeListener
 							// StartActivity(MainActivity.class);
 						} else {
 							StartActivity2(LoginActivity.class);
+							overridePendingTransition(0,0);
+
 						}
 					}else {
 						StartActivity(LoginActivity.class);
@@ -531,6 +539,7 @@ public class SplashActivity extends BaseActivity implements OnPageChangeListener
 
 					StartActivity2(LoginActivity.class);
 					// finish();
+					overridePendingTransition(0,0);
 
 				}
 

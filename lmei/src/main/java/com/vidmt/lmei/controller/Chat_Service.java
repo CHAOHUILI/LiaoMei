@@ -27,16 +27,7 @@ public class Chat_Service {
 	}
 
 
-	/**
-	 * 用户购买时长
-	 * @param id//用户Id
-	 * buy_id =  购买方id
-       sell_id = 服务方id
-       token = 花费爱意数
-       buy_time = 购买多长时间，按天算
-       type = 1-普通，2-语音，3-视频
-	 * @return
-	 */
+
 	public static String buytime (int buy_id, int sell_id,int token,int buy_time ,int type) {
 		RequestParams params = new RequestParams();
 		params.put("buy_id", buy_id+"");
@@ -48,13 +39,7 @@ public class Chat_Service {
 		return json;
 	}
 
-	/**
-	 * 
-	 没有即时回复，则给服务方发送jpush信息（发送短信？未实现）
-	 * @param id//用户Id
-	 * persion_id=
-	 * @return
-	 */
+
 	public static String sendchat (String  tel) {
 		RequestParams params = new RequestParams();
 		params.put("tel", tel);
@@ -112,7 +97,7 @@ public class Chat_Service {
 
 	/**
 	 * 
-	    礼物列表
+	    获取礼物列表
 	 * 
 	 */
 	public static String  getpresent() {

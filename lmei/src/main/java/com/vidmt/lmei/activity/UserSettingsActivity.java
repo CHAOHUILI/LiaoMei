@@ -204,6 +204,7 @@ public class UserSettingsActivity extends BaseActivity {
 
 				case R.id.eixt:
 					String jhuser = Person_Service.sendGet(b_person.getId());
+					JPushInterface.stopPush(getApplicationContext());
 					RongIM.getInstance().logout();
 					ManageDataBase.Delete(dbutil, Persion.class, null);
 					ToastShow("退出成功");

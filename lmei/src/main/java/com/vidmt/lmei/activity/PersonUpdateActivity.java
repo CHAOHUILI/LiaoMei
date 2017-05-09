@@ -235,7 +235,7 @@ public class PersonUpdateActivity extends BaseActivity {
 	String voicespath = "";
 	int num = 0;
 	int maxnum = 0;
-	Timer T = new Timer();
+	Timer T ;
 	static MediaPlayer mPlayer = new MediaPlayer();
 	private boolean isCity = true; // 控制地区不重复显示
 	int voicetype = 0;//
@@ -293,8 +293,9 @@ public class PersonUpdateActivity extends BaseActivity {
 		super.onDestroy();
 		if(broadcastReceiver!=null){
 			unregisterReceiver(broadcastReceiver);
-
 		}
+
+
 	}
 
 	@Override
@@ -491,7 +492,7 @@ public class PersonUpdateActivity extends BaseActivity {
 							String[] photo = p.getSup_ability().split("_");
 							userhobbylist.clear();
 							for (int i = 0; i < photo.length; i++) {
-								if(!photo[i].equals("")){
+								if(!"".equals(photo[i])){
 									userhobbylist.add(photo[i]);
 								}
 							}
@@ -808,13 +809,7 @@ public class PersonUpdateActivity extends BaseActivity {
 				case R.id.headerthemeleft:
 					if (isplay == true) {
 						mPlayer.stop();
-						try {
-							mPlayer.prepare();
-						} catch (IllegalStateException e) {
-							e.printStackTrace();
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
+						mPlayer.release();
 						isplay = false;
 						if (T != null) {
 							T.cancel();
@@ -914,6 +909,7 @@ public class PersonUpdateActivity extends BaseActivity {
 					new LyPopuWindow(PersonUpdateActivity.this, ll);
 					break;
 				case R.id.uservoiceimg:
+					voicetype=1;
 					long currentTime = Calendar.getInstance().getTimeInMillis();
 					if (currentTime - lastClickTime > MIN_CLICK_DELAY_TIME) {
 						lastClickTime = currentTime;
@@ -934,9 +930,16 @@ public class PersonUpdateActivity extends BaseActivity {
 								ToastShow("您还没有录音哦！");
 							}
 						} else if (voicetype == 1) {
-							if (!isplay) {
-
+							if (!mPlayer.isPlaying()) {
 								if (isprepare) {
+									if(num==0){
+										mPlayer.stop();
+										try {
+											mPlayer.prepare();
+										} catch (IOException e) {
+											e.printStackTrace();
+										}
+									}
 									mPlayer.start();// 播放
 									isplay = true;
 									T = new Timer();
@@ -953,12 +956,10 @@ public class PersonUpdateActivity extends BaseActivity {
 									ToastShow("音频还在缓存中...");
 								}
 							} else {
-								mPlayer.stop();
 								try {
-									mPlayer.prepare();
+//									mPlayer.prepare();
+									mPlayer.pause();
 								} catch (IllegalStateException e) {
-									e.printStackTrace();
-								} catch (IOException e) {
 									e.printStackTrace();
 								}
 								isplay = false;
@@ -1013,6 +1014,7 @@ public class PersonUpdateActivity extends BaseActivity {
 					userdetailvoicetime.setText(secToTime(sj) + "“");
 				} else {
 					userdetailvoicetime.setText(secToTime(maxnum) + "“");
+					num=0;
 				}
 				if (T != null) {
 					T.cancel();
@@ -1041,13 +1043,8 @@ public class PersonUpdateActivity extends BaseActivity {
 
 			if (isplay == true) {
 				mPlayer.stop();
-				try {
-					mPlayer.prepare();
-				} catch (IllegalStateException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				mPlayer.release();
+
 				isplay = false;
 				if (T != null) {
 					T.cancel();
@@ -1847,6 +1844,9 @@ public class PersonUpdateActivity extends BaseActivity {
 	}
 
 	public static void PrepareM2() {
+		if(mPlayer!=null){
+			mPlayer.reset();
+		}
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -1854,16 +1854,12 @@ public class PersonUpdateActivity extends BaseActivity {
 					mPlayer.setDataSource(SDcardTools.getSDPath() + "/mp3.mp3");
 					mPlayer.prepareAsync();
 				} catch (IllegalArgumentException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (SecurityException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IllegalStateException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -2048,11 +2044,11 @@ public class PersonUpdateActivity extends BaseActivity {
 	 * catch (Exception ignored) { } } return null; }
 	 */
 
-	@Override
-	public void onResume() {
-		mPlayer.reset();
-		super.onResume();
-	}
+//	@Override
+//	public void onResume() {
+//		mPlayer.reset();
+//		super.onResume();
+//	}
 
 
 	@Override

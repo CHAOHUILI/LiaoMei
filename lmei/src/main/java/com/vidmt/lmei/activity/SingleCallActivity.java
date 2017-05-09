@@ -1781,14 +1781,15 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 				String Rankingmap = null;
 				if (incalltype==1) {
 					Rankingmap = Chat_Service.vstart(mtargetId, targetId,type );
-				}else if (incalltype==2) {
-					Rankingmap = Chat_Service.vstart(targetId, mtargetId,type );
+					android.os.Message msg = mUIHandler.obtainMessage(1);
+					msg.obj = Rankingmap;
+					msg.sendToTarget();
 				}
 
-				android.os.Message msg = mUIHandler.obtainMessage(1);
+//				else if (incalltype==2) {
+//					Rankingmap = Chat_Service.vstart(targetId, mtargetId,type );
+//				}
 
-				msg.obj = Rankingmap;
-				msg.sendToTarget();				
 			}
 		}).start();
 	}
@@ -1809,13 +1810,14 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 				String Rankingmap = null;
 				if (incalltype==1) {
 					Rankingmap = Chat_Service.vcutmoney(chatid);
-				}else if (incalltype==2) {
-					Rankingmap = Chat_Service.vcutmoney(chatid);
+					android.os.Message msg = mUIHandler.obtainMessage(2);
+					msg.obj = Rankingmap;
+					msg.sendToTarget();
 				}
+//				else if (incalltype==2) {
+//					Rankingmap = Chat_Service.vcutmoney(chatid);
+//				}
 
-				android.os.Message msg = mUIHandler.obtainMessage(2);
-				msg.obj = Rankingmap;
-				msg.sendToTarget();				
 			}
 		}).start();
 	}

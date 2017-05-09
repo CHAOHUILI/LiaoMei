@@ -80,6 +80,7 @@ public class LoginActivity extends BaseActivity {
 
     @TAInjectView(id = R.id.logintel)
     EditText logintel;
+
     @TAInjectView(id = R.id.person_pwd)
     EditText person_pwd;
     @TAInjectView(id = R.id.loginbtn)
@@ -108,26 +109,30 @@ public class LoginActivity extends BaseActivity {
 //	protected static UMSocialService mController = UMServiceFactory.getUMSocialService("com.umeng.login");
     int ver;
     String channel;
+    private LinearLayout mLoginPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        mLoginPage = (LinearLayout) findViewById(R.id.login_page);
         String default_login = getIntent().getStringExtra("default_login");
-
-        themes();
-        InitView();
         if("default_login".equals(default_login)){
             name= SharedPreferencesUtil.getString(getApplicationContext(),"phoneNumber","");
             pwd=SharedPreferencesUtil.getString(getApplicationContext(),"passWord","");
 
             if("".equals(name)||"".equals(pwd)){
-
+                mLoginPage.setVisibility(View.VISIBLE);
             }else {
                 LoadData();
             }
 
+        }else {
+            mLoginPage.setVisibility(View.VISIBLE);
         }
+        themes();
+        InitView();
+
     }
 
     @Override
@@ -701,7 +706,6 @@ public class LoginActivity extends BaseActivity {
 
     public void LoadData() {
         super.LoadData();
-        // TODO Auto-generated method stub
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -720,6 +724,7 @@ public class LoginActivity extends BaseActivity {
             public void run() {
                 // TODO Auto-generated method stub
                 String Third = uid;
+                SharedPreferencesUtil.putString(getApplicationContext(),"phoneNumber","");
                 String jhuser = Person_Service.third_login(Third, name, birthday, gender, icon,"a",ver+"",channel,Build.MODEL);
                 Message msg = mUIHandler.obtainMessage(2);
                 msg.obj = jhuser;
@@ -732,7 +737,6 @@ public class LoginActivity extends BaseActivity {
     private Handler mUIHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            // TODO Auto-generated method stub
             super.handleMessage(msg);
             switch (msg.what) {
                 case 1:
@@ -740,22 +744,26 @@ public class LoginActivity extends BaseActivity {
                         String mes = (String) msg.obj;
 
                         if (mes.equals(JsonUtil.ObjToJson("error"))) {
-
+                            mLoginPage.setVisibility(View.VISIBLE);
                             ToastShow("网络错误请重新登录");
                             loadingDialog.dismiss();
                         } else if (mes.equals(JsonUtil.ObjToJson("user_not_exist"))) {
+                            mLoginPage.setVisibility(View.VISIBLE);
 
                             ToastShow("还没有该用户");
                             loadingDialog.dismiss();
                         } else if (mes.equals(JsonUtil.ObjToJson("fail"))) {
+                            mLoginPage.setVisibility(View.VISIBLE);
 
                             ToastShow("用户名或密码输入有误");
                             loadingDialog.dismiss();
                         } else if (mes.equals("")) {
+                            mLoginPage.setVisibility(View.VISIBLE);
 
                             ToastShow("请求超时");
                             loadingDialog.dismiss();
                         } else if (mes.equals(JsonUtil.ObjToJson("warning"))) {
+                            mLoginPage.setVisibility(View.VISIBLE);
 
                             ToastShow("您的账户已被管理员禁用");
                             loadingDialog.dismiss();
@@ -764,6 +772,8 @@ public class LoginActivity extends BaseActivity {
                             p_pe = JsonUtil.JsonToObj(mes, Persion.class);
 
                             if (p_pe.getUse_state() != null && p_pe.getUse_state() == 2) {
+                                mLoginPage.setVisibility(View.VISIBLE);
+
                                 ToastShow("您的账户已被管理员禁用");
                                 loadingDialog.dismiss();
                             } else {
@@ -892,6 +902,8 @@ public class LoginActivity extends BaseActivity {
                     loadingDialog.dismiss();
                     Looper.prepare();
                     try {
+                        mLoginPage.setVisibility(View.VISIBLE);
+
                         Toast.makeText(LoginActivity.this, "连接融云失败", Toast.LENGTH_SHORT).show();
                     } catch (Exception e) {
                         // TODO: handle exception
@@ -945,6 +957,7 @@ public class LoginActivity extends BaseActivity {
                 @Override
                 public void onError(RongIMClient.ErrorCode errorCode) {
                     Log.d("LoginActivity", "--onError" + errorCode);
+                    mLoginPage.setVisibility(View.VISIBLE);
 
                     loadingDialog.dismiss();
                     //ToastShow("连接融云失败");
@@ -958,6 +971,8 @@ public class LoginActivity extends BaseActivity {
             });
         } else {
             Toast.makeText(LoginActivity.this, "连接融云失败", Toast.LENGTH_SHORT).show();
+            mLoginPage.setVisibility(View.VISIBLE);
+
             loadingDialog.dismiss();
         }
     }

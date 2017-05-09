@@ -828,10 +828,15 @@ public class HomeDetailActivity extends BaseActivity {
                     if (p.getSup_ability() != null) {
                         userhobbylist.clear();
                         String[] photo = p.getSup_ability().split("_");
+                        userdetailhobbyonum.setText(photo.length+"");
+
                         for (int i = 0; i < photo.length; i++) {
-                            userhobbylist.add(photo[i]);
+                            if("".equals(photo[i])&&photo.length==1){
+                                userdetailhobbyonum.setText("0");
+                            }else{
+                                userhobbylist.add(photo[i]);
+                            }
                         }
-                        userdetailhobbyonum.setText("" + photo.length);
                         userdetailhobygridview.setVisibility(View.VISIBLE);
                         rela_userhpbyerror.setVisibility(View.GONE);
 
@@ -863,9 +868,7 @@ public class HomeDetailActivity extends BaseActivity {
                     rela_error.setVisibility(View.GONE);
                     rela_broken.setVisibility(View.GONE);
                 } catch (Exception e) {
-                    // TODO: handle exception
-                    // new
-                    // ShowContentView(HomeDetailActivity.this,ll,mes,1);
+                   Log.e("homeactivity",e.toString());
                     loaduserinfo();
                 }
             } else {
@@ -1350,13 +1353,8 @@ public class HomeDetailActivity extends BaseActivity {
                     case R.id.headerthemeleft:
                         if (isplay == true) {
                             mPlayer.stop();
-                            try {
-                                mPlayer.prepare();
-                            } catch (IllegalStateException e) {
-                                e.printStackTrace();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                            mPlayer.release();
+
                             isplay = false;
                             T.cancel();
                             T = null;
@@ -1433,14 +1431,7 @@ public class HomeDetailActivity extends BaseActivity {
                                     ToastShow("音频还在缓存中...");
                                 }
                             } else {
-                                mPlayer.stop();
-                                try {
-                                    mPlayer.prepare();
-                                } catch (IllegalStateException e) {
-                                    e.printStackTrace();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
+                                mPlayer.pause();
                                 isplay = false;
                                 if (T != null) {
                                     T.cancel();
@@ -1548,6 +1539,7 @@ public class HomeDetailActivity extends BaseActivity {
                 if (T != null) {
                     T.cancel();
                 }
+                num=0;
             }
         });
         // 缓存完的监听
@@ -1597,13 +1589,7 @@ public class HomeDetailActivity extends BaseActivity {
 
             if (isplay == true) {
                 mPlayer.stop();
-                try {
-                    mPlayer.prepare();
-                } catch (IllegalStateException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                mPlayer.release();
                 isplay = false;
                 T.cancel();
                 T = null;
