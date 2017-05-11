@@ -178,19 +178,19 @@ public class BaseActivity extends ThinkAndroidBaseActivity implements Conversati
 
 	}
 
-	public void onResume() {
-		super.onResume();
-		//InitView();
-		MobclickAgent.onResume(this);
-		JPushInterface.onResume(this);
-	}
+
 
 	public void onPause() {
 		super.onPause();
 		MobclickAgent.onPause(this);
 		JPushInterface.onPause(this);
 	}
-
+	public void onResume() {
+		super.onResume();
+		//InitView();
+		MobclickAgent.onResume(this);
+		JPushInterface.onResume(this);
+	}
 	/**
 	 * 打开一个activity
 	 * 

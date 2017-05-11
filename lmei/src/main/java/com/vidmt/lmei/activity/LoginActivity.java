@@ -101,7 +101,6 @@ public class LoginActivity extends BaseActivity {
     String uid = "";
     String sex;
     String birthday = "";
-    String photo = "";
     int gender = 0;
     LoadingDialog dialog = null;
     IWXAPI mWeixinAPI = null;
@@ -110,6 +109,7 @@ public class LoginActivity extends BaseActivity {
     int ver;
     String channel;
     private LinearLayout mLoginPage;
+    private String Third;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,14 +117,38 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
         mLoginPage = (LinearLayout) findViewById(R.id.login_page);
         String default_login = getIntent().getStringExtra("default_login");
+        try {
+            ver = com.vidmt.lmei.Application.getInstance().getPackageManager().getPackageInfo(com.vidmt.lmei.Application.getInstance().getPackageName(),
+                    PackageManager.GET_CONFIGURATIONS).versionCode;
+            channel = com.vidmt.lmei.Application.getInstance().getPackageManager().getApplicationInfo(com.vidmt.lmei.Application.getInstance().getPackageName(),
+                    PackageManager.GET_META_DATA).metaData.getString("UMENG_CHANNEL");
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
         if("default_login".equals(default_login)){
-            name= SharedPreferencesUtil.getString(getApplicationContext(),"phoneNumber","");
-            pwd=SharedPreferencesUtil.getString(getApplicationContext(),"passWord","");
 
-            if("".equals(name)||"".equals(pwd)){
-                mLoginPage.setVisibility(View.VISIBLE);
+            if(SharedPreferencesUtil.getBoolean(getApplicationContext(),"isThirdLogin",false)){
+                Third  = SharedPreferencesUtil.getString(getApplicationContext(), "thirdLoginUid", "");
+                if(Third.equals("")){
+                    mLoginPage.setVisibility(View.VISIBLE);
+                }else {
+//                    name, birthday, gender, icon,
+                    name=SharedPreferencesUtil.getString(getApplicationContext(),"thirdLoginName","");
+                    birthday= SharedPreferencesUtil.getString(getApplicationContext(),"thirdLoginBirth","");
+                    gender=SharedPreferencesUtil.getInt(getApplicationContext(),"thirdLoginGender",0);
+                    icon=SharedPreferencesUtil.getString(getApplicationContext(),"thirdLoginIcon","");
+                    ThirdLogin();
+
+                }
             }else {
-                LoadData();
+                name= SharedPreferencesUtil.getString(getApplicationContext(),"phoneNumber","");
+                pwd=SharedPreferencesUtil.getString(getApplicationContext(),"passWord","");
+
+                if("".equals(name)||"".equals(pwd)){
+                    mLoginPage.setVisibility(View.VISIBLE);
+                }else {
+                    LoadData();
+                }
             }
 
         }else {
@@ -280,6 +304,8 @@ public class LoginActivity extends BaseActivity {
                                             } else {
                                                 gender = 2;
                                             }
+                                            Third = uid;
+
                                             ThirdLogin();
 
                                             // String token =
@@ -415,6 +441,8 @@ public class LoginActivity extends BaseActivity {
                                                 } else {
                                                     gender = 2;
                                                 }
+                                                Third = uid;
+
                                                 ThirdLogin();
                                             } else {
                                                 Log.d("TestData", "发生错误：" + i);
@@ -545,6 +573,8 @@ public class LoginActivity extends BaseActivity {
                                                     } else {
                                                         gender = 2;
                                                     }
+                                                    Third = uid;
+
                                                     ThirdLogin();
                                                 } else {
                                                     Log.d("TestData", "发生错误：" + i);
@@ -709,8 +739,8 @@ public class LoginActivity extends BaseActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                // TODO Auto-generated method stub
                 String jhuser = Person_Service.login(name, pwd, uid,"a",ver+"",channel, Build.MODEL);
+                SharedPreferencesUtil.putBoolean(getApplicationContext(),"isThirdLogin",false);
                 Message msg = mUIHandler.obtainMessage(1);
                 msg.obj = jhuser;
                 msg.sendToTarget();
@@ -722,10 +752,13 @@ public class LoginActivity extends BaseActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                // TODO Auto-generated method stub
-                String Third = uid;
-                SharedPreferencesUtil.putString(getApplicationContext(),"phoneNumber","");
+                SharedPreferencesUtil.putString(getApplicationContext(),"thirdLoginUid",Third);
+                SharedPreferencesUtil.putString(getApplicationContext(),"thirdLoginName",name);
+                SharedPreferencesUtil.putString(getApplicationContext(),"thirdLoginBirth",birthday);
+                SharedPreferencesUtil.putInt(getApplicationContext(),"thirdLoginGender",gender);
+                SharedPreferencesUtil.putString(getApplicationContext(),"thirdLoginIcon",icon);
                 String jhuser = Person_Service.third_login(Third, name, birthday, gender, icon,"a",ver+"",channel,Build.MODEL);
+                SharedPreferencesUtil.putBoolean(getApplicationContext(),"isThirdLogin",true);
                 Message msg = mUIHandler.obtainMessage(2);
                 msg.obj = jhuser;
                 msg.sendToTarget();

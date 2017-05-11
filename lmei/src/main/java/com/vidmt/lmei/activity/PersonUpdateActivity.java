@@ -229,7 +229,6 @@ public class PersonUpdateActivity extends BaseActivity {
 	AdapterUserPhoto adapteruserphotot;
 	List<String> userphotolist;
 	public static Bitmap bmp;
-	boolean isplay;// 播放状态
 	boolean isprepare;// 缓存状态
 	String videopath = "";
 	String voicespath = "";
@@ -491,12 +490,16 @@ public class PersonUpdateActivity extends BaseActivity {
 						if (p.getSup_ability() != null) {
 							String[] photo = p.getSup_ability().split("_");
 							userhobbylist.clear();
-							for (int i = 0; i < photo.length; i++) {
-								if(!"".equals(photo[i])){
-									userhobbylist.add(photo[i]);
-								}
+                            userdetailhobbyonum.setText("" + photo.length);
+
+                            for (int i = 0; i < photo.length; i++) {
+
+                                if("".equals(photo[i])&&photo.length==1){
+                                    userdetailhobbyonum.setText("0");
+                                }else{
+                                    userhobbylist.add(photo[i]);
+                                }
 							}
-							userdetailhobbyonum.setText("" + photo.length);
 							userdetailhobygridview.setVisibility(View.VISIBLE);
 							rela_userhpbyerror.setVisibility(View.GONE);
 
@@ -807,10 +810,9 @@ public class PersonUpdateActivity extends BaseActivity {
 				switch (v.getId()) {
 
 				case R.id.headerthemeleft:
-					if (isplay == true) {
+					if (mPlayer.isPlaying()) {
 						mPlayer.stop();
 						mPlayer.release();
-						isplay = false;
 						if (T != null) {
 							T.cancel();
 						}
@@ -830,6 +832,15 @@ public class PersonUpdateActivity extends BaseActivity {
 					startActivity(intent);
 					break;
 				case R.id.rela_uservideoshow:
+					num=0;
+					userdetailvoicetime.setText(secToTime(maxnum) + "“");
+
+					if(mPlayer.isPlaying()){
+						mPlayer.pause();
+						if(T!=null){
+							T.cancel();
+						}
+					}
 					/*
 					 * intent = new Intent(Intent.ACTION_VIEW); Uri uri =
 					 * Uri.parse(videopath); intent.setDataAndType(uri,
@@ -916,7 +927,6 @@ public class PersonUpdateActivity extends BaseActivity {
 						if (voicetype == 0) {
 							if (f != null && f.exists()) {
 								mPlayer.start();// 播放
-								isplay = true;
 								T = new Timer();
 								T.schedule(new TimerTask() {
 									@Override
@@ -936,12 +946,11 @@ public class PersonUpdateActivity extends BaseActivity {
 										mPlayer.stop();
 										try {
 											mPlayer.prepare();
-										} catch (IOException e) {
+										} catch (Exception e) {
 											e.printStackTrace();
 										}
 									}
 									mPlayer.start();// 播放
-									isplay = true;
 									T = new Timer();
 									T.schedule(new TimerTask() {
 										@Override
@@ -962,7 +971,6 @@ public class PersonUpdateActivity extends BaseActivity {
 								} catch (IllegalStateException e) {
 									e.printStackTrace();
 								}
-								isplay = false;
 								if (T != null) {
 									T.cancel();
 								}
@@ -1009,7 +1017,6 @@ public class PersonUpdateActivity extends BaseActivity {
 		mPlayer.setOnCompletionListener(new OnCompletionListener() {
 			@Override
 			public void onCompletion(MediaPlayer mp) {
-				isplay = false;
 				if (voicetype == 0) {
 					userdetailvoicetime.setText(secToTime(sj) + "“");
 				} else {
@@ -1033,19 +1040,12 @@ public class PersonUpdateActivity extends BaseActivity {
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+		if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
 
-			return true;
-		} else if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-
-			return true;
-		} else if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
-
-			if (isplay == true) {
+			if (mPlayer.isPlaying()) {
 				mPlayer.stop();
 				mPlayer.release();
 
-				isplay = false;
 				if (T != null) {
 					T.cancel();
 				}
@@ -1063,6 +1063,9 @@ public class PersonUpdateActivity extends BaseActivity {
 		return super.onKeyDown(keyCode, event);
 	}
 
+	/**
+	 * 更新个人信息
+	 */
 	public void Upvideo() {
 		new Thread(new Runnable() {
 			@Override
@@ -1093,6 +1096,9 @@ public class PersonUpdateActivity extends BaseActivity {
 		}).start();
 	}
 
+	/**
+	 * 上传文件
+	 */
 	protected void voiceAdd(final File file) {
 		loadingDialog.show();
 		new Thread(new Runnable() {
@@ -1853,13 +1859,7 @@ public class PersonUpdateActivity extends BaseActivity {
 				try {
 					mPlayer.setDataSource(SDcardTools.getSDPath() + "/mp3.mp3");
 					mPlayer.prepareAsync();
-				} catch (IllegalArgumentException e) {
-					e.printStackTrace();
-				} catch (SecurityException e) {
-					e.printStackTrace();
-				} catch (IllegalStateException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}

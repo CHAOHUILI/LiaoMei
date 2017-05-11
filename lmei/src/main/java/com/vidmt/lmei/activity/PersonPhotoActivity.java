@@ -106,6 +106,8 @@ public class PersonPhotoActivity extends BaseActivity {
 	boolean Y;//是否有需要上传的
 	Bitmap photo;//裁剪后的照片
 	int pdphoto=0;
+	private boolean clickAble=true;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -226,8 +228,7 @@ public class PersonPhotoActivity extends BaseActivity {
 						new ExitShowView(PersonPhotoActivity.this, userGridView);
 					}else{
 						finish();	
-						Intent intents = new Intent("personupdate");
-						sendBroadcast(intents);	
+
 					}
 			
 					break;
@@ -236,15 +237,24 @@ public class PersonPhotoActivity extends BaseActivity {
 					myadapter.notifyDataSetChanged();
 					break;
 				case R.id.headerright:
-				    loadingDialog.show();
-					pdphoto=0;
-					// 遍历list 找到要上传的照片并转化成base64
-					getImgUri(list);
-					// Y =ture 说明有需要上传的照片
-					if (Y) {
-						// 循环从list中上传需要上传的照片
-						upimg();
-					} 
+					if(clickAble){
+						clickAble=false;
+						loadingDialog.show();
+						pdphoto=0;
+						// 遍历list 找到要上传的照片并转化成base64
+						getImgUri(list);
+						// Y =ture 说明有需要上传的照片
+						if (Y) {
+							// 循环从list中上传需要上传的照片
+							upimg();
+						}else {
+							loadingDialog.dismiss();
+							ToastShow("照片已上传...");
+							clickAble=true;
+						}
+					}else {
+						ToastShow("正在上传...");
+					}
 					break;
 
 				}
@@ -304,8 +314,7 @@ public class PersonPhotoActivity extends BaseActivity {
 					dismiss();
 					pdphoto = 0;
 					finish();	
-					Intent intents = new Intent("personupdate");
-					sendBroadcast(intents);
+
 				}
 			});
 		}
@@ -320,8 +329,7 @@ public class PersonPhotoActivity extends BaseActivity {
 			return true;
 		} else if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
 			this.finish();
-				Intent intents = new Intent("personupdate");
-				sendBroadcast(intents);			
+
 			return true;
 		}
 		return super.onKeyDown(keyCode, event);
@@ -375,6 +383,7 @@ public class PersonPhotoActivity extends BaseActivity {
 					String mes = (String) msg.obj;
 					if (mes.equals("")) {
 						ToastShow("上传失败请重试");
+						clickAble=true;
 						loadingDialog.dismiss();
 					} else {
 						Persion p = JsonUtil.JsonToObj(mes, Persion.class);
@@ -400,6 +409,10 @@ public class PersonPhotoActivity extends BaseActivity {
 							list.add(img);
 							myadapter.notifyDataSetChanged();
 							ToastShow("上传成功");
+							clickAble=true;
+							Intent intents = new Intent("personupdate");
+							sendBroadcast(intents);
+							finish();
 							loadingDialog.dismiss();						
 						}
 					}

@@ -85,6 +85,7 @@ import android.view.WindowManager.LayoutParams;
 import android.view.animation.AnimationUtils;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 
@@ -113,6 +114,7 @@ import android.util.Log;
  * 别人信息详情页
  */
 public class HomeDetailActivity extends BaseActivity {
+    private  ImageView mReportOrBlack;
     @TAInjectView(id = R.id.linheader)
     LinearLayout linheader;
     @TAInjectView(id = R.id.headerthemeleft)
@@ -239,7 +241,6 @@ public class HomeDetailActivity extends BaseActivity {
     LinearLayout ll;
     private float scaleFactor = 2.5f;// 1以上，越大越模糊
     public static Bitmap bmp;
-    boolean isplay;// 播放状态
     boolean isprepare;// 缓存状态
     String videopath = "";
     String voicespath = "";
@@ -290,6 +291,8 @@ public class HomeDetailActivity extends BaseActivity {
     int sxdate = 0;
     private LoadingDialog mDialog;
     private int pos;
+    private Drawable black_report2;
+    private Drawable black_report;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -337,6 +340,8 @@ public class HomeDetailActivity extends BaseActivity {
         chattype = getIntent().getIntExtra("chattype", 0);
         pdshowdate = getIntent().getIntExtra("pdshowdate", 0);
         Drawable drawable = context.getResources().getDrawable(R.drawable.header_left);
+        black_report = context.getResources().getDrawable(R.drawable.black_report);
+        black_report2 = context.getResources().getDrawable(R.drawable.black_report2);
         user.setBackgroundDrawable(drawable);
         Drawable drawablemore = context.getResources().getDrawable(R.drawable.chatmore);
         typelog.setBackgroundDrawable(drawablemore);
@@ -1341,6 +1346,7 @@ public class HomeDetailActivity extends BaseActivity {
         super.onAfterSetContentView();
 
         OnClickListener onClickListener = new OnClickListener() {
+            public boolean playVideo;
             public static final int MIN_CLICK_DELAY_TIME = 1000;
             private long lastClickTime = 0;
 
@@ -1351,11 +1357,10 @@ public class HomeDetailActivity extends BaseActivity {
                 switch (v.getId()) {
 
                     case R.id.headerthemeleft:
-                        if (isplay == true) {
+                        if (mPlayer.isPlaying() == true) {
                             mPlayer.stop();
                             mPlayer.release();
 
-                            isplay = false;
                             T.cancel();
                             T = null;
                         }
@@ -1398,6 +1403,15 @@ public class HomeDetailActivity extends BaseActivity {
 
                         break;
                     case R.id.rela_uservideoshow:
+                        num=0;
+                        userdetailvoicetime.setText(secToTime(maxnum) + "“");
+
+                        if (mPlayer.isPlaying()) {
+                            mPlayer.pause();
+                            if(T!=null){
+                                T.cancel();
+                            }
+                        }
                         dialog.show();
                         int Cache1 = SharedPreferencesUtil.getInt(HomeDetailActivity.this, "Cachemp4", 0);
                         if (Cache1 == p.getId()) {
@@ -1408,15 +1422,23 @@ public class HomeDetailActivity extends BaseActivity {
                         } else {
                             inputMp4();
                         }
+                        playVideo=true;
                         break;
                     case R.id.uservoiceimg:
                         long currentTime = Calendar.getInstance().getTimeInMillis();
                         if (currentTime - lastClickTime > MIN_CLICK_DELAY_TIME) {
                             lastClickTime = currentTime;
-                            if (!isplay) {
+                            if (!mPlayer.isPlaying()) {
                                 if (isprepare) {
+                                    if(num==0){
+                                        mPlayer.stop();
+                                        try {
+                                            mPlayer.prepare();
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
                                     mPlayer.start();// 播放
-                                    isplay = true;
                                     T = new Timer();
                                     T.schedule(new TimerTask() {
                                         @Override
@@ -1432,7 +1454,6 @@ public class HomeDetailActivity extends BaseActivity {
                                 }
                             } else {
                                 mPlayer.pause();
-                                isplay = false;
                                 if (T != null) {
                                     T.cancel();
                                 }
@@ -1448,7 +1469,7 @@ public class HomeDetailActivity extends BaseActivity {
                             } else {
                                 try {
                                     if (chattype == 1) {
-                                        if (isplay == true) {
+                                        if (mPlayer.isPlaying()) {
                                             mPlayer.stop();
                                             try {
                                                 mPlayer.prepare();
@@ -1457,7 +1478,6 @@ public class HomeDetailActivity extends BaseActivity {
                                             } catch (IOException e) {
                                                 e.printStackTrace();
                                             }
-                                            isplay = false;
                                             T.cancel();
                                             T = null;
                                         }
@@ -1534,7 +1554,6 @@ public class HomeDetailActivity extends BaseActivity {
         mPlayer.setOnCompletionListener(new OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                isplay = false;
                 userdetailvoicetime.setText(secToTime(maxnum) + "“");
                 if (T != null) {
                     T.cancel();
@@ -1547,6 +1566,11 @@ public class HomeDetailActivity extends BaseActivity {
             @Override
             public void onPrepared(MediaPlayer mp) {
                 isprepare = true;
+//                try {
+//                    mPlayer.prepare();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
                 // ToastShow("音频已缓存好");
             }
         });
@@ -1574,26 +1598,20 @@ public class HomeDetailActivity extends BaseActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-
-            return true;
-        } else if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-
-            return true;
-        } else if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
-            this.finish();
+      if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
             if (pdshowdate == 1) {
                 Intent intents = new Intent("friendschild");
                 sendBroadcast(intents);
             }
 
-            if (isplay == true) {
+            if (mPlayer.isPlaying()) {
                 mPlayer.stop();
                 mPlayer.release();
-                isplay = false;
                 T.cancel();
                 T = null;
             }
+            finish();
+
             return true;
         }
         return super.onKeyDown(keyCode, event);
@@ -1843,31 +1861,30 @@ public class HomeDetailActivity extends BaseActivity {
             this.setBackgroundDrawable(dw);
             setContentView(view);
             showAsDropDown(parent);
-            TextView blacktxtaa = (TextView) view.findViewById(R.id.blacktxtaa);
-            if (isblack != 0) {
-                blacktxtaa.setText("取消拉黑");
-            } else {
-                blacktxtaa.setText("拉黑");
-            }
-            LinearLayout featuresreportlin = (LinearLayout) view.findViewById(R.id.featuresreportlin);
-            LinearLayout featuresblacklin = (LinearLayout) view.findViewById(R.id.featuresblacklin);
+
+            FrameLayout featuresreportlin = (FrameLayout) view.findViewById(R.id.featuresreportlin);
+            FrameLayout featuresblacklin = (FrameLayout) view.findViewById(R.id.featuresblacklin);
             RelativeLayout featuresrel = (RelativeLayout) view.findViewById(R.id.featuresrel);
-            featuresreportlin.setOnClickListener(new OnClickListener() {
+            mReportOrBlack = (ImageView) view.findViewById(R.id.black_report);
+            if (isblack != 0) {
+                mReportOrBlack.setBackgroundResource(R.drawable.black_report2);
+            } else {
+                mReportOrBlack.setBackgroundResource(R.drawable.black_report);
+            }
+            featuresblacklin.setOnClickListener(new OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
-                    // TODO Auto-generated method stub
                     dismiss();
                     Intent intent = new Intent(HomeDetailActivity.this, ReportActivity.class);
                     intent.putExtra("otherid", p.getId());
                     startActivity(intent);
                 }
             });
-            featuresblacklin.setOnClickListener(new OnClickListener() {
+            featuresreportlin.setOnClickListener(new OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
-                    // TODO Auto-generated method stub
                     if (isblack != 0) {
                         cancelPullBlack();
                     } else {
@@ -1880,7 +1897,6 @@ public class HomeDetailActivity extends BaseActivity {
 
                 @Override
                 public void onClick(View v) {
-                    // TODO Auto-generated method stub
                     dismiss();
                 }
             });
@@ -1957,8 +1973,12 @@ public class HomeDetailActivity extends BaseActivity {
             TextView btn_dialog_confirm = (TextView) view.findViewById(R.id.btn_dialog_confirm);
             if (type == 1) {
                 attentionts.setText("已成功拉黑");
+                mReportOrBlack.setBackgroundResource(R.drawable.black_report2);
+
             } else if (type == 2) {
                 attentionts.setText("已取消拉黑");
+                mReportOrBlack.setBackgroundResource(R.drawable.black_report);
+
             } else {
                 attentionts.setText("拉黑失败");
             }
@@ -1986,23 +2006,16 @@ public class HomeDetailActivity extends BaseActivity {
     }
 
     public static void PrepareM2() {
+        if(mPlayer!=null){
+            mPlayer.reset();
+        }
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     mPlayer.setDataSource(SDcardTools.getSDPath() + "/mp3.mp3");
                     mPlayer.prepareAsync();
-                } catch (IllegalArgumentException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (SecurityException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (IllegalStateException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -2055,7 +2068,6 @@ public class HomeDetailActivity extends BaseActivity {
 
     @Override
     public void onResume() {
-        mPlayer.reset();
         sxdate = SharedPreferencesUtil.getInt(HomeDetailActivity.this, "sxdate", 0);
         if (sxdate == 1) {
             selectisblack();

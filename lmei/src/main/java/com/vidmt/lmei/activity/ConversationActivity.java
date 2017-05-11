@@ -457,7 +457,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 
 			@Override
 			public boolean onSent(io.rong.imlib.model.Message arg0, SentMessageErrorCode arg1) {
-				// TODO Auto-generated method stub
+
 				if (mConversationType == Conversation.ConversationType.CUSTOMER_SERVICE) {
 					return true;
 				}else {
@@ -491,11 +491,6 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 
 			@Override
 			public io.rong.imlib.model.Message onSend(io.rong.imlib.model.Message arg0) {
-				// TODO Auto-generated method stub
-
-
-
-
 				if (mConversationType == Conversation.ConversationType.CUSTOMER_SERVICE) {
 					return arg0;
 				}else {
@@ -524,7 +519,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 
 
 									}else {
-										sendmes();	
+										sendmes();
 									}
 								}else {
 									sendmes();
@@ -569,6 +564,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 
 												if (chatpay==0) {
 													sendmes();
+													Log.i("conversationactivity","hhh");
 
 													return arg0;
 												}else {
@@ -1802,7 +1798,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 	@Override
 	protected void onDestroy() {
 		if ("ConversationActivity".equals(this.getClass().getSimpleName()))
-			EventBus.getDefault().unregister(this);
+//			EventBus.getDefault().unregister(this);
 
 		//CallKit start 3
 		RongCallKit.setGroupMemberProvider(null);

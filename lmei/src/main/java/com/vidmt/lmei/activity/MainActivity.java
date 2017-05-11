@@ -67,6 +67,8 @@ public class MainActivity extends BaseActivity implements OnTabChangeListener {
 	@TAInjectView(id=R.id.lookme)
 	ImageView lookme;
 	public static boolean isshowHd;//true 显示
+	private BroadcastReceiver broadcastReceiver;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -130,7 +132,7 @@ public class MainActivity extends BaseActivity implements OnTabChangeListener {
 		{
 			@Override
 			public void onReceive(Context context, Intent intent) {
-				finish();			
+				finish();
 				StartActivity(LoginActivity.class);
 			}
 		};
@@ -488,6 +490,10 @@ public class MainActivity extends BaseActivity implements OnTabChangeListener {
 
 	}
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(broadcastReceiver);
+    }
 
 }
