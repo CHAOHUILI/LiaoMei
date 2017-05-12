@@ -7,6 +7,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Camera;
+import android.graphics.ImageFormat;
+import android.graphics.Rect;
+import android.graphics.YuvImage;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.Matrix;
@@ -31,6 +35,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -52,6 +57,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -89,6 +96,8 @@ import com.vidmt.lmei.controller.Person_Service;
 import com.vidmt.lmei.entity.Model;
 import com.vidmt.lmei.entity.Persion;
 import com.vidmt.lmei.entity.Present;
+import com.vidmt.lmei.util.rule.Base64Coder;
+import com.vidmt.lmei.util.rule.Bimp;
 import com.vidmt.lmei.util.rule.BitmapBlurUtil;
 import com.vidmt.lmei.util.rule.ManageDataBase;
 import com.vidmt.lmei.util.rule.SharedPreferencesUtil;
@@ -208,6 +217,10 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 	public static SingleCallActivity singleCallActivity;
 	private AgoraVideoFrame agoraVideoFrame;
 	private int pos;
+	private Bitmap bitmap;
+	ByteArrayOutputStream baos;
+	ByteArrayInputStream isBm;
+	private Camera mCamera;
 
 	@Override
 	@TargetApi(23)
@@ -402,68 +415,37 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 
 		@Override                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 		public boolean onCaptureVideoFrame( AgoraVideoFrame arg0) {
-			// TODO Auto-generated method stub
-			arg0.getuBuffer();
 			agoraVideoFrame=arg0;
 			//			YuvImage image = new YuvImage(yuv, format, width, height, strides);
 
-		
+
 
 
 			return false;
 		}
 	};
-	private static class RGB{  
-		public int r, g, b;  
-	}  
 
 
-	private static RGB yuvTorgb(byte Y, byte U, byte V){  
-		RGB rgb = new RGB();  
-		rgb.r = (int)((Y&0xff) + 1.4075 * ((V&0xff)-128));  
-		rgb.g = (int)((Y&0xff) - 0.3455 * ((U&0xff)-128) - 0.7169*((V&0xff)-128));  
-		rgb.b = (int)((Y&0xff) + 1.779 * ((U&0xff)-128));  
-		rgb.r =(rgb.r<0? 0: rgb.r>255? 255 : rgb.r);  
-		rgb.g =(rgb.g<0? 0: rgb.g>255? 255 : rgb.g);  
-		rgb.b =(rgb.b<0? 0: rgb.b>255? 255 : rgb.b);  
-		return rgb;  
-	}  
 	public Bitmap rawByteArray2RGBABitmap2(byte[] yBuffer,byte[] uBuffer,byte[] vBuffer,int  yStride,int  uStride,int  vStride, int width, int height) {
+		byte[] yuv=new byte[yBuffer.length+uBuffer.length+vBuffer.length];
+		System.arraycopy(yBuffer,0,yuv,0,yBuffer.length);
+		System.arraycopy(uBuffer,0,yuv,yBuffer.length,uBuffer.length);
+		System.arraycopy(vBuffer,0,yuv,yBuffer.length+uBuffer.length,vBuffer.length);
+		YuvImage yuvImage = new YuvImage(yuv, ImageFormat.NV21, width, height, null);
 
-		Bitmap bmp = Bitmap.createBitmap(width,  height, Bitmap.Config.ARGB_8888);
-		bmp.setPixels(I420ToRGB(yBuffer,uBuffer,vBuffer, width, height), 0 , width, 0, 0, width, height);
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		yuvImage.compressToJpeg(new Rect(0, 0, width, height), 50, out);
+
+		byte[] bytes = out.toByteArray();
+		Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+
+
+//		Bitmap bmp = Bitmap.createBitmap(width,  height, Bitmap.Config.ARGB_8888);
+//		bmp.setPixels(I420ToRGB(yBuffer,uBuffer,vBuffer, width, height), 0 , width, 0, 0, width, height);
+//		saveBitmapFile(bmp);
 		return bmp;
 	}
-	public static int[] I420ToRGB(byte[] yBuffer,byte[] uBuffer,byte[] vBuffer, int width, int height){  
-		int numOfPixel = width * height;  
-		int positionOfV = numOfPixel;  
-		int positionOfU = numOfPixel/4 + numOfPixel;  
-		int[] rgb = new int[numOfPixel*3];  
-		for(int i=0; i<height; i++){  
-			int startY = i*width;  
-			int step = (i/2)*(width/2);  
-			int startU = positionOfV + step;  
-			int startV = positionOfU + step;  
-			for(int j = 0; j < width; j++){  
-				int Y = startY + j;  
-				int U = startU + j/2;  
-				int V = startV + j/2;  
-				int index = Y*3;  
-				try {
-					RGB tmp = yuvTorgb(yBuffer[Y], uBuffer[U], vBuffer[V]);  
 
-					rgb[index+RS] = tmp.r;  
-					rgb[index+G] = tmp.g;  
-					rgb[index+B] = tmp.b; 
-				} catch (Exception e) {
-					// TODO: handle exception
-				}
-
-			}  
-		}  
-
-		return rgb;  
-	}  
 	public void getPersion(final String id) {
 		new Thread(new Runnable() {
 			@Override
@@ -916,22 +898,16 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 			vstart();
 			getviews();
 		}
-
-		if (ehandler!=null) {
-
 			type = SharedPreferencesUtil.getInt(SingleCallActivity.this, "chattype", 0);
 			if (type ==1) {
-				//						vend();
-				ehandler.removeCallbacks(erunnable);
-				unregisterVideoFrameObserver();
-
+				if(ehandler!=null){
+					ehandler.removeCallbacks(erunnable);
+					unregisterVideoFrameObserver();
+				}
 			}else {
-
 				ehandler = new Handler();  
 				erunnable = new Runnable() {  
-					public void run() {  
-
-
+					public void run() {
 						type = SharedPreferencesUtil.getInt(SingleCallActivity.this, "chattype", 0);
 
 						if (type ==1) {
@@ -943,12 +919,10 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 
 							vend(chatid);
 
-
-
 							new Thread(new Runnable() {
 								@Override
 								public void run() {
-									
+
 									if (Bmp==null) {
 										if (agoraVideoFrame==null) {
 											
@@ -964,7 +938,6 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 										if (agoraVideoFrame==null) {
 											
 										}else {
-											
 											Bmp =rawByteArray2RGBABitmap2(agoraVideoFrame.getyBuffer(),agoraVideoFrame.getuBuffer(),agoraVideoFrame.getvBuffer(),agoraVideoFrame.getWidth(),agoraVideoFrame.getyStride(),agoraVideoFrame.getvStride(), agoraVideoFrame.getWidth(), agoraVideoFrame.getHeight());
 											String file=bitmapToBase64(Bmp);
 											tophoto(file);
@@ -973,12 +946,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 									}
 								}
 							}).start();
-							
 
-
-
-
-						
 							ehandler.postDelayed(erunnable, 59000);
 
 						}
@@ -987,36 +955,6 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 				};  
 				erunnable.run();
 			}
-
-
-		}else {
-
-			ehandler = new Handler();  
-			erunnable = new Runnable() {  
-				public void run() {  
-
-
-					type = SharedPreferencesUtil.getInt(SingleCallActivity.this, "chattype", 0);
-
-					if (type ==1) {
-						//						vend();
-						ehandler.removeCallbacks(erunnable);
-						unregisterVideoFrameObserver();
-
-					}else {
-
-						vend(chatid);
-
-						ehandler.postDelayed(erunnable, 59000);
-
-					}
-					//每0.5秒监听一次是否在播放视频  
-				}
-			};  
-			erunnable.run();
-		}
-
-
 
 	}
 
@@ -1734,7 +1672,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 			if (bitmap != null) { 
 
 				baos = new ByteArrayOutputStream();  
-				bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);  
+				bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
 				baos.flush();  
 				baos.close();  
 				byte[] bitmapBytes = baos.toByteArray();  
@@ -3023,7 +2961,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 	}
 	public void unregisterVideoFrameObserver() {
 
-		RongCallClient.getInstance().unregisterVideoFrameObserver();;
+		RongCallClient.getInstance().unregisterVideoFrameObserver();
 
 	}
 }

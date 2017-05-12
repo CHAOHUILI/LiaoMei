@@ -933,7 +933,6 @@ public class LoginActivity extends BaseActivity {
                 public void onTokenIncorrect() {
                     Log.d("LoginActivity", "--onTokenIncorrect");
                     loadingDialog.dismiss();
-                    Looper.prepare();
                     try {
                         mLoginPage.setVisibility(View.VISIBLE);
 
@@ -943,7 +942,6 @@ public class LoginActivity extends BaseActivity {
                         e.printStackTrace();
                         Log.i("rongyun",e.toString());
                     }
-                    Looper.loop();
                     // StartActivity(HomePageActivity.class);
                     //
                     // finish();
@@ -994,9 +992,7 @@ public class LoginActivity extends BaseActivity {
 
                     loadingDialog.dismiss();
                     //ToastShow("连接融云失败");
-                    Looper.prepare();
                     Toast.makeText(LoginActivity.this, "连接融云失败", Toast.LENGTH_SHORT).show();
-                    Looper.loop();
                     //loadingDialog.dismiss();
                     // StartActivity(HomePageActivity.class);
                     // finish();
