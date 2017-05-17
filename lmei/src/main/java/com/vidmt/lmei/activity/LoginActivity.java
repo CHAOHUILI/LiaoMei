@@ -244,6 +244,7 @@ public class LoginActivity extends BaseActivity {
                         break;
 
                     case R.id.wb:
+                        loadingDialog.show();
 //					mController.getConfig().setSsoHandler(new SinaSsoHandler());
 //                        currentTime = Calendar.getInstance().getTimeInMillis();
 //					if (currentTime - lastClickTime > MIN_CLICK_DELAY_TIME) {
@@ -277,6 +278,8 @@ public class LoginActivity extends BaseActivity {
 
                             @Override
                             public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
+                                loadingDialog.show();
+
                                 UMShareAPI.get(getApplicationContext()).getPlatformInfo(LoginActivity.this, SHARE_MEDIA.SINA, new UMAuthListener() {
                                     @Override
                                     public void onStart(SHARE_MEDIA share_media) {
@@ -413,6 +416,8 @@ public class LoginActivity extends BaseActivity {
 //					}
                         break;
                     case R.id.qq:
+                        loadingDialog.show();
+
                         if (mTencent.isSupportSSOLogin(activity)) {
                             UMShareAPI.get(getApplicationContext()).doOauthVerify(LoginActivity.this, SHARE_MEDIA.QQ, new UMAuthListener() {
                                 @Override
@@ -422,6 +427,8 @@ public class LoginActivity extends BaseActivity {
 
                                 @Override
                                 public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
+                                    loadingDialog.show();
+
                                     UMShareAPI.get(getApplicationContext()).getPlatformInfo(LoginActivity.this, SHARE_MEDIA.QQ, new UMAuthListener() {
                                         @Override
                                         public void onStart(SHARE_MEDIA share_media) {
@@ -430,6 +437,7 @@ public class LoginActivity extends BaseActivity {
 
                                         @Override
                                         public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
+
                                             if (i == 2 && map != null) {
 
                                                 uid = map.get("uid");
@@ -542,6 +550,7 @@ public class LoginActivity extends BaseActivity {
 
                         break;
                     case R.id.wx:
+                        loadingDialog.show();
                         currentTime = Calendar.getInstance().getTimeInMillis();
                         if (currentTime - lastClickTime > MIN_CLICK_DELAY_TIME) {
                             lastClickTime = currentTime;
@@ -554,6 +563,8 @@ public class LoginActivity extends BaseActivity {
 
                                     @Override
                                     public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
+                                        loadingDialog.show();
+
                                         UMShareAPI.get(getApplicationContext()).getPlatformInfo(LoginActivity.this, SHARE_MEDIA.WEIXIN, new UMAuthListener() {
                                             @Override
                                             public void onStart(SHARE_MEDIA share_media) {
@@ -562,6 +573,7 @@ public class LoginActivity extends BaseActivity {
 
                                             @Override
                                             public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
+
                                                 if (i == 2 && map != null) {
 
                                                     uid = map.get("uid");
@@ -871,8 +883,10 @@ public class LoginActivity extends BaseActivity {
         // 设置别名，用户id为别名
         Set<String> set = new HashSet<String>();
         set.add("all"); // 这指定all 是给所有安装爱狗之家发信息 set是TAG
-        int phone = p.getId(); // 别名 指定给某个用户发
+        int phone = p.getId(); // 别名
+        Log.i("lmei","============BEGIN==");
         JPushInterface.setAliasAndTags(getApplicationContext(), String.valueOf(phone), set, mAliasCallback);
+        Log.i("lmei","============END1");
 
     }
 
@@ -880,6 +894,7 @@ public class LoginActivity extends BaseActivity {
 
         @Override
         public void gotResult(int code, String alias, Set<String> tags) {
+            Log.i("lmei","============END2");
             String logs;
             switch (code) {
                 case 0:

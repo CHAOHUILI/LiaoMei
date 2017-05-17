@@ -30,6 +30,7 @@ import io.rong.imkit.RongIM;
 import io.rong.imkit.model.GroupUserInfo;
 import io.rong.imkit.model.UIConversation;
 import io.rong.imkit.widget.AlterDialogFragment;
+import io.rong.imkit.widget.provider.CameraInputProvider;
 import io.rong.imkit.widget.provider.FileInputProvider;
 import io.rong.imkit.widget.provider.ImageInputProvider;
 import io.rong.imkit.widget.provider.InputProvider;
@@ -179,21 +180,22 @@ public class SealAppContext implements RongIM.ConversationListBehaviorListener, 
 
 		InputProvider.ExtendProvider[] singleProvider = {
 				new ImageInputProvider(RongContext.getInstance()),
+				new CameraInputProvider(RongContext.getInstance())
 				//new RealTimeLocationInputProvider(RongContext.getInstance()), //带位置共享的地理位置
-				new FileInputProvider(RongContext.getInstance())//文件消息
+//				new FileInputProvider(RongContext.getInstance())//文件消息
 		};
 
-		InputProvider.ExtendProvider[] muiltiProvider = {
-				new ImageInputProvider(RongContext.getInstance()),
-				new LocationInputProvider(RongContext.getInstance()),//地理位置
-				new FileInputProvider(RongContext.getInstance())//文件消息
-		};
+//		InputProvider.ExtendProvider[] muiltiProvider = {
+//				new ImageInputProvider(RongContext.getInstance()),
+//				new LocationInputProvider(RongContext.getInstance()),//地理位置
+//				new FileInputProvider(RongContext.getInstance())//文件消息
+//		};
 
 		RongIM.resetInputExtensionProvider(Conversation.ConversationType.PRIVATE, singleProvider);
-		RongIM.resetInputExtensionProvider(Conversation.ConversationType.DISCUSSION, muiltiProvider);
-		RongIM.resetInputExtensionProvider(Conversation.ConversationType.CUSTOMER_SERVICE, muiltiProvider);
-		RongIM.resetInputExtensionProvider(Conversation.ConversationType.GROUP, muiltiProvider);
-		RongIM.resetInputExtensionProvider(Conversation.ConversationType.CHATROOM, muiltiProvider);
+//		RongIM.resetInputExtensionProvider(Conversation.ConversationType.DISCUSSION, muiltiProvider);
+//		RongIM.resetInputExtensionProvider(Conversation.ConversationType.CUSTOMER_SERVICE, muiltiProvider);
+//		RongIM.resetInputExtensionProvider(Conversation.ConversationType.GROUP, muiltiProvider);
+//		RongIM.resetInputExtensionProvider(Conversation.ConversationType.CHATROOM, muiltiProvider);
 	}
 
 	/**

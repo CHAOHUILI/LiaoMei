@@ -116,6 +116,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 	private static final int GET_USER_INFO = 111;
 	private static final int GET_GROUP_MEMBER = 100;
 	private String TAG = ConversationActivity.class.getSimpleName();
+	private long lastTime=0;
 	/**
 	 * 对方id
 	 */
@@ -200,6 +201,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 	private int isblack=0;
 	String str ;
 	private int pos;
+	private int[] messageId=new int[2];
 
 	@Override
 	@TargetApi(23)
@@ -491,6 +493,13 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 
 			@Override
 			public io.rong.imlib.model.Message onSend(io.rong.imlib.model.Message arg0) {
+				long currentTimeMillis = System.currentTimeMillis();
+				if(currentTimeMillis-lastTime<500){
+					return arg0;
+				}else {
+					lastTime=currentTimeMillis;
+				}
+
 				if (mConversationType == Conversation.ConversationType.CUSTOMER_SERVICE) {
 					return arg0;
 				}else {
@@ -515,8 +524,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 								if (arg0.getContent() instanceof ImageMessage) {
 
 									if (arg0.getMessageId()==0) {
-
-
+                                        sendmes();
 
 									}else {
 										sendmes();
@@ -525,28 +533,18 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 									sendmes();
 								}
 
-
-
-
-
-
-
 							}
 							return arg0;
 						}else {
-
 							if (liwutype==1) {
 								liwutype=2;
 							}else {
 
-
 								if (persion_main!=null) {
 
 									if (persion.getSms_state()==2) {
-
 										sendTextBlackMessage("对方未开启聊天", 2);
-										return null;	
-
+										return null;
 									}else {
 										if (persion_main.getToken()==null) {
 
@@ -594,7 +592,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 													if (arg0.getContent() instanceof ImageMessage) {
 
 														if (arg0.getMessageId()==0) {
-
+                                                            sendmes();
 														}else {
 															sendmes();
 														}
@@ -610,8 +608,6 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 
 
 									}
-
-								}else {
 
 								}
 
@@ -631,10 +627,6 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 		});
 
 		//		SealAppContext.getInstance().pushActivity(this);
-
-
-
-
 
 
 	}
@@ -659,7 +651,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 	}
 	// 发送小灰条消息。
 	@SuppressWarnings("deprecation")
-	public void sendTextBlackMessage(String text,int type) {
+	public void sendTextBlackMessage(String text, final int type) {
 		InformationNotificationMessage  informationNotificationMessage;
 		if (type==1) {
 			informationNotificationMessage = InformationNotificationMessage.obtain("聊天时请保持社交礼仪，如果出现谩骂、\n色情及骚扰信息，请及时举报，一旦核实\n立即封号。");
@@ -681,6 +673,12 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 			public void onSuccess(Message arg0) {
 				// TODO Auto-generated method stub
 				arg0.getContent();
+				if(type==1){
+					messageId[0]=arg0.getMessageId();
+				}
+				if(type==3){
+					messageId[1]=arg0.getMessageId();
+				}
 			}
 		});
 
@@ -785,8 +783,6 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 		if (mConversationType == Conversation.ConversationType.CUSTOMER_SERVICE) {
 
 		}else {
-
-
 			new Thread(new Runnable() {
 				@Override
 				public void run() {
@@ -1064,8 +1060,9 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 						int ltype = SharedPreferencesUtil.getInt(ConversationActivity.this, "ltype", 0);
 						chatpay = p.getSms_money();
 						headtitle.setText(p.getNick_name());
+
 						sendTextBlackMessage("",1);
-						sendTextBlackMessage("对方普通聊天收费标准："+chatpay+"金币/条", 2);
+						sendTextBlackMessage("对方普通聊天收费标准："+chatpay+"金币/条", 3);
 						if (p.getVideo_state()!=1) {
 							SharedPreferencesUtil.putInt(ConversationActivity.this, "astype", 1);//是否开启
 
@@ -1796,6 +1793,13 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 	}
 
 	@Override
+	protected void onPause() {
+		RongIM.getInstance().deleteMessages(messageId,null);
+
+		super.onPause();
+	}
+
+	@Override
 	protected void onDestroy() {
 		if ("ConversationActivity".equals(this.getClass().getSimpleName()))
 //			EventBus.getDefault().unregister(this);
@@ -1807,6 +1811,7 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 		RongIM.getInstance().setGroupMembersProvider(null);
 		RongIM.getInstance().setRequestPermissionListener(null);
 		RongIMClient.setTypingStatusListener(null);
+
 		super.onDestroy();
 	}
 
@@ -2216,7 +2221,9 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 										if (token<catetoken) {
 											Toast.makeText(ConversationActivity.this, "您的金币值不够，请充值或者选其他的礼物吧。", Toast.LENGTH_SHORT).show();
 											//ToastShow("您的金币值不够，请充值或者选其他的礼物吧。");
-											
+											Intent in = new Intent(ConversationActivity.this,CloseAccountActivity.class);
+											in.putExtra("type", 4);
+											startActivity(in);
 											
 										}else {
 											//							if (psentext.getText().length()==0) {

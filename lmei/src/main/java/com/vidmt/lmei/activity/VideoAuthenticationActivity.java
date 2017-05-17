@@ -172,7 +172,7 @@ public class VideoAuthenticationActivity extends BaseActivity {
 		return newFilename;
 	}
 
-	protected void voiceAdd(final File file) {
+	protected void videoUpload(final File file) {
 		loadingDialog.show();
 		new Thread(new Runnable() {
 			@Override
@@ -394,7 +394,7 @@ public class VideoAuthenticationActivity extends BaseActivity {
 					if ((file.length() / 1024 / 1024) > 20) {
 						ToastShow("文件太大了，请上传小于20M的视频");
 					} else {
-						voiceAdd(file);
+						videoUpload(file);
 					}
 				} else {
 					ToastShow("请选择MP4格式的视频文件");

@@ -228,10 +228,15 @@ public class BaseActivity extends ThinkAndroidBaseActivity implements Conversati
 
 	/**
 	 * 封装toast显示
-	 * 
+	 *
 	 * @param mes
 	 */
 	public void ToastShow(String mes) {
+		Toast.makeText(getApplicationContext(), mes, Toast.LENGTH_SHORT).show();
+		// 自定义的toast
+		// WinToast.toast(this, mes);
+	}
+	public void ToastShow(int mes) {
 		Toast.makeText(getApplicationContext(), mes, Toast.LENGTH_SHORT).show();
 		// 自定义的toast
 		// WinToast.toast(this, mes);

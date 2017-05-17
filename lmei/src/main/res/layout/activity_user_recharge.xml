@@ -10,27 +10,27 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:scrollbars="none"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/graywhite"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#feebc1"
                 android:orientation="horizontal"
-                android:padding="10dip" >
+                android:padding="10dip">
 
                 <LinearLayout
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/account"
@@ -54,7 +54,7 @@
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/TextView01"
@@ -90,35 +90,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
                 <com.vidmt.lmei.widget.GoodlistView
                     android:id="@+id/rechargelist"
-                     android:background="@null"
-                    android:divider="@color/graywhite"
-                    android:dividerHeight="0.1px"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-                </com.vidmt.lmei.widget.GoodlistView>
-                
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:divider="@color/graywhite"
+                    android:dividerHeight="0.1px"></com.vidmt.lmei.widget.GoodlistView>
+
                 <RelativeLayout
-                        android:id="@+id/rela_userphoterror"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/white"
-                        android:visibility="gone" >
+                    android:id="@+id/rela_userphoterror"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:visibility="gone">
 
 
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="50dp"
-                            android:layout_centerInParent="true"
-                            android:layout_marginTop="30dip"
-                            android:gravity="center"
-                            android:text="很抱歉,暂无可用的套餐！"
-                            android:textColor="@color/gray" />
-                    </RelativeLayout>
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="30dip"
+                        android:gravity="center"
+                        android:text="很抱歉,暂无可用的套餐！"
+                        android:textColor="@color/gray" />
+                </RelativeLayout>
             </LinearLayout>
 
             <View
@@ -136,7 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/myzfbplay"
@@ -145,7 +143,7 @@
                     android:background="@color/white"
                     android:orientation="horizontal"
                     android:paddingLeft="10dip"
-                    android:paddingRight="10dip" >
+                    android:paddingRight="10dip">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -159,7 +157,7 @@
                         android:layout_marginLeft="20dip"
                         android:layout_weight="1"
                         android:gravity="left|center"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -188,9 +186,9 @@
                     android:layout_height="60dp"
                     android:background="@color/white"
                     android:orientation="horizontal"
-                    android:visibility="gone"
                     android:paddingLeft="10dip"
-                    android:paddingRight="10dip" >
+                    android:paddingRight="10dip"
+                    android:visibility="gone">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -204,7 +202,7 @@
                         android:layout_marginLeft="20dip"
                         android:layout_weight="1"
                         android:gravity="left|center"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -222,11 +220,13 @@
                         android:background="@drawable/rechangew" />
                 </LinearLayout>
             </LinearLayout>
-             <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.1dip"
-                    android:background="@color/gray_line" />
-              <TextView
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dip"
+                android:background="@color/gray_line" />
+
+            <TextView
                 android:id="@+id/rechargepay"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
@@ -236,16 +236,16 @@
                 android:background="@drawable/loginbg"
                 android:gravity="center"
                 android:text="确认充值"
-                android:textStyle="bold"
                 android:textColor="@color/white"
-                android:textSize="@dimen/textdx_18" />
-              
-              <LinearLayout
-        android:id="@+id/ll"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical" />
+                android:textSize="@dimen/textdx_18"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/ll"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical" />
         </LinearLayout>
     </ScrollView>
 

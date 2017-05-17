@@ -11,7 +11,16 @@ public class Image implements Serializable {
 	String path;
 	public Bitmap bitmap;
 	String bit64;
-	
+	public Uri uri;
+
+	public Uri getUri() {
+		return uri;
+	}
+
+	public void setUri(Uri uri) {
+		this.uri = uri;
+	}
+
 	public String getBit64() {
 		return bit64;
 	}

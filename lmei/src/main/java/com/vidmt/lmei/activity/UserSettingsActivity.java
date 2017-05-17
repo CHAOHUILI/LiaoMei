@@ -104,8 +104,10 @@ public class UserSettingsActivity extends BaseActivity {
 		type = SharedPreferencesUtil.getInt(UserSettingsActivity.this, "editor", 0);
 		if (type==0) {
 			mute.setImageResource(R.drawable.switchoff);
+			JPushInterface.stopPush(getApplicationContext());
 		}else {
 			mute.setImageResource(R.drawable.switchon);
+			JPushInterface.resumePush(getApplicationContext());
 		}
 		try {
 			String 	ov = getCacheSize(context.getExternalCacheDir());
@@ -208,10 +210,10 @@ public class UserSettingsActivity extends BaseActivity {
 					RongIM.getInstance().logout();
 					ManageDataBase.Delete(dbutil, Persion.class, null);
 					ToastShow("退出成功");
-					finish();
 					//StartActivity(LoginActivity.class);
-					Intent intents = new Intent("closeapp");
-					sendBroadcast(intents);
+					finish();
+					Intent intents = new Intent(getApplicationContext(),LoginActivity.class);
+					startActivity(intents);
 					break;
 
 				case R.id.feedback:

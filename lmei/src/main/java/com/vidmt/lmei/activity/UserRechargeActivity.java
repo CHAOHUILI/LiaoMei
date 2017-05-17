@@ -153,7 +153,7 @@ public class UserRechargeActivity extends BaseActivity {
 			}
 		});
 		rechargeuserid.setText(b_person.getOtherkey() + "");
-		rechangeuserye.setText(b_person.getToken() + "");
+		rechangeuserye.setText(b_person.getToken() + "金币");
 	}
 
 	@Override
@@ -199,6 +199,8 @@ public class UserRechargeActivity extends BaseActivity {
 						}.getType());
 						lsittoken.clear();
 						lsittoken.addAll(lists);
+						tokenpackage = lsittoken.get(lists.size()-1);
+
 						// Collections.sort(personlist, new PinyinComparator());
 						rechargelist.setVisibility(View.VISIBLE);
 						rela_userphoterror.setVisibility(View.GONE);
@@ -211,7 +213,7 @@ public class UserRechargeActivity extends BaseActivity {
 					rela_userphoterror.setVisibility(View.VISIBLE);
 				}
 
-				adapterrecharegepackage.setSeclection(-1);
+				adapterrecharegepackage.setSeclection(lsittoken.size()-1);
 				adapterrecharegepackage.notifyDataSetChanged();
 				loadingDialog.dismiss();
 				break;
@@ -253,7 +255,7 @@ public class UserRechargeActivity extends BaseActivity {
 						ManageDataBase.Delete(dbutil, Persion.class, null);
 						ManageDataBase.Insert(dbutil, Persion.class, p);
 						b_person = p;
-						rechangeuserye.setText(b_person.getToken() + "");
+						rechangeuserye.setText(b_person.getToken() + "金币");
 					}
 				}
 				break;

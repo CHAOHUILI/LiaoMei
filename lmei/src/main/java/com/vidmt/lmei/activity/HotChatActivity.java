@@ -74,11 +74,7 @@ public class HotChatActivity extends BaseActivity implements OnHeaderRefreshList
 		setContentView(R.layout.activity_hot_chat);
 		InitView();
 		dialog.show();
-		if(b_person.getSex()==1){
-			sex=2;
-			SharedPreferencesUtil.putInt(getApplicationContext(),"filter_sex",2);
 
-		}
 		LoadUserData();
 		userrefresh();
 	}
@@ -120,8 +116,6 @@ public class HotChatActivity extends BaseActivity implements OnHeaderRefreshList
 			{
 				personlist.clear();
 				pageIndex=1;
-				ident_state = SharedPreferencesUtil.getInt(getApplicationContext(),"filter_ident_state",0);
-				sex = SharedPreferencesUtil.getInt(getApplicationContext(),"filter_sex",0);
 				dialog.show();
 				LoadUserData();
 			}
@@ -131,7 +125,9 @@ public class HotChatActivity extends BaseActivity implements OnHeaderRefreshList
 		registerReceiver(broadcastReceiver, intentToReceiveFilter);
 	}	
 	public void LoadUserData() {
-		// TODO Auto-generated method stub
+
+		ident_state = SharedPreferencesUtil.getInt(getApplicationContext(),"filter_ident_state",0);
+		sex = SharedPreferencesUtil.getInt(getApplicationContext(),"filter_sex",0);
 		new Thread(new Runnable() {
 
 			@Override
@@ -140,7 +136,6 @@ public class HotChatActivity extends BaseActivity implements OnHeaderRefreshList
 				// dialog.show();
 				Message msg = mUHandler.obtainMessage(1);
 				try {
-
 					//用户id，页面类型，性别，认证，显示数据页
 					msg.obj = Person_Service.getUserAll(id, orderCondition, sex, ident_state, pageIndex);
 				} catch (Exception e) {

@@ -1,11 +1,14 @@
 package com.vidmt.lmei.util.rule;
 import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -15,17 +18,28 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.net.Uri;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 
 public class Bimp {
 	public static int max = 0;
 	public static boolean act_bool = true;
-	public static List<Bitmap> bmp = new ArrayList<Bitmap>();	
-	
+	public static List<Bitmap> bmp = new ArrayList<Bitmap>();
+	private static final int SAMPLE_SIZE_WIDTH = 480;
+	private static final int SAMPLE_SIZE_HEIGHT = 800;
+	private static final int COMPRESS_FIRST_SIZE = 64 * 1024;
+	private static final int COMPRESS_SECOND_SIZE = 128 * 1024;
+	private static final int COMPRESS_THIRD_SIZE = 512 * 1024;
+	private static final int COMPRESS_FOURTH_SIZE = 2 * 1024 * 1024;
+
+	private static final int FACTOR_BEYOND_FIRST_SIZE = 60;
+	private static final int FACTOR_BEYOND_SECOND_SIZE = 40;
+	private static final int FACTOR_BEYOND_THIRD_SIZE = 30;
+	private static final int FACTOR_BEYOND_FOURTH_SIZE = 20;
 	//图片sd地址  上传服务器时把图片调用下面方法压缩后 保存到临时文件夹 图片压缩后小于100KB，失真度不明显
 	public static List<String> drr = new ArrayList<String>();
-	
+
 
 	public static Bitmap revitionImageSize(String path) throws IOException {
 		BufferedInputStream in = new BufferedInputStream(new FileInputStream(
@@ -55,18 +69,17 @@ public class Bimp {
 	 * @param image
 	 * @return
 	 */
-	public static Bitmap compressImage(Bitmap image)
-	{
+	public static Bitmap compressImage(Bitmap image) {
 		Bitmap btm=null;
 		int isnum = 0;
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		image.compress(Bitmap.CompressFormat.JPEG, 100, baos);// 质量压缩方法，这里100表示不压缩，把压缩后的数据存放到baos中
 		int options = 100;
 		//Log.e("长度", baos.toByteArray().length+"");
-		while (baos.toByteArray().length / 1024 > 100)
+		while (baos.toByteArray().length / 1024 > 400)
 		{ // 循环判断如果压缩后图片是否大于100kb,大于继续压缩
 			baos.reset();// 重置baos即清空baos
-			image.compress(Bitmap.CompressFormat.JPEG, options, baos);// 这里压缩options%，把压缩后的数据存放到baos中
+			image.compress(Bitmap.CompressFormat.JPEG, 80, baos);// 这里压缩options%，把压缩后的数据存放到baos中
 			if(options!=0)
 			{
 				options -= 10;// 每次都减少10
@@ -114,14 +127,13 @@ public class Bimp {
 	* @return Bitmap    返回类型
 	 */
 	 
-	public static Bitmap comp(Bitmap bit)
-	{
+	public static Bitmap comp(Bitmap bit) {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();	
 		Log.e("maxMemory", Runtime.getRuntime().maxMemory()+"");
 		Log.e("totalMemory", Runtime.getRuntime().totalMemory()+"");
 			bit.compress(Bitmap.CompressFormat.JPEG, 100, baos);  
 		    if( baos.toByteArray().length / 1024>1024) {//判断如果图片大于1M,进行压缩避免在生成图片（BitmapFactory.decodeStream）时溢出    
-		        baos.reset();//重置baos即清空baos  
+		        baos.reset();//重置baos即清空baos
 		        bit.compress(Bitmap.CompressFormat.JPEG, 50, baos);//这里压缩50%，把压缩后的数据存放到baos中  
 		    }  
 		    ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());  
@@ -159,5 +171,106 @@ public class Bimp {
 		}
 		return compressImage(bitmap);
 	}
-	
+	/**
+	 * 根据路径获得图片，压缩返回bitmap用于显示
+	 */
+	public static Bitmap getSmallBitmap(String filePath) {
+		final BitmapFactory.Options options = new BitmapFactory.Options();
+		options.inJustDecodeBounds = true;
+//		BitmapFactory.decodeFile(filePath, options);// a must
+		// Calculate inSampleSize
+		options.inSampleSize = calculateInSampleSize(options, SAMPLE_SIZE_WIDTH, SAMPLE_SIZE_HEIGHT);
+		// Decode bitmap with inSampleSize set
+		options.inJustDecodeBounds = false;
+		Bitmap smallBm = BitmapFactory.decodeFile(filePath, options);
+		return smallBm;
+	}
+	/**
+	 * 计算图片的缩放值
+	 */
+	private static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
+		// Raw height and width of image
+		int height = options.outHeight;
+		int width = options.outWidth;
+		int inSampleSize = 1;
+		if (height > reqHeight || width > reqWidth) {
+			// Calculate ratios of height and width to requested height and
+			// width
+			int heightRatio = Math.round((float) height / (float) reqHeight);
+			int widthRatio = Math.round((float) width / (float) reqWidth);
+			// Choose the smallest ratio as inSampleSize value, this will
+			// guarantee
+			// a final image with both dimensions larger than or equal to the
+			// requested height and width.
+			inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
+		}
+		return inSampleSize;
+	}
+
+
+	/*
+	 * 获取压缩后的图片文件
+	 */
+	public static String getCompressedImgFile(File srcFile) throws IOException {
+
+		int compressFactor = 100;
+		long picSize = srcFile.length();
+		Bitmap.CompressFormat format = Bitmap.CompressFormat.JPEG;
+		ByteArrayOutputStream stream = new ByteArrayOutputStream();
+		String photobit64 = "";
+		Bitmap albumPic = null;
+
+		if (picSize > COMPRESS_FIRST_SIZE) {// 压缩
+			if (picSize < COMPRESS_SECOND_SIZE) {
+				compressFactor = FACTOR_BEYOND_FIRST_SIZE;
+			} else if (picSize >= COMPRESS_SECOND_SIZE && picSize < COMPRESS_THIRD_SIZE) {
+				compressFactor = FACTOR_BEYOND_SECOND_SIZE;
+			} else if (picSize >= COMPRESS_THIRD_SIZE && picSize < COMPRESS_FOURTH_SIZE) {
+				compressFactor = FACTOR_BEYOND_THIRD_SIZE;
+			} else {
+				compressFactor = FACTOR_BEYOND_FOURTH_SIZE;
+			}
+
+			albumPic = getBitmapFromFile(srcFile.getAbsolutePath());
+			albumPic.compress(format, compressFactor, stream);
+			byte[] b = stream.toByteArray();
+			photobit64 = new String(Base64Coder.encodeLines(b));
+			albumPic.recycle();
+
+		} else {
+			albumPic = getBitmapFromFile(srcFile.getAbsolutePath());
+			albumPic.compress(format, 100, stream);
+			byte[] b = stream.toByteArray();
+			photobit64 = new String(Base64Coder.encodeLines(b));
+			albumPic.recycle();
+
+		}
+		stream.close();
+
+		return photobit64;
+	}
+	public static Bitmap getBitmapFromFile(String filePath) {
+		Bitmap bm = null;
+		FileInputStream fis = null;
+		try {
+			fis = new FileInputStream(filePath);
+			BitmapFactory.Options options = new BitmapFactory.Options();
+			options.inSampleSize = 2;
+			//bm = BitmapFactory.decodeStream(fis);
+			bm = BitmapFactory.decodeStream(fis, null, options);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			if (fis != null) {
+				try {
+					fis.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return bm;
+	}
+
+
 }

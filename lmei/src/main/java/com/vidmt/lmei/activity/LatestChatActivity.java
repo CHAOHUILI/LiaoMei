@@ -75,10 +75,7 @@ public class LatestChatActivity extends BaseActivity implements OnHeaderRefreshL
 		setContentView(R.layout.activity_latest_chat);
 		InitView();
 		dialog.show();
-		if(b_person.getSex()==1){
-			sex=2;
-	        SharedPreferencesUtil.putInt(getApplicationContext(),"filter_sex",2);
-		}
+
 		LoadUserData();
 		userrefresh();
 	}
@@ -117,8 +114,6 @@ public class LatestChatActivity extends BaseActivity implements OnHeaderRefreshL
 			public void onReceive(Context context, Intent intent) {
 				personlist.clear();
 				pageIndex=1;
-				ident_state = SharedPreferencesUtil.getInt(getApplicationContext(),"filter_ident_state",0);
-				sex = SharedPreferencesUtil.getInt(getApplicationContext(),"filter_sex",0);
 				dialog.show();
 				LoadUserData();
 			}
@@ -129,7 +124,8 @@ public class LatestChatActivity extends BaseActivity implements OnHeaderRefreshL
 	}
 
 	public void LoadUserData() {
-		// TODO Auto-generated method stub
+		ident_state = SharedPreferencesUtil.getInt(getApplicationContext(),"filter_ident_state",0);
+		sex = SharedPreferencesUtil.getInt(getApplicationContext(),"filter_sex",0);
 		new Thread(new Runnable() {
 
 			@Override

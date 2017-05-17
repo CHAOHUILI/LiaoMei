@@ -58,7 +58,48 @@
             android:layout_height="0.1dip"
             android:layout_marginLeft="10dip"
             android:background="@color/gray_line" />
+        <RelativeLayout
+            android:id="@+id/voicechargerel"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@color/white"
+            android:padding="10dp" >
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/charge3"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textdx_16" />
+
+
+            <ImageView
+                android:id="@+id/voicechargeimg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/go" />
+            <TextView
+                android:id="@+id/voicecharge"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginRight="15dip"
+                android:layout_toLeftOf="@id/voicechargeimg"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/gray"
+                android:text="@string/charge5"
+                android:textSize="@dimen/textdx_16" />
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dip"
+            android:layout_marginLeft="10dip"
+            android:background="@color/gray_line" />
         <RelativeLayout
             android:id="@+id/videochargerel"
             android:layout_width="match_parent"
@@ -84,7 +125,7 @@
             <TextView
                 android:id="@+id/videocharge"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"                
+                android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:text="@string/charge5"
                 android:layout_marginRight="15dip"
@@ -94,47 +135,6 @@
                 android:textSize="@dimen/textdx_16" />
         </RelativeLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.1dip"
-            android:layout_marginLeft="10dip"
-            android:background="@color/gray_line" />
-
-        <RelativeLayout
-            android:id="@+id/voicechargerel"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="@color/white"
-            android:padding="10dp" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="@string/charge3"
-                android:textColor="@color/black"
-                android:textSize="@dimen/textdx_16" />
-
-            
-            <ImageView
-                android:id="@+id/voicechargeimg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/go" />
-            <TextView
-                android:id="@+id/voicecharge"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"                
-                android:gravity="center_vertical"          
-                android:layout_marginRight="15dip"
-                android:layout_toLeftOf="@id/voicechargeimg"
-                android:layout_alignParentRight="true"
-                android:textColor="@color/gray"
-                android:text="@string/charge5"
-                android:textSize="@dimen/textdx_16" />
-        </RelativeLayout>
     </LinearLayout>
 
     <View

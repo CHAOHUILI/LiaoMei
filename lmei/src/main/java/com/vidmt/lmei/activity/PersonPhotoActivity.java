@@ -157,8 +157,13 @@ public class PersonPhotoActivity extends BaseActivity {
 					startActivity(in);
 					AmplificationActivity.goodsimglists = list;
 				} else {
-					pdphoto=1;
-					new region_PopupWindows(context, userGridView);
+					if(position>=8){
+						ToastShow("最多上传"+position+"张图片！");
+					}else {
+						pdphoto=1;
+						new region_PopupWindows(context, userGridView);
+					}
+
 				}
 			}
 		});
@@ -198,14 +203,25 @@ public class PersonPhotoActivity extends BaseActivity {
 	public void getImgUri(List<Image> listimg) {
 		for (int i = 0; i < listimg.size(); i++) {
 			if (listimg.get(i).getStatus() == 1 && listimg.get(i).getPath() != "up") {
-				listimg.get(i).setBit64(upload(listimg.get(i).getBitmap()));
+				listimg.get(i).setBit64(upload(listimg.get(i).getUri()));
 				Y = true;
 			}
 		}
 
 	}
 
-	public static String upload(Bitmap bit) {
+	private String upload(Uri uri) {
+
+		File file=new File(uri.getPath());
+		String string = null;
+		try {
+			string = Bimp.getCompressedImgFile(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return string;
+	}
+	public static String upload2(Bitmap bit) {
 		Bitmap bitmap = null;
 		ByteArrayOutputStream stream = new ByteArrayOutputStream();
 		// Image Image = new Image();
@@ -328,8 +344,11 @@ public class PersonPhotoActivity extends BaseActivity {
 
 			return true;
 		} else if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
-			this.finish();
-
+			if(pdphoto==1){
+				new ExitShowView(PersonPhotoActivity.this, userGridView);
+			}else{
+				this.finish();
+			}
 			return true;
 		}
 		return super.onKeyDown(keyCode, event);
@@ -561,11 +580,10 @@ public class PersonPhotoActivity extends BaseActivity {
 	private void setPicToView(Intent picdata) {
 		Bundle bundle = picdata.getExtras();
 		Image image = new Image();
-//		if (bundle != null) {
-			photo = getBitmapFromUri(getTempUri());
-			image.setBitmap(photo);
-			image.setStatus(1);
-//		}
+		photo = getBitmapFromUri(getTempUri());
+		image.setUri(getTempUri());
+		image.setBitmap(photo);
+		image.setStatus(1);
 		list.remove(list.size() - 1);
 		list.add(image);
 		Image img = new Image();

@@ -120,10 +120,7 @@ public class HomeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        if (b_person.getSex() == 1) {
-            sex=2;
-            SharedPreferencesUtil.putInt(getApplicationContext(),"filter_sex",2);
-        }
+        sex=SharedPreferencesUtil.getInt(getApplicationContext(),"filter_sex",0);
         themes();
         InitView();
 //        login_again();

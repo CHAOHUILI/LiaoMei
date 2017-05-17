@@ -500,5 +500,7 @@
     <string name="title_activity_messages">MessagesActivity</string>
     <string name="title_activity_close_account">CloseAccountActivity</string>
     <string name="title_activity_user_help_center">UserHelpCenterActivity</string>
+    <string name="isPlayingVoice">正在播放录音...</string>
+    <string name="upload_error">图片上传失败!</string>
 
 </resources>

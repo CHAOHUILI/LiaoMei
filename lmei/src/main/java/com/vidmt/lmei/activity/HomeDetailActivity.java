@@ -12,6 +12,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -65,14 +66,17 @@ import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaPlayer.OnPreparedListener;
+import android.media.ThumbnailUtils;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.graphics.RectF;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.MediaStore;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -787,37 +791,41 @@ public class HomeDetailActivity extends BaseActivity {
                     userdetailchatvoice.setText(p.getVoice_money() + "金币/分钟");
 
                     if (p.getVideo() != null && p.getVideo_ident() == 3) {
-                        ImageLoader.getInstance().loadImage(p.getPhoto(), new ImageLoadingListener() {
-                            @Override
-                            public void onLoadingStarted(String imageUri, View view) {
-                            }
+                        Bitmap videoThumbnail = createVideoThumbnail(p.getVideo(), 100,100);
 
-                            @Override
-                            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-                            }
+                        userdetaivideoimg.setImageBitmap(videoThumbnail);
 
-                            @Override
-                            public void onLoadingComplete(String imageUri, View view,
-                                                          final Bitmap loadedImage) {
-                                if (loadedImage != null) {
-
-                                    BitmapBlurUtil.addTask(loadedImage, new Handler() {
-                                        @Override
-                                        public void handleMessage(Message msg) {
-                                            super.handleMessage(msg);
-                                            Drawable drawablexh = (Drawable) msg.obj;
-                                            userdetaivideoimg.setImageDrawable(drawablexh);
-                                            loadedImage.recycle();
-                                        }
-                                    });
-                                }
-                            }
-
-                            @Override
-                            public void onLoadingCancelled(String imageUri, View view) {
-
-                            }
-                        });
+//                        ImageLoader.getInstance().loadImage(p.getPhoto(), new ImageLoadingListener() {
+//                            @Override
+//                            public void onLoadingStarted(String imageUri, View view) {
+//                            }
+//
+//                            @Override
+//                            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+//                            }
+//
+//                            @Override
+//                            public void onLoadingComplete(String imageUri, View view,
+//                                                          final Bitmap loadedImage) {
+//                                if (loadedImage != null) {
+//
+//                                    BitmapBlurUtil.addTask(loadedImage, new Handler() {
+//                                        @Override
+//                                        public void handleMessage(Message msg) {
+//                                            super.handleMessage(msg);
+//                                            Drawable drawablexh = (Drawable) msg.obj;
+//                                            userdetaivideoimg.setImageDrawable(drawablexh);
+//                                            loadedImage.recycle();
+//                                        }
+//                                    });
+//                                }
+//                            }
+//
+//                            @Override
+//                            public void onLoadingCancelled(String imageUri, View view) {
+//
+//                            }
+//                        });
                         // userdetaivideoimg.setImageDrawable(drawablexh);
                         videopath = p.getVideo();
                         rela_uservideoshow.setVisibility(View.VISIBLE);
@@ -899,7 +907,34 @@ public class HomeDetailActivity extends BaseActivity {
         adapterhobby.notifyDataSetChanged();
         loadingDialog.dismiss();
     }
-
+    private Bitmap createVideoThumbnail(String url, int width, int height) {
+        Bitmap bitmap = null;
+        MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+        int kind = MediaStore.Video.Thumbnails.MICRO_KIND;
+        try {
+            if (Build.VERSION.SDK_INT >= 14) {
+                retriever.setDataSource(url, new HashMap<String, String>());
+            } else {
+                retriever.setDataSource(url);
+            }
+            bitmap = retriever.getFrameAtTime();
+        } catch (IllegalArgumentException ex) {
+            // Assume this is a corrupt video file
+        } catch (RuntimeException ex) {
+            // Assume this is a corrupt video file.
+        } finally {
+            try {
+                retriever.release();
+            } catch (RuntimeException ex) {
+                // Ignore failures while cleaning up.
+            }
+        }
+        if (kind == MediaStore.Images.Thumbnails.MICRO_KIND && bitmap != null) {
+            bitmap = ThumbnailUtils.extractThumbnail(bitmap, width, height,
+                    ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
+        }
+        return bitmap;
+    }
     private void videoChart() {
         SharedPreferencesUtil.putInt(HomeDetailActivity.this, "sxdate", 1);
         try {
@@ -2256,7 +2291,7 @@ public class HomeDetailActivity extends BaseActivity {
                                         if (token < catetoken) {
                                             Toast.makeText(HomeDetailActivity.this, "您的金币值不够，请充值或者选其他的礼物吧。",
                                                     Toast.LENGTH_SHORT).show();
-                                            // ToastShow("您的金币值不够，请充值或者选其他的礼物吧。");
+                                            SplashActivity.mainactivity.Tankuang(4);
 
                                         } else {
 
@@ -2273,7 +2308,6 @@ public class HomeDetailActivity extends BaseActivity {
                                             // {
                                             //
                                             // Toast.makeText(UserActivity.this,
-                                            // "您的金币值不够，请充值或者选其他的礼物吧。",
                                             // Toast.LENGTH_SHORT).show();
                                             //
                                             // }else {
@@ -2310,7 +2344,7 @@ public class HomeDetailActivity extends BaseActivity {
                                         if (b_person.getToken() < catetoken) {
                                             Toast.makeText(HomeDetailActivity.this, "您的金币值不够，请充值或者选其他的礼物吧。",
                                                     Toast.LENGTH_SHORT).show();
-                                            // ToastShow("您的金币值不够，请充值或者选其他的礼物吧。");
+                                            SplashActivity.mainactivity.Tankuang(4);
 
                                         } else {
 
@@ -2327,7 +2361,6 @@ public class HomeDetailActivity extends BaseActivity {
                                             // {
                                             //
                                             // Toast.makeText(UserActivity.this,
-                                            // "您的金币值不够，请充值或者选其他的礼物吧。",
                                             // Toast.LENGTH_SHORT).show();
                                             //
                                             // }else {
@@ -2490,8 +2523,6 @@ public class HomeDetailActivity extends BaseActivity {
                 //
                 // if (persion.getToken()<catetoken) {
                 // Toast.makeText(ConversationActivity.this,
-                // "您的金币值不够，请充值或者选其他的礼物吧。", Toast.LENGTH_SHORT).show();
-                // //ToastShow("您的金币值不够，请充值或者选其他的礼物吧。");
                 //
                 // }else {
                 //
@@ -2503,7 +2534,6 @@ public class HomeDetailActivity extends BaseActivity {
                 // // }else {
                 // // if (persion_main.getToken()<catetoken) {
                 // //
-                // // Toast.makeText(UserActivity.this, "您的金币值不够，请充值或者选其他的礼物吧。",
                 // Toast.LENGTH_SHORT).show();
                 // //
                 // // }else {

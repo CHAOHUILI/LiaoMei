@@ -245,6 +245,9 @@ public class RegisterImproveActivity extends BaseActivity {
                     }else {
 						loadingDialog.dismiss();
 						p_perPersion = JsonUtil.JsonToObj(mes, Persion.class);
+						if(p_perPersion.getSex()==1){
+							SharedPreferencesUtil.putInt(getApplicationContext(),"filter_sex",2);
+						}
 	             		inityunong(p_perPersion);					
 //						Intent intent = new Intent(RegisterImproveActivity.this, MainActivity.class);
 //						startActivity(intent);

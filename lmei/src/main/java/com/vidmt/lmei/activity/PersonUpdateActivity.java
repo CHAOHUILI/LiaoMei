@@ -1,5 +1,6 @@
 package com.vidmt.lmei.activity;
 
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -74,6 +76,7 @@ import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaPlayer.OnPreparedListener;
+import android.media.ThumbnailUtils;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -96,6 +99,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -424,6 +428,8 @@ public class PersonUpdateActivity extends BaseActivity {
 							rela_userphoterror.setVisibility(View.VISIBLE);
 						}
 						imageLoader.displayImage(p.getPhoto(), userdetailcivico, options);
+						imageLoader.displayImage(p.getPhoto(), userdetailico, options);
+
 						if (p.getArea() == null) {
 
 						} else {
@@ -444,37 +450,38 @@ public class PersonUpdateActivity extends BaseActivity {
 						userdetailchatvoice.setText(p.getVoice_money() + "金币/分钟");
 
 						if (p.getVideo() != null) {
-
-							ImageLoader.getInstance().loadImage(p.getPhoto(), new ImageLoadingListener() {
-								@Override
-								public void onLoadingStarted(String imageUri, View view) {
-								}
-
-								@Override
-								public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-								}
-
-								@Override
-								public void onLoadingComplete(String imageUri, View view, final Bitmap loadedImage) {
-									if (loadedImage != null) {
-
-										BitmapBlurUtil.addTask(loadedImage, new Handler() {
-											@Override
-											public void handleMessage(Message msg) {
-												super.handleMessage(msg);
-												Drawable drawable = (Drawable) msg.obj;
-												userdetaivideoimg.setImageDrawable(drawable);
-												loadedImage.recycle();
-											}
-										});
-									}
-								}
-
-								@Override
-								public void onLoadingCancelled(String imageUri, View view) {
-
-								}
-							});
+							Bitmap videoThumbnail = createVideoThumbnail(p.getVideo(),100,100);
+							userdetaivideoimg.setImageBitmap(videoThumbnail);
+//							ImageLoader.getInstance().loadImage(p.getPhoto(), new ImageLoadingListener() {
+//								@Override
+//								public void onLoadingStarted(String imageUri, View view) {
+//								}
+//
+//								@Override
+//								public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+//								}
+//
+//								@Override
+//								public void onLoadingComplete(String imageUri, View view, final Bitmap loadedImage) {
+//									if (loadedImage != null) {
+//
+//										BitmapBlurUtil.addTask(loadedImage, new Handler() {
+//											@Override
+//											public void handleMessage(Message msg) {
+//												super.handleMessage(msg);
+//												Drawable drawable = (Drawable) msg.obj;
+//												userdetaivideoimg.setImageDrawable(drawable);
+//												loadedImage.recycle();
+//											}
+//										});
+//									}
+//								}
+//
+//								@Override
+//								public void onLoadingCancelled(String imageUri, View view) {
+//
+//								}
+//							});
 
 							videopath = p.getVideo();
 							rela_uservideoshow.setVisibility(View.VISIBLE);
@@ -669,6 +676,42 @@ public class PersonUpdateActivity extends BaseActivity {
 			}
 		}
 	};
+
+	/**
+	 * 视频缩略图
+	 * @param url 视频地址
+	 * @param width 获取图宽
+	 * @param height 高
+	 * @return
+	 */
+	private Bitmap createVideoThumbnail(String url, int width, int height) {
+		Bitmap bitmap = null;
+		MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+		int kind = MediaStore.Video.Thumbnails.MICRO_KIND;
+		try {
+			if (Build.VERSION.SDK_INT >= 14) {
+				retriever.setDataSource(url, new HashMap<String, String>());
+			} else {
+				retriever.setDataSource(url);
+			}
+			bitmap = retriever.getFrameAtTime();
+		} catch (IllegalArgumentException ex) {
+			// Assume this is a corrupt video file
+		} catch (RuntimeException ex) {
+			// Assume this is a corrupt video file.
+		} finally {
+			try {
+				retriever.release();
+			} catch (RuntimeException ex) {
+				// Ignore failures while cleaning up.
+			}
+		}
+		if (kind == MediaStore.Images.Thumbnails.MICRO_KIND && bitmap != null) {
+			bitmap = ThumbnailUtils.extractThumbnail(bitmap, width, height,
+					ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
+		}
+		return bitmap;
+	}
 
 	public class PhotoUpdateView extends PopupWindow {
 
@@ -1590,7 +1633,8 @@ public class PersonUpdateActivity extends BaseActivity {
 			}
 
 			final AdapterSysHobby adaptersyshobby = new AdapterSysHobby(PersonUpdateActivity.this, listHobbies);
-			ImageView hobbydel = (ImageView) view.findViewById(R.id.hobbydel);
+			Button hobbyCancel = (Button) view.findViewById(R.id.hobby_cancel);
+			Button hobbyOk = (Button) view.findViewById(R.id.hobby_ok);
 			GridView hobygridview = (GridView) view.findViewById(R.id.hobygridview);
 			hobygridview.setAdapter(adaptersyshobby);
 			hobygridview.setFocusable(false);
@@ -1617,14 +1661,20 @@ public class PersonUpdateActivity extends BaseActivity {
 					adaptersyshobby.notifyDataSetChanged();
 				}
 			});
-			hobbydel.setOnClickListener(new OnClickListener() {
+			hobbyCancel.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					dismiss();
+				}
+			});
+			hobbyOk.setOnClickListener(new OnClickListener() {
 
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
 
 					if (num < 1) {
-						dismiss();
+						ToastShow("您还没有选择爱好！");
 					} else {
 						htp = 1;
 						userhobbylist.clear();

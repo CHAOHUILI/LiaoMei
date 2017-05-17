@@ -32,12 +32,6 @@
                 android:text="@string/hobby1"
                 android:textColor="@color/gray"
                 android:textSize="@dimen/textdx_16" />
-
-            <ImageView
-                android:id="@+id/hobbydel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/hobbydelete" />
         </LinearLayout>
 
         <GridView
@@ -49,6 +43,36 @@
             android:background="@null"      
             android:verticalSpacing="8dip"
             android:scrollbars="none" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+
+            <Button
+                android:id="@+id/hobby_ok"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:layout_margin="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/authentication"
+                android:text="@string/rc_dialog_ok"/>
+
+            <Button
+                android:id="@+id/hobby_cancel"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:layout_margin="20dp"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/authentication"
+                android:text="@string/rc_cancel"/>
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

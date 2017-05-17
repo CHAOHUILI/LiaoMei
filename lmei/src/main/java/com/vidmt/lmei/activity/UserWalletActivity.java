@@ -361,7 +361,7 @@ public class UserWalletActivity extends BaseActivity {
 							ManageDataBase.Insert(dbutil, Persion.class, p);
 							b_person = p;
 							balance.setText(b_person.getToken() + "金币");
-							zj.setText("¥" + b_person.getCapitalBalance());	
+							zj.setText("¥" + b_person.getCapitalBalance()+" 元");
 						} catch (Exception e) {
 							LoadDataUpdate();
 						}						
