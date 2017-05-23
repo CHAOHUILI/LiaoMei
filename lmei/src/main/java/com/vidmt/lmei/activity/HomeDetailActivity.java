@@ -1325,25 +1325,7 @@ public class HomeDetailActivity extends BaseActivity {
         return newFilename;
     }
 
-    public Bitmap createVideoThumbnail(String filePath) {
-        Bitmap bitmap = null;
-        MediaMetadataRetriever retriever = new MediaMetadataRetriever();
-        try {
-            retriever.setDataSource(filePath);
-            bitmap = retriever.getFrameAtTime();
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        } catch (RuntimeException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                retriever.release();
-            } catch (RuntimeException e) {
-                e.printStackTrace();
-            }
-        }
-        return Bimp.comp(bitmap);
-    }
+
 	/*
 	 * public static Bitmap createVideoThumbnail(String filePath) { //
 	 * MediaMetadataRetriever is available on API Level 8 // but is hidden until

@@ -42,6 +42,7 @@ import java.lang.reflect.Method;
  * translucent system UI modes.
  * 导航条根据app背景颜色
  */
+@SuppressWarnings("ResourceType")
 public class SystemBarTintManager {
 
     static {

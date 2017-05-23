@@ -28,17 +28,18 @@ public class Bimp {
 	public static List<Bitmap> bmp = new ArrayList<Bitmap>();
 	private static final int SAMPLE_SIZE_WIDTH = 480;
 	private static final int SAMPLE_SIZE_HEIGHT = 800;
-	private static final int COMPRESS_FIRST_SIZE = 64 * 1024;
-	private static final int COMPRESS_SECOND_SIZE = 128 * 1024;
-	private static final int COMPRESS_THIRD_SIZE = 512 * 1024;
-	private static final int COMPRESS_FOURTH_SIZE = 2 * 1024 * 1024;
+	private static final int COMPRESS_FIRST_SIZE = 16*64 * 1024;
+	private static final int COMPRESS_SECOND_SIZE = 64*64 * 1024;
+	private static final int COMPRESS_THIRD_SIZE = 64*128 * 1024;
+	private static final int COMPRESS_FOURTH_SIZE = 64 * 256 * 1024;
 
-	private static final int FACTOR_BEYOND_FIRST_SIZE = 60;
-	private static final int FACTOR_BEYOND_SECOND_SIZE = 40;
-	private static final int FACTOR_BEYOND_THIRD_SIZE = 30;
-	private static final int FACTOR_BEYOND_FOURTH_SIZE = 20;
+	private static final int FACTOR_BEYOND_FIRST_SIZE = 80;
+	private static final int FACTOR_BEYOND_SECOND_SIZE = 60;
+	private static final int FACTOR_BEYOND_THIRD_SIZE = 50;
+	private static final int FACTOR_BEYOND_FOURTH_SIZE = 40;
 	//图片sd地址  上传服务器时把图片调用下面方法压缩后 保存到临时文件夹 图片压缩后小于100KB，失真度不明显
 	public static List<String> drr = new ArrayList<String>();
+	private static Bitmap bm;
 
 
 	public static Bitmap revitionImageSize(String path) throws IOException {
@@ -211,14 +212,14 @@ public class Bimp {
 	/*
 	 * 获取压缩后的图片文件
 	 */
-	public static String getCompressedImgFile(File srcFile) throws IOException {
+	public static String getCompressedImgFile(Bitmap bitmap) throws IOException {
 
 		int compressFactor = 100;
-		long picSize = srcFile.length();
+//		long picSize = srcFile.length();
+		double picSize = bitmap.getRowBytes() * bitmap.getHeight();
 		Bitmap.CompressFormat format = Bitmap.CompressFormat.JPEG;
 		ByteArrayOutputStream stream = new ByteArrayOutputStream();
 		String photobit64 = "";
-		Bitmap albumPic = null;
 
 		if (picSize > COMPRESS_FIRST_SIZE) {// 压缩
 			if (picSize < COMPRESS_SECOND_SIZE) {
@@ -231,18 +232,31 @@ public class Bimp {
 				compressFactor = FACTOR_BEYOND_FOURTH_SIZE;
 			}
 
-			albumPic = getBitmapFromFile(srcFile.getAbsolutePath());
-			albumPic.compress(format, compressFactor, stream);
-			byte[] b = stream.toByteArray();
-			photobit64 = new String(Base64Coder.encodeLines(b));
-			albumPic.recycle();
+//			albumPic = getBitmapFromFile(srcFile.getAbsolutePath());
+			if(compressFactor==FACTOR_BEYOND_FOURTH_SIZE){
+				Matrix matrix = new Matrix();
+				matrix.setScale(0.5f, 0.5f);
+				bm = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(),
+						bitmap.getHeight(), matrix, true);
+				bm.compress(format, compressFactor, stream);
+				byte[] b = stream.toByteArray();
+				photobit64 = new String(Base64Coder.encodeLines(b));
+				bitmap.recycle();
+				bm.recycle();
+			}else {
+				bitmap.compress(format, compressFactor, stream);
+				byte[] b = stream.toByteArray();
+				photobit64 = new String(Base64Coder.encodeLines(b));
+				bitmap.recycle();
+			}
+
 
 		} else {
-			albumPic = getBitmapFromFile(srcFile.getAbsolutePath());
-			albumPic.compress(format, 100, stream);
+//			albumPic = getBitmapFromFile(srcFile.getAbsolutePath());
+			bitmap.compress(format, 100, stream);
 			byte[] b = stream.toByteArray();
 			photobit64 = new String(Base64Coder.encodeLines(b));
-			albumPic.recycle();
+			bitmap.recycle();
 
 		}
 		stream.close();

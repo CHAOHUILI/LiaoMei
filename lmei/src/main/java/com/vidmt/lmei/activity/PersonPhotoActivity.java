@@ -2,6 +2,8 @@ package com.vidmt.lmei.activity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -203,22 +205,47 @@ public class PersonPhotoActivity extends BaseActivity {
 	public void getImgUri(List<Image> listimg) {
 		for (int i = 0; i < listimg.size(); i++) {
 			if (listimg.get(i).getStatus() == 1 && listimg.get(i).getPath() != "up") {
-				listimg.get(i).setBit64(upload(listimg.get(i).getUri()));
+				listimg.get(i).setBit64(upload(listimg.get(i).getBitmap()));
 				Y = true;
 			}
 		}
 
 	}
+	public void saveBitmap(Bitmap bm) {
+		File f = new File(Environment.getExternalStorageDirectory(), "h");
+		if (f.exists()) {
+			f.delete();
+		}
+		try {
+			FileOutputStream out = new FileOutputStream(f);
+			bm.compress(Bitmap.CompressFormat.PNG, 90, out);
+			out.flush();
+			out.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-	private String upload(Uri uri) {
-
-		File file=new File(uri.getPath());
+	}
+	private String upload(Bitmap bitmap) {
+//		saveBitmap(bitmap);
 		String string = null;
 		try {
-			string = Bimp.getCompressedImgFile(file);
+			string = Bimp.getCompressedImgFile(bitmap);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+//		File file=new File(uri.getPath());
+//		String string = null;
+//		try {
+//			string = Bimp.getCompressedImgFile(file);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		return string;
 	}
 	public static String upload2(Bitmap bit) {
@@ -581,7 +608,7 @@ public class PersonPhotoActivity extends BaseActivity {
 		Bundle bundle = picdata.getExtras();
 		Image image = new Image();
 		photo = getBitmapFromUri(getTempUri());
-		image.setUri(getTempUri());
+//		image.setUri(getTempUri());
 		image.setBitmap(photo);
 		image.setStatus(1);
 		list.remove(list.size() - 1);

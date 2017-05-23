@@ -52,6 +52,7 @@ import com.mrwujay.cascade.model.ProvinceModel;
 import com.mrwujay.cascade.service.XmlParserHandler;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.ta.util.TALogger;
 import com.umeng.analytics.MobclickAgent;
@@ -130,7 +131,7 @@ public class BaseActivity extends ThinkAndroidBaseActivity implements Conversati
 		}
 		options = new DisplayImageOptions.Builder().showStubImage(R.drawable.sisterloadlog)
 				.showImageForEmptyUri(R.drawable.sisterloadlog).showImageOnFail( R.drawable.sisterloadlog).cacheInMemory()
-				.cacheOnDisc().displayer(new RoundedBitmapDisplayer(0)).build();
+				.imageScaleType(ImageScaleType.NONE).cacheOnDisc().displayer(new RoundedBitmapDisplayer(0)).build();
 		filletoptions = new DisplayImageOptions.Builder().showStubImage(R.drawable.sisterloadlog)
 				.showImageForEmptyUri(R.drawable.sisterloadlog).showImageOnFail(R.drawable.sisterloadlog).cacheInMemory()
 				.cacheOnDisc().displayer(new RoundedBitmapDisplayer(45)).build();

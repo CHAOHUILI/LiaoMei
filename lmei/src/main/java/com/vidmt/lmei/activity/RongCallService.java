@@ -13,6 +13,7 @@ import io.rong.common.RLog;
 import io.rong.imkit.RongContext;
 import io.rong.imkit.RongIM;
 import io.rong.imkit.model.ConversationInfo;
+import io.rong.imkit.widget.provider.InfoNotificationMsgItemProvider;
 import io.rong.imkit.widget.provider.InputProvider;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.Conversation;
@@ -56,6 +57,7 @@ public class RongCallService {
 		mContext = context.getApplicationContext();
 
 		RongIM.registerMessageTemplate(new CallEndMessageItemProvider());
+		RongIM.registerMessageTemplate(new InfoNotificationMsgItemProvider());
 		RongCallClient.setReceivedCallListener(callListener);
 		uiReady=true;
 		

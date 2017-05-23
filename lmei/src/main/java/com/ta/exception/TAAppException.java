@@ -15,6 +15,9 @@
  */
 package com.ta.exception;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.lang.Thread.UncaughtExceptionHandler;
 
 import android.app.AlertDialog;
@@ -22,6 +25,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Looper;
+
+import com.vidmt.lmei.util.rule.FLog;
 
 public class TAAppException implements UncaughtExceptionHandler
 {
@@ -54,6 +59,9 @@ public class TAAppException implements UncaughtExceptionHandler
 	@Override
 	public void uncaughtException(Thread thread, Throwable ex)
 	{
+		FLog.d(thread.getName(),formatException(ex));
+		FLog.endAllTag();
+
 		if (!handleException(ex) && mDefaultHandler != null)
 		{
 			mDefaultHandler.uncaughtException(thread, ex);
@@ -63,7 +71,14 @@ public class TAAppException implements UncaughtExceptionHandler
 			System.exit(10);
 		}
 	}
-
+	public String formatException(Throwable e) {
+		Writer sw = new StringWriter();
+		PrintWriter pw = new PrintWriter(sw);
+		e.printStackTrace(pw);
+		String result = sw.toString();
+		pw.close();
+		return result;
+	}
 	/**
 	 * 自定义错误处理,收集错误信息 发送错误报告等操作均在此完成. 开发者可以根据自己的情况来自定义异常处理逻辑
 	 * 

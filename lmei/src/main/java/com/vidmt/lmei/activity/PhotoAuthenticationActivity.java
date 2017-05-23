@@ -102,7 +102,8 @@ public class PhotoAuthenticationActivity extends BaseActivity {
 				switch (v.getId()) {
 				case R.id.cf:
 					Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-					intent.putExtra("camerasensortype", -1); // 调用前置摄像头
+					intent.putExtra("android.intent.extras.CAMERA_FACING", 1);
+//					intent.putExtra("camerasensortype", -1); // 调用前置摄像头
 					intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(tempFile));
 					startActivityForResult(intent, 1);
 					break;

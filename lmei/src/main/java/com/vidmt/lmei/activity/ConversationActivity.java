@@ -83,11 +83,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import io.rong.calllib.message.CallSTerminateMessage;
 import io.rong.eventbus.EventBus;
 import io.rong.imkit.RongIM;
 import io.rong.imkit.RongIM.OnSendMessageListener;
 import io.rong.imkit.RongIM.SentMessageErrorCode;
 import io.rong.imkit.fragment.ConversationFragment;
+import io.rong.imkit.model.ConversationProviderTag;
+import io.rong.imkit.model.ProviderTag;
 import io.rong.imkit.widget.AlterDialogFragment;
 import io.rong.imkit.widget.InputView;
 import io.rong.imlib.MessageTag;
@@ -100,6 +103,7 @@ import io.rong.imlib.location.RealTimeLocationConstant;
 import io.rong.imlib.model.Conversation;
 import io.rong.imlib.model.Discussion;
 import io.rong.imlib.model.Message;
+import io.rong.imlib.model.MessageContent;
 import io.rong.imlib.model.PublicServiceProfile;
 import io.rong.imlib.model.UserInfo;
 import io.rong.imlib.model.Conversation.ConversationType;
@@ -111,6 +115,7 @@ import io.rong.message.VoiceMessage;
 /**
  * 聊天界面
  */
+
 public class ConversationActivity extends FragmentActivity implements OnDataListener,RongIMClient.RealTimeLocationListener, View.OnClickListener,ConnectionStatusListener {
 
 	private static final int GET_USER_INFO = 111;
@@ -149,16 +154,13 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 	private final String VoiceTypingTitle = "对方正在讲话...";
 
 	private Handler mHandler;
-	private RongIM.IGroupMemberCallback mMentionMemberCallback;
 	public static final int SET_TEXT_TYPING_TITLE = 1;
 	public static final int SET_VOICE_TYPING_TITLE = 2;
 	public static final int SET_TARGET_ID_TITLE = 0;
-	private Button mRinghtButton;
 	private ImageView liwubtn;//礼物按钮
 	private ArrayList<Present> presents; 
 	//送礼物
 	private PersentAdapter  persentAdapter;
-	private View parent;
 	private Present cates;
 	private TextView headtitle;
 	private ImageView left1;
@@ -181,7 +183,6 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 	private ViewPager mPager;
 	private List<View> mPagerList;
 	private List<Model> mDatas;
-	private LinearLayout mLlDot;
 	private LayoutInflater inflater;
 	/**
 	 * 总的页数
@@ -201,9 +202,9 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 	private int isblack=0;
 	String str ;
 	private int pos;
-	private int[] messageId=new int[2];
+	private int[] messageId=new int[3];
 
-	@Override
+    @Override
 	@TargetApi(23)
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -454,12 +455,16 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 				}
 			}
 		});
-		//发送前判断 如果可以发送return false如果不可以return ture;
 		RongIM.getInstance().setSendMessageListener(new OnSendMessageListener() {
-
+			/**
+			 * 消息在 UI 展示后执行/自己的消息发出后执行,无论成功或失败。
+			 *
+			 * @parammessage              消息实例。
+			 * @paramsentMessageErrorCode 发送消息失败的状态码，消息发送成功 SentMessageErrorCode 为 null。
+			 * @return true 表示走自己的处理方式，false 走融云默认处理方式。
+			 */
 			@Override
 			public boolean onSent(io.rong.imlib.model.Message arg0, SentMessageErrorCode arg1) {
-
 				if (mConversationType == Conversation.ConversationType.CUSTOMER_SERVICE) {
 					return true;
 				}else {
@@ -490,9 +495,16 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 				}
 
 			}
-
+            /**
+             * 消息发送前监听器处理接口（是否发送成功可以从 SentStatus 属性获取）。
+             *
+             * @parammessage 发送的消息实例。
+             * @return 处理后的消息实例。
+             */
 			@Override
 			public io.rong.imlib.model.Message onSend(io.rong.imlib.model.Message arg0) {
+
+
 				long currentTimeMillis = System.currentTimeMillis();
 				if(currentTimeMillis-lastTime<500){
 					return arg0;
@@ -651,6 +663,8 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 	}
 	// 发送小灰条消息。
 	@SuppressWarnings("deprecation")
+
+
 	public void sendTextBlackMessage(String text, final int type) {
 		InformationNotificationMessage  informationNotificationMessage;
 		if (type==1) {
@@ -658,20 +672,30 @@ public class ConversationActivity extends FragmentActivity implements OnDataList
 
 		}else {
 			informationNotificationMessage = InformationNotificationMessage.obtain(text);
-
 		}
-		//	RongIM.getInstance().insertMessage(ConversationType.PRIVATE, targetId, targetId, informationNotificationMessage );
-		RongIM.getInstance().insertMessage(ConversationType.PRIVATE, mTargetId, targetId, informationNotificationMessage, new ResultCallback<Message>() {
+//		RongIM.getInstance().sendMessage(ConversationType.PRIVATE, mTargetId, informationNotificationMessage, null, null, new RongIMClient.SendMessageCallback() {
+//            @Override
+//            public void onError(Integer integer, ErrorCode errorCode) {
+//
+//            }
+//
+//            @Override
+//            public void onSuccess(Integer integer) {
+//            }
+//        });
+
+		RongIM.getInstance().insertMessage(ConversationType.PRIVATE, mTargetId, mTargetId, informationNotificationMessage, new ResultCallback<Message>() {
 
 			@Override
 			public void onError(ErrorCode arg0) {
-				// TODO Auto-generated method stub
-				arg0.getValue();
 			}
 
 			@Override
 			public void onSuccess(Message arg0) {
-				// TODO Auto-generated method stub
+				if(type==2){
+					messageId[2]=arg0.getMessageId();
+				}
+
 				arg0.getContent();
 				if(type==1){
 					messageId[0]=arg0.getMessageId();
