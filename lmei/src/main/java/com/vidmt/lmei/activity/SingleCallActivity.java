@@ -33,13 +33,10 @@ import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.Base64;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Display;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -57,7 +54,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -68,7 +64,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.ByteBuffer;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -78,6 +73,7 @@ import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.vidmt.lmei.NotificationMessage;
 import com.google.gson.reflect.TypeToken;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -93,11 +89,8 @@ import com.vidmt.lmei.adapter.ViewPagerAdapter;
 import com.vidmt.lmei.constant.Constant;
 import com.vidmt.lmei.controller.Chat_Service;
 import com.vidmt.lmei.controller.Person_Service;
-import com.vidmt.lmei.entity.Model;
 import com.vidmt.lmei.entity.Persion;
 import com.vidmt.lmei.entity.Present;
-import com.vidmt.lmei.util.rule.Base64Coder;
-import com.vidmt.lmei.util.rule.Bimp;
 import com.vidmt.lmei.util.rule.BitmapBlurUtil;
 import com.vidmt.lmei.util.rule.ManageDataBase;
 import com.vidmt.lmei.util.rule.SharedPreferencesUtil;
@@ -195,7 +188,7 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 	private int paytoken;//支付金币数
 
 	private List<View> mPagerList;
-	private int type;
+	private int type;//0正在聊天，1,不在聊天
 	/**
 	 * 总的页数
 	 */
@@ -896,29 +889,27 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 				e.printStackTrace();
 			}
 			vstart();
-			getviews();
+//			getviews();
 		}
-			type = SharedPreferencesUtil.getInt(SingleCallActivity.this, "chattype", 0);
-			if (type ==1) {
-				if(ehandler!=null){
-					ehandler.removeCallbacks(erunnable);
-					unregisterVideoFrameObserver();
-				}
-			}else {
-				ehandler = new Handler();  
-				erunnable = new Runnable() {  
-					public void run() {
-						type = SharedPreferencesUtil.getInt(SingleCallActivity.this, "chattype", 0);
+		type = SharedPreferencesUtil.getInt(SingleCallActivity.this, "chattype", 0);
+		if (type == 1) {
+			if (ehandler != null) {
+				ehandler.removeCallbacks(erunnable);
+				unregisterVideoFrameObserver();
+			}
+		} else {
+			ehandler = new Handler();
+			erunnable = new Runnable() {
+				public void run() {
+					type = SharedPreferencesUtil.getInt(SingleCallActivity.this, "chattype", 0);
 
-						if (type ==1) {
-							//						vend();
-							ehandler.removeCallbacks(erunnable);
-							unregisterVideoFrameObserver();
+					if (type == 1) {
+						//						vend();
+						ehandler.removeCallbacks(erunnable);
+						unregisterVideoFrameObserver();
 
-						}else {
-
+					} else {
 							vend(chatid);
-
 							new Thread(new Runnable() {
 								@Override
 								public void run() {
@@ -1719,15 +1710,13 @@ public class SingleCallActivity extends BaseCallActivity implements Handler.Call
 				String Rankingmap = null;
 				if (incalltype==1) {
 					Rankingmap = Chat_Service.vstart(mtargetId, targetId,type );
-					android.os.Message msg = mUIHandler.obtainMessage(1);
-					msg.obj = Rankingmap;
-					msg.sendToTarget();
+
+				} else if (incalltype==2) {
+					Rankingmap = Chat_Service.vstart(targetId, mtargetId,type );
 				}
-
-//				else if (incalltype==2) {
-//					Rankingmap = Chat_Service.vstart(targetId, mtargetId,type );
-//				}
-
+				android.os.Message msg = mUIHandler.obtainMessage(1);
+				msg.obj = Rankingmap;
+				msg.sendToTarget();
 			}
 		}).start();
 	}

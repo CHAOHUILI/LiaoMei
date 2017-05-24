@@ -79,6 +79,8 @@ public class RegisteredActivity extends BaseActivity {
 		else if(p_pwd.equals(""))
 		{
 			ToastShow("密码不允许为空");
+		}else if(p_pwd.length()<=5||p_pwd.length()>11){
+			ToastShow("密码长度6到11位");
 		}
 		else if(!p_pwd.equals(user_pwd1.getText().toString().trim()))
 		{

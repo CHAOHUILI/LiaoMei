@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.vidmt.lmei"
-    android:versionCode="1"
-    android:versionName="1.01">
+    android:versionCode="10101"
+    android:versionName="1.1.1">
 
     <uses-sdk
         tools:overrideLibrary="com.umeng_social_sdk_res_lib"
@@ -509,7 +509,7 @@
         <!-- app的key -->
         <meta-data
             android:name="RONG_CLOUD_APP_KEY"
-            android:value="tdrvipkstm8d5" />
+            android:value="3argexb63j9ae" />
         <!-- 线下 tdrvipkstm8d5    线上 3argexb63j9ae   Secrete  fsbj5XApmUMeJQ-->
         <!--
       <activity

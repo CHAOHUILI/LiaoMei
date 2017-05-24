@@ -182,12 +182,12 @@ public class LoginActivity extends BaseActivity {
 //		// 添加QQ平台
 //		UMQQSsoHandler qqSsoHandler = new UMQQSsoHandler(LoginActivity.this, "1105693336", "UJ25WWlq0srw5i9z");
 //		qqSsoHandler.addToSocialSDK();
-        Config.DEBUG=true;
+        Config.DEBUG=false;
         PlatformConfig.setWeixin("wx9c4eb94a79c7fa79", "3f0f88171dff91e336769611b6fedd4e");
-        Config.DEBUG=true;
+        Config.DEBUG=false;
 
         PlatformConfig.setQQZone("1105693336", "UJ25WWlq0srw5i9z");
-        Config.DEBUG=true;
+        Config.DEBUG=false;
 
         PlatformConfig.setSinaWeibo("3730155351", "520b3ef32f63434b3f261da633ec06b0", "http://sns.whalecloud.com");
         //是否每次登陆都授权
@@ -982,7 +982,6 @@ public class LoginActivity extends BaseActivity {
 
                     initJpush(p_pe);
                     // ToastShow(p.getRongyuntoken());
-                    SharedPreferencesUtil.putInt(LoginActivity.this, "editor", 0);
                     ManageDataBase.Delete(dbutil, Persion.class, null);
                     ManageDataBase.Insert(dbutil, Persion.class, p_pe);
                     RongIM.getInstance().refreshUserInfoCache(
@@ -1039,6 +1038,8 @@ public class LoginActivity extends BaseActivity {
 			 * am.restartPackage(getPackageName()); }
 			 */
             exitApp();
+            JPushInterface.stopPush(this);
+
         }
     }
 

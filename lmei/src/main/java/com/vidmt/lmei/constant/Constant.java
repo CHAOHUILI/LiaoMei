@@ -24,8 +24,8 @@ public class Constant {
     public static int p_id = 1;
 //    public static final String HOST = "http://192.168.0.121:8080/lmeiApi/";//晓强
 //	public static final String HOST = "http://192.168.0.111:8080/lmeiApi/";//老大
-	public static final String HOST = "http://192.168.0.119:8080/lmeiApi/";//右手边
-//	public static final String HOST = "http://lmei.vidmt.com/lmeiApi/";
+//	public static final String HOST = "http://192.168.0.119:8080/lmeiApi/";//右手边
+	public static final String HOST = "http://lmei.vidmt.com/lmeiApi/";
     /**
      * 用户注册
      * 头像图片64,

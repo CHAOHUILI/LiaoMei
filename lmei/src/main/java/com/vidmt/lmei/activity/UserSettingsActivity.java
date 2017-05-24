@@ -104,10 +104,10 @@ public class UserSettingsActivity extends BaseActivity {
 		type = SharedPreferencesUtil.getInt(UserSettingsActivity.this, "editor", 0);
 		if (type==0) {
 			mute.setImageResource(R.drawable.switchoff);
-			JPushInterface.stopPush(getApplicationContext());
+			JPushInterface.resumePush(getApplicationContext());
 		}else {
 			mute.setImageResource(R.drawable.switchon);
-			JPushInterface.resumePush(getApplicationContext());
+			JPushInterface.stopPush(getApplicationContext());
 		}
 		try {
 			String 	ov = getCacheSize(context.getExternalCacheDir());

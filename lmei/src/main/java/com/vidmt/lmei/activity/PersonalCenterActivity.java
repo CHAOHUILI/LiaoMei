@@ -30,6 +30,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * 主页个人activity
  */
@@ -491,6 +493,8 @@ public class PersonalCenterActivity extends BaseActivity {
 			exitTime = System.currentTimeMillis();
 		} else {
 			exitApp();
+			JPushInterface.stopPush(this);
+
 		}
 	}
 }

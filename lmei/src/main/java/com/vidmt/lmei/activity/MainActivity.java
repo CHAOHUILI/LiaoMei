@@ -482,6 +482,8 @@ public class MainActivity extends BaseActivity implements OnTabChangeListener {
 			exitTime = System.currentTimeMillis();
 		} else {
 			exitApp();
+			JPushInterface.stopPush(this);
+
 		}
 	}
 	@Override

@@ -63,6 +63,7 @@ import com.vidmt.lmei.dialog.LoadingDialog;
 import com.vidmt.lmei.entity.Persion;
 import com.vidmt.lmei.util.rule.ManageDataBase;
 import com.vidmt.lmei.util.rule.ScreenUtils;
+import com.vidmt.lmei.util.rule.SharedPreferencesUtil;
 import com.vidmt.lmei.util.think.DbUtil;
 
 /**
@@ -184,13 +185,19 @@ public class BaseActivity extends ThinkAndroidBaseActivity implements Conversati
 	public void onPause() {
 		super.onPause();
 		MobclickAgent.onPause(this);
-		JPushInterface.onPause(this);
 	}
 	public void onResume() {
 		super.onResume();
 		//InitView();
 		MobclickAgent.onResume(this);
 		JPushInterface.onResume(this);
+
+		Integer editor = SharedPreferencesUtil.getInt(getApplicationContext(), "editor", 0);
+		if(editor==0){
+			JPushInterface.resumePush(getApplicationContext());
+		} else {
+			JPushInterface.stopPush(getApplicationContext());
+		}
 	}
 	/**
 	 * 打开一个activity

@@ -36,6 +36,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * 主页好友activity
  */
@@ -369,6 +371,8 @@ public class MyFriendsActivity extends BaseActivity {
 			exitTime = System.currentTimeMillis();
 		} else {
 			exitApp();
+			JPushInterface.stopPush(this);
+
 		}
 	}
 }

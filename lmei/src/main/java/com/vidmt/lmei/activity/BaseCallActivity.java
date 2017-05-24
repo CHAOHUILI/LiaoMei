@@ -58,7 +58,7 @@ public class BaseCallActivity extends Activity implements IRongCallListener {
 	private boolean shouldShowFloat;
 	private boolean shouldRestoreFloat;
 	private Handler handler;
-	private int type = 0;
+	private int type = 0;//0正在聊天，1,不在聊天
 	public void setShouldShowFloat(boolean shouldShowFloat) {
 		this.shouldShowFloat = shouldShowFloat;
 	}
@@ -247,8 +247,6 @@ public class BaseCallActivity extends Activity implements IRongCallListener {
 			type = SharedPreferencesUtil.getInt(BaseCallActivity.this, "chattype", 0);
 			if (type==0) {
 				SharedPreferencesUtil.putInt(BaseCallActivity.this, "chattype", 1);
-			}else {
-				
 			}
 			break;
 		}
