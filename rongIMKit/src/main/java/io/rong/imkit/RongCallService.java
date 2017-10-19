@@ -83,16 +83,16 @@ public class RongCallService {
         }
 
         AudioCallInputProvider audioCallInputProvider = new AudioCallInputProvider(RongContext.getInstance());
-        VideoCallInputProvider videoCallInputProvider = new VideoCallInputProvider(RongContext.getInstance());
+//        VideoCallInputProvider videoCallInputProvider = new VideoCallInputProvider(RongContext.getInstance());
         audioCallInputProvider.setCurrentConversation(conversation);
-        videoCallInputProvider.setCurrentConversation(conversation);
+//        videoCallInputProvider.setCurrentConversation(conversation);
 
         InputProvider.ExtendProvider[] audioProvider = {
             audioCallInputProvider
         };
-        InputProvider.ExtendProvider[] videoProvider = {
-            videoCallInputProvider
-        };
+//        InputProvider.ExtendProvider[] videoProvider = {
+//            videoCallInputProvider
+//        };
 
         boolean hasAudio = false;
         boolean hasVideo = false;
@@ -106,9 +106,9 @@ public class RongCallService {
         if (!hasAudio) {
             RongIM.addInputExtensionProvider(Conversation.ConversationType.PRIVATE, audioProvider);
         }
-        if (!hasVideo) {
-            RongIM.addInputExtensionProvider(Conversation.ConversationType.PRIVATE, videoProvider);
-        }
+//        if (!hasVideo) {
+//            RongIM.addInputExtensionProvider(Conversation.ConversationType.PRIVATE, videoProvider);
+//        }
 
         hasAudio = false;
         hasVideo = false;
@@ -122,9 +122,9 @@ public class RongCallService {
         if (!hasAudio) {
             RongIM.addInputExtensionProvider(Conversation.ConversationType.DISCUSSION, audioProvider);
         }
-        if (!hasVideo) {
-            RongIM.addInputExtensionProvider(Conversation.ConversationType.DISCUSSION, videoProvider);
-        }
+//        if (!hasVideo) {
+//            RongIM.addInputExtensionProvider(Conversation.ConversationType.DISCUSSION, videoProvider);
+//        }
 
         hasAudio = false;
         hasVideo = false;
@@ -138,9 +138,9 @@ public class RongCallService {
         if (!hasAudio) {
             RongIM.addInputExtensionProvider(Conversation.ConversationType.GROUP, audioProvider);
         }
-        if (!hasVideo) {
-            RongIM.addInputExtensionProvider(Conversation.ConversationType.GROUP, videoProvider);
-        }
+//        if (!hasVideo) {
+//            RongIM.addInputExtensionProvider(Conversation.ConversationType.GROUP, videoProvider);
+//        }
     }
 
     /**
